@@ -18,7 +18,7 @@
 .pin-9 .top .eyebrow { color: var(--blue-dark); }
 .pin-9 .top .meta {
   font-family: 'Lato', sans-serif;
-  font-size: 12px;
+  font-size: 18px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--warm-gray);
@@ -46,7 +46,7 @@
   position: absolute;
   top: 380px; left: 70px;
   max-width: 540px;
-  font-size: 16px;
+  font-size: 22px;
   color: var(--warm-gray);
   line-height: 1.55;
 }
@@ -70,7 +70,7 @@
   margin-bottom: 14px;
 }
 .pin-9 .chart-head .lbl {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -87,7 +87,7 @@
 .pin-9 .chart-head .legend {
   display: flex;
   gap: 18px;
-  font-size: 12px;
+  font-size: 18px;
   color: var(--warm-gray);
   align-items: center;
 }
@@ -106,7 +106,7 @@
 .pin-9 .chart-foot {
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: 16px;
   color: var(--warm-gray);
   letter-spacing: 0.08em;
   margin-top: 6px;
@@ -126,7 +126,7 @@
   padding: 18px 22px;
 }
 .pin-9 .kpi .lbl {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -147,7 +147,7 @@
   background: var(--blue-dark);
   color: #fff;
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -184,7 +184,7 @@
   position: absolute;
   top: 330px; left: 70px;
   max-width: 520px;
-  font-size: 17px;
+  font-size: 23px;
   color: rgba(245,238,237,0.78);
   line-height: 1.5;
 }
@@ -222,7 +222,7 @@
   z-index: 3;
 }
 .pin-10 .card .lbl {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -235,7 +235,7 @@
   align-items: baseline;
   margin-top: 8px;
 }
-.pin-10 .card .k { font-size: 13px; color: var(--warm-gray); }
+.pin-10 .card .k { font-size: 19px; color: var(--warm-gray); }
 .pin-10 .card .v {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
@@ -258,7 +258,7 @@
   font-weight: 400;
 }
 .pin-10 .card.c3 .sub {
-  font-size: 13px;
+  font-size: 19px;
   color: var(--warm-gray);
   margin-top: 8px;
 }
@@ -281,7 +281,7 @@
   background: var(--cream);
   color: var(--green-forest);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -315,7 +315,7 @@
   position: absolute;
   top: 350px; left: 70px;
   max-width: 540px;
-  font-size: 16px;
+  font-size: 22px;
   color: var(--warm-gray);
   line-height: 1.55;
 }
@@ -347,7 +347,7 @@
   color: var(--cream);
 }
 .pin-11 .col .role {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -364,7 +364,7 @@
 .pin-11 .col.left h3 { color: var(--green-deep); }
 .pin-11 .col.right h3 { color: var(--cream); }
 .pin-11 .col .nuance {
-  font-size: 13px;
+  font-size: 19px;
   font-style: italic;
 }
 .pin-11 .col.left .nuance { color: var(--warm-gray); }
@@ -372,7 +372,7 @@
 
 .pin-11 .col .after-label {
   margin-top: 32px;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -428,7 +428,7 @@
   background: var(--green-forest);
   color: var(--cream);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -471,7 +471,7 @@
   position: absolute;
   top: 480px; left: 70px;
   max-width: 540px;
-  font-size: 16px;
+  font-size: 22px;
   color: var(--warm-gray);
   line-height: 1.55;
   z-index: 2;
@@ -487,7 +487,7 @@
 }
 .pin-12 .sage-num .lbl {
   font-family: 'Lato', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -526,7 +526,7 @@
   padding: 18px 20px;
 }
 .pin-12 .bcell .lbl {
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -547,7 +547,7 @@
   background: var(--green-forest);
   color: var(--cream);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;

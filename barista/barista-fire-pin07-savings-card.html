@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Barista FIRE — Keep the Job You Love · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../design/templates/pins.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-7">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Barista FIRE Calculator</span>
+      </span>
+      <h1>
+        Keep the job you love.<br>
+        <em>Ditch the one<br>you don't.</em>
+      </h1>
+    </div>
+
+    <div class="bottom">
+      <div class="savings-card">
+        <div class="cell">
+          <div class="lbl">Part-time income covers</div>
+          <div class="val accent">€1,800</div>
+          <div class="sub">your wants + bills</div>
+        </div>
+        <div class="cell">
+          <div class="lbl">Portfolio needed</div>
+          <div class="val">€540K</div>
+          <div class="sub">to cover the rest at 4%</div>
+        </div>
+      </div>
+
+      <div class="scenario">
+        <svg class="arrow-svg" viewBox="0 0 60 24" fill="none">
+          <path d="M2 12 L54 12 M44 4 L54 12 L44 20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>
+          Work twenty hours a week at something you enjoy. Let <em>€540K</em>
+          in investments handle the rest at 4%. That's Barista FIRE — freedom
+          without waiting for the full number.
+        </span>
+      </div>
+
+      <div class="footer">
+        <div class="footer-brand">
+          <img src="../design/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+          <div>
+            <div class="name">Time &amp; Moneytree</div>
+            <div class="url">TIMEANDMONEYTREE.COM</div>
+          </div>
+        </div>
+        <span class="cta-pill">Calculate your mix →</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

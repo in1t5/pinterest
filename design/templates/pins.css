@@ -74,12 +74,12 @@
 .pin .footer-brand .name {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 1;
 }
 .pin .footer-brand .url {
   font-family: 'Lato', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -177,7 +177,7 @@
   background: rgba(255,255,255,0.5);
 }
 .pin-1 .calc-cell .lbl {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -252,7 +252,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: 'Lato', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -320,7 +320,7 @@
   box-shadow: 0 10px 28px rgba(58,84,119,0.06);
 }
 .pin-2 .preview-card .label {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -371,7 +371,7 @@
   color: var(--green-forest);
 }
 .pin-2 .cta-text .b {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -467,7 +467,7 @@
   position: absolute;
   left: 78px;
   top: 1020px;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -582,7 +582,7 @@
   color: var(--green-forest);
   border-radius: 100px;
   padding: 4px 12px;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -594,7 +594,7 @@
   background: var(--cream);
   color: var(--green-forest);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -693,7 +693,7 @@
   padding: 18px 20px;
 }
 .pin-5 .input-cell .lbl {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -709,7 +709,7 @@
 }
 .pin-5 .input-cell .val sup {
   font-family: 'Lato', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--green-light);
   letter-spacing: 0.06em;
@@ -720,7 +720,7 @@
   bottom: 200px;
   left: 70px; right: 70px;
   font-family: 'Lato', sans-serif;
-  font-size: 17px;
+  font-size: 23px;
   font-weight: 300;
   line-height: 1.5;
   color: rgba(245,238,237,0.85);
@@ -733,7 +733,7 @@
   background: var(--cyan);
   color: var(--blue-deep);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -800,7 +800,7 @@
 }
 .pin-6 .growth-strip .yr {
   font-family: 'Lato', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -848,7 +848,7 @@
   background: var(--green-forest);
   color: var(--cream);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -912,7 +912,7 @@
   border-left: 1px solid rgba(193,213,165,0.18);
 }
 .pin-7 .savings-card .lbl {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -958,7 +958,7 @@
   background: var(--cream);
   color: var(--green-forest);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -1025,7 +1025,7 @@
   line-height: 1;
 }
 .pin-8 .ledger .label-col .sub {
-  font-size: 13px;
+  font-size: 19px;
   color: rgba(245,238,237,0.6);
   letter-spacing: 0.04em;
   margin-top: 6px;
@@ -1062,7 +1062,7 @@
   background: var(--green-light);
   color: var(--blue-deep);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;

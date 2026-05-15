@@ -129,7 +129,7 @@
   line-height: 1;
 }
 .pin-17 .callout .note {
-  font-size: 11px;
+  font-size: 16px;
   color: var(--warm-gray);
   letter-spacing: 0.08em;
   margin-top: 4px;
@@ -144,7 +144,7 @@
   background: var(--green-forest);
   color: var(--cream);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -213,7 +213,7 @@
   letter-spacing: 0.04em;
 }
 .pin-18 .r-head .sub {
-  font-size: 12px;
+  font-size: 18px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--warm-gray);
@@ -241,7 +241,7 @@
   color: var(--green-forest);
 }
 .pin-18 .r-section {
-  font-size: 12px;
+  font-size: 18px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--green-sage);
@@ -279,7 +279,7 @@
 .pin-18 .r-foot {
   text-align: center;
   margin-top: 16px;
-  font-size: 13px;
+  font-size: 19px;
   color: var(--warm-gray);
   letter-spacing: 0.06em;
 }
@@ -291,7 +291,7 @@
   background: var(--green-forest);
   color: var(--cream);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -390,7 +390,7 @@
 .pin-19 .pc-left .signoff small {
   display: block;
   font-family: 'Lato', sans-serif;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -425,7 +425,7 @@
   line-height: 1;
 }
 .pin-19 .stamp .lbl {
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -435,7 +435,7 @@
   align-self: flex-end;
   margin-top: 14px;
   font-family: 'Lato', sans-serif;
-  font-size: 10px;
+  font-size: 15px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--warm-gray);
@@ -455,7 +455,7 @@
   margin-top: 14px;
 }
 .pin-19 .pc-address .lead {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -470,7 +470,7 @@
   background: var(--green-forest);
   color: var(--cream);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
@@ -523,7 +523,7 @@
 }
 .pin-20 .center-num .lbl {
   font-family: 'Lato', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -571,7 +571,7 @@
   background: var(--green-forest);
   color: var(--cream);
   font-weight: 900;
-  font-size: 13px;
+  font-size: 19px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 12px 22px;
