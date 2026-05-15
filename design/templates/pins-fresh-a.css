@@ -1,0 +1,579 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Pinterest Pin Templates — Pins 17–24
+   Fresh, tactile metaphors — same brand tokens, more print-y vocabulary.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 17 — Path to FI · Horizontal timeline strip (cream)
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-17 { background: var(--cream); }
+.pin-17 .topo {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 70%, rgba(132,161,124,0.08), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(81,146,198,0.06), transparent 40%);
+  pointer-events: none;
+}
+.pin-17 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+}
+.pin-17 .top .eyebrow { color: var(--green-forest); }
+.pin-17 .headline {
+  position: absolute;
+  top: 140px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 90px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-17 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-17 .deck {
+  position: absolute;
+  top: 400px; left: 70px;
+  max-width: 540px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  color: var(--warm-gray);
+  line-height: 1.4;
+}
+
+.pin-17 .timeline {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 560px;
+  height: 580px;
+}
+.pin-17 .axis {
+  position: absolute;
+  left: 0; right: 0;
+  top: 280px;
+  height: 2px;
+  background: linear-gradient(to right, var(--green-light), var(--green-forest));
+}
+.pin-17 .tnode {
+  position: absolute;
+  top: 256px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.pin-17 .tnode .dot {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 3px solid var(--green-sage);
+  display: inline-block;
+  position: relative;
+}
+.pin-17 .tnode.now .dot {
+  border-color: var(--orange);
+  background: var(--orange);
+}
+.pin-17 .tnode.fi .dot {
+  background: var(--green-forest);
+  border-color: var(--green-forest);
+  width: 70px; height: 70px;
+  margin-top: -10px;
+}
+.pin-17 .tnode .age {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--green-deep);
+  margin-top: 14px;
+  display: block;
+  line-height: 1;
+}
+.pin-17 .tnode.now .age { color: var(--orange); }
+.pin-17 .tnode.fi .age { color: var(--green-forest); font-size: 36px; font-style: normal; font-weight: 500; }
+
+/* Milestone callouts — alternate above/below */
+.pin-17 .callout {
+  position: absolute;
+  width: 180px;
+  text-align: center;
+}
+.pin-17 .callout.up { bottom: 50%; margin-bottom: 80px; }
+.pin-17 .callout.down { top: 50%; margin-top: 90px; }
+.pin-17 .callout .stub {
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  width: 1px; height: 50px;
+  background: var(--green-light);
+}
+.pin-17 .callout.up .stub { bottom: -50px; }
+.pin-17 .callout.down .stub { top: -50px; }
+.pin-17 .callout .milestone {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--green-forest);
+  line-height: 1.1;
+}
+.pin-17 .callout .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 30px;
+  color: var(--orange);
+  margin-top: 6px;
+  line-height: 1;
+}
+.pin-17 .callout .note {
+  font-size: 11px;
+  color: var(--warm-gray);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.pin-17 .footer { color: var(--green-forest); padding: 28px 70px; }
+.pin-17 .footer-brand .name { color: var(--green-forest); }
+.pin-17 .footer-brand .url { color: var(--warm-gray); }
+.pin-17 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 18 — Monthly Budget · Receipt mock (cream / monospace)
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-18 { background: var(--cream-deep); }
+.pin-18 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+}
+.pin-18 .top .eyebrow { color: var(--green-forest); }
+.pin-18 .headline {
+  position: absolute;
+  top: 140px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 76px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-18 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-18 .receipt {
+  position: absolute;
+  left: 130px; right: 130px;
+  top: 370px;
+  background: #fbf6f3;
+  padding: 38px 44px 26px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  color: var(--green-deep);
+  line-height: 1.65;
+  /* zig-zag bottom edge */
+  --c: 14px;
+  clip-path: polygon(
+    0 0, 100% 0, 100% calc(100% - var(--c)),
+    96% 100%, 92% calc(100% - var(--c)), 88% 100%, 84% calc(100% - var(--c)),
+    80% 100%, 76% calc(100% - var(--c)), 72% 100%, 68% calc(100% - var(--c)),
+    64% 100%, 60% calc(100% - var(--c)), 56% 100%, 52% calc(100% - var(--c)),
+    48% 100%, 44% calc(100% - var(--c)), 40% 100%, 36% calc(100% - var(--c)),
+    32% 100%, 28% calc(100% - var(--c)), 24% 100%, 20% calc(100% - var(--c)),
+    16% 100%, 12% calc(100% - var(--c)), 8% 100%, 4% calc(100% - var(--c)),
+    0 100%
+  );
+  box-shadow: 0 16px 40px rgba(58,84,119,0.10);
+}
+.pin-18 .r-head {
+  text-align: center;
+  border-bottom: 1px dashed var(--green-forest);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+.pin-18 .r-head .biz {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--green-deep);
+  letter-spacing: 0.04em;
+}
+.pin-18 .r-head .sub {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 6px;
+}
+.pin-18 .r-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.pin-18 .r-row .lbl {
+  flex: 0 0 auto;
+  letter-spacing: 0.02em;
+}
+.pin-18 .r-row .dots {
+  flex: 1 1 auto;
+  border-bottom: 2px dotted rgba(71,88,79,0.35);
+  margin: 0 6px 6px;
+  height: 1px;
+}
+.pin-18 .r-row .amt {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--green-forest);
+}
+.pin-18 .r-section {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.pin-18 .r-divider {
+  border-top: 1px dashed var(--green-forest);
+  margin: 14px 0;
+}
+.pin-18 .r-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 3px double var(--green-forest);
+}
+.pin-18 .r-total .lbl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--green-deep);
+}
+.pin-18 .r-total .amt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--orange);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.pin-18 .r-foot {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--warm-gray);
+  letter-spacing: 0.06em;
+}
+
+.pin-18 .footer { color: var(--green-forest); padding: 28px 70px; }
+.pin-18 .footer-brand .name { color: var(--green-forest); }
+.pin-18 .footer-brand .url { color: var(--warm-gray); }
+.pin-18 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 19 — Postcard from Future You (cream / serif + script)
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-19 { background: var(--green-pale); }
+.pin-19 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pin-19 .top .eyebrow { color: var(--green-forest); }
+.pin-19 .top .tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--green-forest);
+}
+.pin-19 .headline {
+  position: absolute;
+  top: 140px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 82px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-19 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-19 .postcard {
+  position: absolute;
+  left: 60px; right: 60px;
+  top: 380px;
+  height: 720px;
+  background: #fbf6f3;
+  border-radius: 4px;
+  box-shadow: 0 24px 50px rgba(58,84,119,0.18);
+  transform: rotate(-1.5deg);
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  overflow: hidden;
+}
+.pin-19 .postcard::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(71,88,79,0.18);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.pin-19 .postcard .divider {
+  background: rgba(71,88,79,0.25);
+}
+.pin-19 .pc-left {
+  padding: 50px 42px;
+  display: flex;
+  flex-direction: column;
+}
+.pin-19 .pc-left .greet {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 64px;
+  color: var(--green-forest);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.pin-19 .pc-left .note {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--green-deep);
+  line-height: 1.4;
+}
+.pin-19 .pc-left .note strong {
+  font-weight: 500;
+  color: var(--orange);
+  font-style: normal;
+}
+.pin-19 .pc-left .signoff {
+  margin-top: auto;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 56px;
+  color: var(--green-forest);
+  line-height: 1;
+}
+.pin-19 .pc-left .signoff small {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 6px;
+}
+.pin-19 .pc-right {
+  padding: 50px 42px;
+  display: flex;
+  flex-direction: column;
+}
+.pin-19 .stamp {
+  align-self: flex-end;
+  width: 130px;
+  height: 160px;
+  background: var(--green-forest);
+  color: var(--cream);
+  padding: 10px;
+  border: 4px dashed var(--cream);
+  outline: 1px solid var(--green-forest);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transform: rotate(4deg);
+}
+.pin-19 .stamp .yr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1;
+}
+.pin-19 .stamp .lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+.pin-19 .postmark {
+  align-self: flex-end;
+  margin-top: 14px;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  text-align: right;
+  line-height: 1.6;
+}
+.pin-19 .pc-address {
+  margin-top: auto;
+}
+.pin-19 .pc-address .line {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-style: italic;
+  color: var(--green-deep);
+  border-bottom: 1px solid rgba(71,88,79,0.4);
+  padding-bottom: 8px;
+  margin-top: 14px;
+}
+.pin-19 .pc-address .lead {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 14px;
+}
+
+.pin-19 .footer { color: var(--green-forest); padding: 28px 70px; }
+.pin-19 .footer-brand .name { color: var(--green-forest); }
+.pin-19 .footer-brand .url { color: var(--warm-gray); }
+.pin-19 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 20 — Botanical Poster · ETF Growth (cream + sage line art)
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-20 { background: var(--cream); }
+.pin-20 .botanical {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pin-20 .botanical svg { width: 100%; height: 100%; }
+.pin-20 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  text-align: center;
+}
+.pin-20 .top .eyebrow {
+  color: var(--green-forest);
+  justify-content: center;
+}
+.pin-20 .headline {
+  position: absolute;
+  top: 160px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 110px;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--green-deep);
+  text-align: center;
+}
+.pin-20 .headline em {
+  font-style: italic;
+  color: var(--green-sage);
+  font-weight: 300;
+  display: block;
+}
+.pin-20 .center-num {
+  position: absolute;
+  top: 660px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+}
+.pin-20 .center-num .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+.pin-20 .center-num .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 220px;
+  letter-spacing: -0.035em;
+  color: var(--orange);
+  line-height: 0.9;
+  margin-top: 10px;
+}
+.pin-20 .center-num .sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--green-forest);
+  margin-top: 14px;
+}
+.pin-20 .seal {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1150px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--green-forest);
+  z-index: 2;
+}
+.pin-20 .seal::before, .pin-20 .seal::after {
+  content: '·';
+  margin: 0 14px;
+  font-size: 30px;
+  vertical-align: middle;
+  color: var(--green-sage);
+}
+.pin-20 .footer { color: var(--green-forest); padding: 28px 70px; }
+.pin-20 .footer-brand .name { color: var(--green-forest); }
+.pin-20 .footer-brand .url { color: var(--warm-gray); }
+.pin-20 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}

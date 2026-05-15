@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 21 — Money Rules Sticker Sheet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="pins.css" />
+<link rel="stylesheet" href="pins-fresh-b.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-21">
+    <div class="grid-bg"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Personal Finance Calculators</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      Seven rules that <em>do all the heavy lifting.</em>
+    </h1>
+    <div class="deck">
+      Pin one above your desk. We made the calculator that does the maths
+      behind each one.
+    </div>
+
+    <div class="sheet">
+      <div class="sticker s1">
+        <span class="num">01</span>
+        <div class="rule">Pay future you <em>first.</em></div>
+      </div>
+      <div class="sticker s2">
+        <span class="num">02</span>
+        <div class="rule">Save 25%.</div>
+      </div>
+      <div class="sticker s3">
+        <span class="num">03</span>
+        <div class="rule">Index. <em>Don't gamble.</em></div>
+      </div>
+      <div class="sticker s4">
+        <span class="num">04</span>
+        <div class="rule">Buy time, <em>not stuff.</em></div>
+      </div>
+      <div class="sticker s5">
+        <span class="num">05</span>
+        <div class="rule">Annual spend <em>× 25</em> = freedom.</div>
+      </div>
+      <div class="sticker s6">
+        <span class="num">06</span>
+        <div class="rule">The 4% rule still works.</div>
+      </div>
+      <div class="sticker s7">
+        <span class="num">07</span>
+        <div class="rule">Boring is <em>the point.</em></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Try the calculators →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

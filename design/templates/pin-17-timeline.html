@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 17 — Path to FI Timeline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="pins.css" />
+<link rel="stylesheet" href="pins-fresh-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-17">
+    <div class="topo"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>FIRE Path Calculator</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      From thirty-four<br>
+      to <em>forty-five.</em>
+    </h1>
+    <div class="deck">
+      Eleven years, four milestones, one slow line through the trees.
+    </div>
+
+    <div class="timeline">
+      <div class="axis"></div>
+
+      <!-- Node 1: age 30, past, no callout -->
+      <div class="tnode past" style="left:5%">
+        <div class="dot"></div>
+        <span class="age">30</span>
+      </div>
+
+      <!-- Node 2: age 34, now, callout up -->
+      <div class="tnode now" style="left:25%">
+        <div class="dot"></div>
+        <span class="age">34</span>
+      </div>
+      <div class="callout up" style="left:calc(25% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Today</div>
+        <div class="val">€42K</div>
+        <div class="note">starting point</div>
+      </div>
+
+      <!-- Node 3: age 38, past, callout down -->
+      <div class="tnode past" style="left:45%">
+        <div class="dot"></div>
+        <span class="age">38</span>
+      </div>
+      <div class="callout down" style="left:calc(45% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Mortgage paid</div>
+        <div class="val">€186K</div>
+        <div class="note">years saved · 6</div>
+      </div>
+
+      <!-- Node 4: age 42, past, callout up -->
+      <div class="tnode past" style="left:65%">
+        <div class="dot"></div>
+        <span class="age">42</span>
+      </div>
+      <div class="callout up" style="left:calc(65% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Coast FI</div>
+        <div class="val">€420K</div>
+        <div class="note">stop adding</div>
+      </div>
+
+      <!-- Node 5: age 45, fi, callout down -->
+      <div class="tnode fi" style="left:88%">
+        <div class="dot"></div>
+        <span class="age">45</span>
+      </div>
+      <div class="callout down" style="left:calc(88% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Full FI</div>
+        <div class="val">€720K</div>
+        <div class="note">walk-away day</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Map your path →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>
