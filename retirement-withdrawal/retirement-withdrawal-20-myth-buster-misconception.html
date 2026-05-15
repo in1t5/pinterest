@@ -10,7 +10,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
   .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
-  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
   .ctrl{margin-top:18px}
   .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
   .btn:hover{background:#84A17C}
@@ -46,7 +46,7 @@ function wrapText(text,x,y,maxWidth,lineHeight){
   ctx.fillText(line,x,y);return y;
 }
 let logo=null;
-{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_no_text_2501x2500.png';}
 function drawFooter(){
   ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
   const midY=1447;
@@ -79,7 +79,7 @@ function render(){
   ctx.letterSpacing='0em';
 
   // Misconception card (white, coral X left)
-  const mc1X=80,mc1Y=178,mc1W=840,mc1H=220,mc1R=14;
+  const mc1X=80,mc1Y=178,mc1W=840,mc1H=260,mc1R=14;
   ctx.save();
   ctx.shadowColor='rgba(0,0,0,0.12)';ctx.shadowBlur=16;ctx.shadowOffsetY=4;
   rrect(mc1X,mc1Y,mc1W,mc1H,mc1R);
@@ -108,7 +108,7 @@ function render(){
   wrapText('"I\'ll withdraw the same fixed amount every year — it\'s simpler"',mc1X+28,mc1Y+60,mc1W-50,38);
 
   // Correction card (white elevated, forest green check left)
-  const mc2X=80,mc2Y=438,mc2W=840,mc2H=300,mc2R=14;
+  const mc2X=80,mc2Y=478,mc2W=840,mc2H=380,mc2R=14;
   ctx.save();
   ctx.shadowColor='rgba(0,0,0,0.2)';ctx.shadowBlur=28;ctx.shadowOffsetY=10;
   rrect(mc2X,mc2Y,mc2W,mc2H,mc2R);
@@ -137,7 +137,7 @@ function render(){
   wrapText('A 10% spending flex in bad market years (spending $36k instead of $40k) dramatically improves portfolio survival — without meaningful lifestyle impact',mc2X+28,mc2Y+66,mc2W-50,38);
 
   // Proof row: two metric chips
-  const chipY=788,chipH=70,chipR=12;
+  const chipY=898,chipH=70,chipR=12;
   // Dynamic chip
   rrect(80,chipY,400,chipH,chipR);
   ctx.fillStyle=P.green;ctx.fill();
@@ -161,10 +161,10 @@ function render(){
   ctx.font='italic 300 38px "Cormorant Garamond"';
   ctx.textAlign='center';
   ctx.textBaseline='top';
-  ctx.fillText('Small flex. Massive outcome.',W/2,908);
+  ctx.fillText('Small flex. Massive outcome.',W/2,1018);
 
   // CTA
-  const ctaY=1020;
+  const ctaY=1120;
   const ctaW=420,ctaH=68;
   rrect(W/2-ctaW/2,ctaY,ctaW,ctaH,34);
   ctx.fillStyle=P.green;ctx.fill();
@@ -176,8 +176,21 @@ function render(){
   ctx.fillText('Model Dynamic Withdrawal  →',W/2,ctaY+ctaH/2);
   ctx.letterSpacing='0em';
 
+  ctx.fillStyle=P.warmGray;
+  ctx.font='300 22px Lato';
+  ctx.textAlign='center';
+  ctx.textBaseline='top';
+  ctx.fillText('retirement-withdrawal calculator · free · timeandmoneytree.com',W/2,1240);
+
   drawFooter();
 }
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
 document.getElementById('bSave').addEventListener('click',()=>{
   const a=document.createElement('a');a.download='retirement-withdrawal-20-myth-buster-misconception-1000x1500.png';
   a.href=canvas.toDataURL('image/png');a.click();

@@ -10,7 +10,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
   .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
-  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
   .ctrl{margin-top:18px}
   .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
   .btn:hover{background:#84A17C}
@@ -46,7 +46,7 @@ function wrapText(text,x,y,maxWidth,lineHeight){
   ctx.fillText(line,x,y);return y;
 }
 let logo=null;
-{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_no_text_2501x2500.png';}
 function drawFooter(){
   ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
   const midY=1447;
@@ -68,22 +68,22 @@ function render(){
   ctx.fillStyle=P.cream;ctx.fillRect(0,0,W,H);
 
   // Header area
-  ctx.fillStyle=P.white;ctx.fillRect(0,0,W,210);
+  ctx.fillStyle=P.white;ctx.fillRect(0,0,W,212);
   ctx.strokeStyle=rgba(P.sage,0.25);ctx.lineWidth=1.5;
   ctx.beginPath();ctx.moveTo(0,210);ctx.lineTo(W,210);ctx.stroke();
 
   // Pinyon Script sub-heading
   ctx.fillStyle=P.sage;ctx.font='400 54px "Pinyon Script"';ctx.letterSpacing='0em';
   ctx.textAlign='center';ctx.textBaseline='top';
-  ctx.fillText('your barista fire dates',W/2,18);
+  ctx.fillText('your barista fire dates',W/2,20);
 
   // Big Lato heading
   ctx.fillStyle=P.nearBlk;ctx.font='700 64px Lato';ctx.letterSpacing='0em';
-  ctx.fillText('IN 5 MINUTES',W/2,86);
+  ctx.fillText('IN 5 MINUTES',W/2,88);
 
   // Sub-label
   ctx.fillStyle=P.warmGray;ctx.font='300 22px Lato';ctx.letterSpacing='0em';
-  ctx.fillText('Free calculator — no sign-up required',W/2,162);
+  ctx.fillText('Free calculator — no sign-up required',W/2,164);
   ctx.textAlign='left';
 
   // Step cards
@@ -192,6 +192,13 @@ function render(){
 
   drawFooter();
 }
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
 document.getElementById('bSave').addEventListener('click',()=>{
   const a=document.createElement('a');a.download='barista-fire-29-educational-quick-start-1000x1500.png';
   a.href=canvas.toDataURL('image/png');a.click();

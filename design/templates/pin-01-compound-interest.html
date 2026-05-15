@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 01 — Compound Interest</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pins.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-1">
+    <div class="grid-paper"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Free Calculator · Compound Interest</span>
+      </span>
+      <div class="pretext">
+        Start with <span>€5,000.</span><br>
+        Add <span>€200</span> a month.<br>
+        Wait <span>30 years.</span>
+      </div>
+      <div class="arrow-down">↓</div>
+    </div>
+
+    <div class="big-num"><span class="euro">€</span>482K</div>
+    <div class="after">…the quietest €477,000 you'll ever earn.</div>
+    <div class="underline"></div>
+
+    <div class="calc-strip">
+      <div class="calc-cell">
+        <div class="lbl">Principal</div>
+        <div class="val">€5,000</div>
+      </div>
+      <div class="calc-cell">
+        <div class="lbl">Monthly</div>
+        <div class="val">€200</div>
+      </div>
+      <div class="calc-cell">
+        <div class="lbl">Return / yr</div>
+        <div class="val">7%</div>
+      </div>
+    </div>
+
+    <div class="tagline">Compounding does the work — <em>you just don't interrupt it.</em></div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Run the numbers<span class="arrow">→</span></span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

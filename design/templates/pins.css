@@ -1,0 +1,1070 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Pinterest Pin Templates — Time And Money Tree
+   All pins are 1000×1500 (Pinterest standard 2:3).
+   Each pin uses a `.pin-N` class prefix so styles never leak between pins.
+   ───────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Pinyon+Script&display=swap');
+
+:root {
+  --green-forest: #47584F;
+  --green-deep: #2E3A33;
+  --green-sage: #84A17C;
+  --green-light: #C1D5A5;
+  --green-pale: #EAEDCE;
+  --cream: #F5EEED;
+  --cream-deep: #ECE2DE;
+  --warm-gray: #6E686A;
+  --black: #1A1A18;
+  --orange: #F1683F;
+  --blue-mid: #5192C6;
+  --blue-dark: #3A5477;
+  --blue-deep: #2A3D58;
+  --cyan: #26C6DA;
+}
+
+/* Shared pin frame */
+.pin {
+  width: 1000px;
+  height: 1500px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Lato', sans-serif;
+  color: var(--black);
+}
+.pin * { box-sizing: border-box; }
+
+/* Shared eyebrow tag (slight per-pin overrides) */
+.pin .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pin .eyebrow .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+
+/* Shared footer with logo */
+.pin .footer {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 28px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.pin .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.pin .footer-brand img {
+  width: 52px; height: 52px;
+  display: block;
+}
+.pin .footer-brand .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+}
+.pin .footer-brand .url {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 1 — Compound Interest · "Big Number" on cream
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-1 { background: var(--cream); }
+.pin-1 .grid-paper {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(71,88,79,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(71,88,79,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+.pin-1 .top {
+  padding: 60px 70px 0;
+  position: relative; z-index: 2;
+}
+.pin-1 .eyebrow { color: var(--green-forest); }
+.pin-1 .pretext {
+  margin-top: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 38px;
+  color: var(--warm-gray);
+  line-height: 1.2;
+  max-width: 700px;
+}
+.pin-1 .pretext span {
+  color: var(--green-forest);
+  font-weight: 500;
+  font-style: normal;
+}
+.pin-1 .arrow-down {
+  margin-top: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  color: var(--green-sage);
+  line-height: 0.6;
+}
+.pin-1 .big-num {
+  position: absolute;
+  left: 70px;
+  top: 600px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 320px;
+  line-height: 0.85;
+  letter-spacing: -0.025em;
+  color: var(--green-forest);
+  z-index: 2;
+}
+.pin-1 .big-num .euro {
+  color: var(--orange);
+  font-style: italic;
+  font-weight: 300;
+}
+.pin-1 .after {
+  position: absolute;
+  left: 78px;
+  top: 920px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 42px;
+  color: var(--green-forest);
+  z-index: 2;
+}
+.pin-1 .underline {
+  position: absolute;
+  left: 78px;
+  top: 990px;
+  width: 850px;
+  height: 1px;
+  background: var(--green-light);
+}
+.pin-1 .calc-strip {
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  top: 1030px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.pin-1 .calc-cell {
+  border: 1px solid var(--green-light);
+  border-radius: 10px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.5);
+}
+.pin-1 .calc-cell .lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+.pin-1 .calc-cell .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--green-forest);
+  margin-top: 6px;
+  line-height: 1;
+}
+.pin-1 .tagline {
+  position: absolute;
+  left: 70px;
+  bottom: 170px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  color: var(--green-forest);
+}
+.pin-1 .tagline em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--orange);
+}
+.pin-1 .footer { background: var(--green-forest); color: var(--cream); }
+.pin-1 .footer-brand .name { color: var(--cream); }
+.pin-1 .footer-brand .url { color: var(--green-light); }
+.pin-1 .cta-pill {
+  background: var(--cream);
+  color: var(--green-forest);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+.pin-1 .cta-pill .arrow {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--green-forest);
+  color: var(--cream);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 2 — Coast FI · Editorial / Magazine on cream
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-2 { background: var(--cream); }
+.pin-2 .rule-top {
+  position: absolute;
+  top: 60px; left: 70px; right: 70px;
+  height: 1px;
+  background: var(--green-forest);
+}
+.pin-2 .masthead {
+  position: absolute;
+  top: 80px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+.pin-2 .masthead .issue {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--green-forest);
+}
+.pin-2 .headline {
+  position: absolute;
+  top: 200px;
+  left: 70px;
+  right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 124px;
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-2 .headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--green-sage);
+}
+.pin-2 .deck {
+  position: absolute;
+  top: 730px;
+  left: 70px;
+  right: 70px;
+  max-width: 660px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.4;
+  color: var(--warm-gray);
+}
+.pin-2 .drop-cap {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 90px;
+  line-height: 1;
+  float: left;
+  padding-right: 12px;
+  padding-top: 4px;
+  color: var(--orange);
+}
+.pin-2 .preview-card {
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  top: 990px;
+  background: #fff;
+  border: 1px solid var(--green-pale);
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 10px 28px rgba(58,84,119,0.06);
+}
+.pin-2 .preview-card .label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+}
+.pin-2 .preview-card .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--green-pale);
+}
+.pin-2 .preview-card .row:last-child { border-bottom: 0; padding-bottom: 0; }
+.pin-2 .preview-card .row .k {
+  font-size: 16px;
+  color: var(--warm-gray);
+}
+.pin-2 .preview-card .row .v {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--green-forest);
+  line-height: 1;
+}
+.pin-2 .preview-card .row.result .v {
+  font-size: 44px;
+  color: var(--orange);
+}
+.pin-2 .footer {
+  background: transparent;
+  border-top: 1px solid var(--green-light);
+  color: var(--green-forest);
+  padding-top: 24px;
+  bottom: 30px;
+}
+.pin-2 .footer-brand .name { color: var(--green-forest); }
+.pin-2 .footer-brand .url { color: var(--warm-gray); }
+.pin-2 .cta-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.pin-2 .cta-text .a {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--green-forest);
+}
+.pin-2 .cta-text .b {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+  margin-top: 4px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 3 — Mindset Pull-Quote · Forest green bg
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-3 {
+  background: var(--green-forest);
+  color: var(--cream);
+}
+.pin-3 .grain {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at top right, rgba(193,213,165,0.10), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(81,146,198,0.08), transparent 55%);
+  pointer-events: none;
+}
+.pin-3 .ring {
+  position: absolute;
+  width: 700px; height: 700px;
+  border: 1.5px solid rgba(193,213,165,0.18);
+  border-radius: 50%;
+  right: -300px; top: -200px;
+}
+.pin-3 .ring-2 {
+  position: absolute;
+  width: 380px; height: 380px;
+  border: 1px solid rgba(193,213,165,0.14);
+  border-radius: 50%;
+  left: -180px; bottom: -120px;
+}
+.pin-3 .top {
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pin-3 .top .eyebrow { color: var(--green-light); }
+.pin-3 .top .pageno {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--green-light);
+}
+.pin-3 .quote-mark {
+  position: absolute;
+  left: 70px;
+  top: 200px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 280px;
+  color: var(--green-sage);
+  line-height: 0.6;
+  opacity: 0.55;
+}
+.pin-3 .quote {
+  position: absolute;
+  left: 70px;
+  right: 70px;
+  top: 350px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 120px;
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+}
+.pin-3 .quote em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--green-light);
+  display: block;
+  margin-top: 6px;
+}
+.pin-3 .signature {
+  position: absolute;
+  left: 70px;
+  top: 920px;
+  font-family: 'Pinyon Script', cursive;
+  font-weight: 400;
+  font-size: 80px;
+  color: var(--green-light);
+  line-height: 1;
+}
+.pin-3 .credit {
+  position: absolute;
+  left: 78px;
+  top: 1020px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245,238,237,0.7);
+}
+.pin-3 .freedom-link {
+  position: absolute;
+  left: 70px;
+  bottom: 180px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 26px;
+  border: 1.5px solid var(--green-light);
+  border-radius: 100px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+.pin-3 .freedom-link .arrow {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-forest);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+}
+.pin-3 .footer { color: var(--cream); padding: 28px 70px; bottom: 30px; }
+.pin-3 .footer-brand .name { color: var(--cream); }
+.pin-3 .footer-brand .url { color: var(--green-light); }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 4 — Five Numbers · Listicle on cream
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-4 { background: var(--cream); }
+.pin-4 .topband {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 320px;
+  background: var(--green-pale);
+  padding: 70px 70px 0;
+}
+.pin-4 .topband .eyebrow { color: var(--green-forest); }
+.pin-4 .topband h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 76px;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--green-deep);
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+.pin-4 .topband h1 em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-4 .list {
+  position: absolute;
+  top: 380px;
+  left: 70px;
+  right: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.pin-4 .item {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--green-light);
+}
+.pin-4 .item:last-child { border-bottom: 0; }
+.pin-4 .item .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 92px;
+  line-height: 0.8;
+  color: var(--green-sage);
+  width: 90px;
+  flex-shrink: 0;
+}
+.pin-4 .item .body {
+  flex: 1;
+  min-width: 0;
+}
+.pin-4 .item .title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.15;
+  color: var(--green-deep);
+}
+.pin-4 .item .desc {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--warm-gray);
+  margin-top: 6px;
+}
+.pin-4 .item .pill {
+  display: inline-block;
+  margin-top: 10px;
+  background: var(--green-pale);
+  color: var(--green-forest);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.pin-4 .footer { background: var(--green-forest); color: var(--cream); }
+.pin-4 .footer-brand .name { color: var(--cream); }
+.pin-4 .footer-brand .url { color: var(--green-light); }
+.pin-4 .cta-pill {
+  background: var(--cream);
+  color: var(--green-forest);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 5 — FI Age "47" · Big Number on navy
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-5 {
+  background: var(--blue-dark);
+  color: var(--cream);
+}
+.pin-5 .horizon {
+  position: absolute;
+  bottom: 350px;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(193,213,165,0.25);
+}
+.pin-5 .grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(245,238,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,238,237,0.04) 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: -1px -1px;
+  pointer-events: none;
+}
+.pin-5 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pin-5 .top .eyebrow { color: var(--cyan); }
+.pin-5 .top .tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--green-light);
+}
+.pin-5 .question {
+  position: absolute;
+  top: 200px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 1.1;
+  color: var(--green-light);
+}
+.pin-5 .big-num {
+  position: absolute;
+  top: 320px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 600px;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--cream);
+  z-index: 2;
+}
+.pin-5 .big-num .small {
+  font-size: 280px;
+  color: var(--green-light);
+  font-style: italic;
+}
+.pin-5 .answer-label {
+  position: absolute;
+  top: 880px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.pin-5 .inputs-row {
+  position: absolute;
+  top: 980px;
+  left: 70px; right: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+.pin-5 .input-cell {
+  background: rgba(245,238,237,0.06);
+  border: 1px solid rgba(193,213,165,0.25);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.pin-5 .input-cell .lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+.pin-5 .input-cell .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--cream);
+  margin-top: 6px;
+  line-height: 1;
+}
+.pin-5 .input-cell .val sup {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green-light);
+  letter-spacing: 0.06em;
+  margin-left: 2px;
+}
+.pin-5 .deck {
+  position: absolute;
+  bottom: 200px;
+  left: 70px; right: 70px;
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(245,238,237,0.85);
+  max-width: 700px;
+}
+.pin-5 .footer { color: var(--cream); }
+.pin-5 .footer-brand .name { color: var(--cream); }
+.pin-5 .footer-brand .url { color: var(--green-light); }
+.pin-5 .cta-pill {
+  background: var(--cyan);
+  color: var(--blue-deep);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 6 — ETF Tree · Illustrative on cream
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-6 { background: var(--cream); }
+.pin-6 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  text-align: center;
+}
+.pin-6 .top .eyebrow {
+  color: var(--green-forest);
+  justify-content: center;
+}
+.pin-6 .top h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 90px;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--green-deep);
+  margin: 26px 0 0;
+}
+.pin-6 .top h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--green-sage);
+  display: block;
+}
+.pin-6 .tree-wrap {
+  position: absolute;
+  top: 360px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 620px;
+  height: 620px;
+}
+.pin-6 .tree-wrap svg {
+  width: 100%; height: 100%;
+}
+.pin-6 .ground {
+  position: absolute;
+  left: 0; right: 0;
+  top: 970px;
+  height: 1px;
+  background: var(--green-light);
+}
+.pin-6 .growth-strip {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1010px;
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+.pin-6 .growth-strip .stage {
+  text-align: center;
+}
+.pin-6 .growth-strip .yr {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+.pin-6 .growth-strip .amt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--green-forest);
+  margin-top: 4px;
+  line-height: 1;
+}
+.pin-6 .growth-strip .amt.big { color: var(--orange); font-style: italic; }
+.pin-6 .growth-strip .grow {
+  height: 1.5px;
+  background: var(--green-sage);
+  position: relative;
+  overflow: visible;
+}
+.pin-6 .growth-strip .grow::after {
+  content: '';
+  position: absolute;
+  right: -2px; top: 50%;
+  width: 8px; height: 8px;
+  border-right: 1.5px solid var(--green-sage);
+  border-top: 1.5px solid var(--green-sage);
+  transform: translateY(-50%) rotate(45deg);
+}
+.pin-6 .tagline {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1180px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 28px;
+  color: var(--warm-gray);
+}
+.pin-6 .footer { background: var(--green-pale); color: var(--green-forest); }
+.pin-6 .footer-brand .name { color: var(--green-forest); }
+.pin-6 .footer-brand .url { color: var(--warm-gray); }
+.pin-6 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 7 — Mortgage · Editorial split (cream/green)
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-7 { background: var(--cream); }
+.pin-7 .top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 700px;
+  padding: 70px 70px 0;
+}
+.pin-7 .top .eyebrow { color: var(--green-forest); }
+.pin-7 .top h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 100px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+  margin: 36px 0 0;
+}
+.pin-7 .top h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--orange);
+}
+.pin-7 .bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 800px;
+  background: var(--green-forest);
+  padding: 70px 70px 0;
+  color: var(--cream);
+}
+.pin-7 .bottom::before {
+  content: '';
+  position: absolute;
+  top: -28px; left: 0; right: 0;
+  height: 28px;
+  background: var(--green-forest);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+.pin-7 .savings-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: rgba(245,238,237,0.06);
+  border: 1px solid rgba(193,213,165,0.25);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.pin-7 .savings-card .cell {
+  padding: 28px 30px;
+}
+.pin-7 .savings-card .cell + .cell {
+  border-left: 1px solid rgba(193,213,165,0.18);
+}
+.pin-7 .savings-card .lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+.pin-7 .savings-card .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 88px;
+  font-weight: 400;
+  line-height: 0.9;
+  margin-top: 14px;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.pin-7 .savings-card .val.accent { color: var(--green-light); font-style: italic; }
+.pin-7 .savings-card .sub {
+  font-size: 14px;
+  color: rgba(245,238,237,0.7);
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+}
+.pin-7 .scenario {
+  margin-top: 38px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 28px;
+  color: rgba(245,238,237,0.92);
+  line-height: 1.35;
+}
+.pin-7 .scenario .arrow-svg {
+  width: 60px;
+  flex-shrink: 0;
+  stroke: var(--green-light);
+}
+.pin-7 .footer { color: var(--cream); }
+.pin-7 .footer-brand .name { color: var(--cream); }
+.pin-7 .footer-brand .url { color: var(--green-light); }
+.pin-7 .cta-pill {
+  background: var(--cream);
+  color: var(--green-forest);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 8 — Net Worth · Listicle on navy
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-8 {
+  background: var(--blue-dark);
+  color: var(--cream);
+}
+.pin-8 .grain {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(81,146,198,0.22), transparent 60%);
+  pointer-events: none;
+}
+.pin-8 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+}
+.pin-8 .top .eyebrow { color: var(--cyan); }
+.pin-8 .top h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 92px;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin: 28px 0 0;
+}
+.pin-8 .top h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--green-light);
+}
+.pin-8 .ledger {
+  position: absolute;
+  top: 460px;
+  left: 70px; right: 70px;
+}
+.pin-8 .ledger .row {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 24px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(193,213,165,0.18);
+}
+.pin-8 .ledger .row:first-child { border-top: 1px solid rgba(193,213,165,0.30); }
+.pin-8 .ledger .n {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 32px;
+  color: var(--green-light);
+  font-weight: 300;
+}
+.pin-8 .ledger .label-col .k {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1;
+}
+.pin-8 .ledger .label-col .sub {
+  font-size: 13px;
+  color: rgba(245,238,237,0.6);
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
+.pin-8 .ledger .v {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+.pin-8 .ledger .v.positive { color: var(--green-light); }
+.pin-8 .ledger .v.negative { color: var(--orange); }
+.pin-8 .ledger .total-row {
+  border-bottom: 0;
+  margin-top: 6px;
+  padding-top: 28px;
+  border-top: 2px solid var(--green-light);
+}
+.pin-8 .ledger .total-row .v {
+  font-size: 64px;
+  color: var(--cream);
+}
+.pin-8 .ledger .total-row .label-col .k {
+  font-size: 38px;
+  color: var(--green-light);
+  font-style: italic;
+}
+.pin-8 .footer { color: var(--cream); }
+.pin-8 .footer-brand .name { color: var(--cream); }
+.pin-8 .footer-brand .url { color: var(--green-light); }
+.pin-8 .cta-pill {
+  background: var(--green-light);
+  color: var(--blue-deep);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+}

@@ -10,7 +10,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
   .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
-  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
   .ctrl{margin-top:18px}
   .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
   .btn:hover{background:#84A17C}
@@ -46,7 +46,7 @@ function wrapText(text,x,y,maxWidth,lineHeight){
   ctx.fillText(line,x,y);return y;
 }
 let logo=null;
-{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_no_text_2501x2500.png';}
 function drawFooter(){
   ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
   const midY=1447;
@@ -189,7 +189,7 @@ function render(){
 
   // Bottom body
   ctx.fillStyle=P.nearBlk;
-  ctx.fillRect(0,930,W,350);
+  ctx.fillRect(0,930,W,420);
   ctx.fillStyle=P.cream;
   ctx.font='italic 300 30px "Cormorant Garamond"';
   ctx.textAlign='center';
@@ -202,7 +202,7 @@ function render(){
   wrapText('Model your retirement income with a tested strategy — free, no sign-up.',W/2,1020,820,34);
 
   // CTA
-  const ctaY=1100;
+  const ctaY=1190;
   const ctaW=400,ctaH=70;
   rrect(W/2-ctaW/2,ctaY,ctaW,ctaH,35);
   ctx.fillStyle=P.green;ctx.fill();
@@ -212,9 +212,23 @@ function render(){
   ctx.textAlign='center';
   ctx.textBaseline='middle';
   ctx.fillText('Build Your Strategy  →',W/2,ctaY+ctaH/2);
+  ctx.letterSpacing='0em';
+
+  ctx.fillStyle=rgba(P.cream,.5);
+  ctx.font='300 22px Lato';
+  ctx.textAlign='center';
+  ctx.textBaseline='top';
+  ctx.fillText('retirement withdrawal calculator · free · timeandmoneytree.com',W/2,1308);
 
   drawFooter();
 }
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
 document.getElementById('bSave').addEventListener('click',()=>{
   const a=document.createElement('a');a.download='retirement-withdrawal-11-before-after-emotional-1000x1500.png';
   a.href=canvas.toDataURL('image/png');a.click();

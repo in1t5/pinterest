@@ -10,7 +10,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
   .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
-  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
   .ctrl{margin-top:18px}
   .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
   .btn:hover{background:#84A17C}
@@ -46,7 +46,7 @@ function wrapText(text,x,y,maxWidth,lineHeight){
   ctx.fillText(line,x,y);return y;
 }
 let logo=null;
-{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_no_text_2501x2500.png';}
 function drawFooter(){
   ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
   const midY=1447;
@@ -88,7 +88,7 @@ function render(){
   ctx.font='italic 300 36px "Cormorant Garamond"';
   ctx.textAlign='center';
   ctx.textBaseline='top';
-  const mythY=210;
+  const mythY=240;
   ctx.fillText('"The 4% rule guarantees',W/2,mythY);
   ctx.fillText("I won't run out of money"",W/2,mythY+48);
 
@@ -105,7 +105,7 @@ function render(){
   ctx.letterSpacing='0em';
 
   // Correction card (white, sage left border)
-  const corrY=420,corrX=80,corrW=840,corrH=420,corrR=14;
+  const corrY=460,corrX=80,corrW=840,corrH=520,corrR=14;
   ctx.save();
   ctx.shadowColor='rgba(0,0,0,0.1)';
   ctx.shadowBlur=20;
@@ -140,7 +140,7 @@ function render(){
   wrapText("The 4% rule is a historical guideline based on US market data from 1926–1994. It worked 96% of the time across 30-year periods — but your specific timeline, spending, and market sequence matter enormously. Model your actual numbers.",corrX+34,corrY+80,corrW-60,40);
 
   // CTA
-  const ctaY=900;
+  const ctaY=1070;
   const ctaW=360,ctaH=68;
   rrect(W/2-ctaW/2,ctaY,ctaW,ctaH,34);
   ctx.fillStyle=P.green;ctx.fill();
@@ -157,10 +157,17 @@ function render(){
   ctx.font='300 24px Lato';
   ctx.textAlign='center';
   ctx.textBaseline='top';
-  wrapText('Free calculator — no sign-up required. Model your actual withdrawal scenario in 5 minutes.',W/2,1030,820,36);
+  wrapText('Free calculator — no sign-up required. Model your actual withdrawal scenario in 5 minutes.',W/2,1210,820,36);
 
   drawFooter();
 }
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
 document.getElementById('bSave').addEventListener('click',()=>{
   const a=document.createElement('a');a.download='retirement-withdrawal-19-myth-buster-single-myth-1000x1500.png';
   a.href=canvas.toDataURL('image/png');a.click();

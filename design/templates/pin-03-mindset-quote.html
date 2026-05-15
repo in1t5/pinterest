@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 03 — Mindset Pull-Quote</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pins.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-3">
+    <div class="grain"></div>
+    <div class="ring"></div>
+    <div class="ring-2"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot" style="background:#C1D5A5"></span>
+        <span>A Note From The Tree</span>
+      </span>
+      <span class="pageno">— a family of five —</span>
+    </div>
+
+    <div class="quote-mark">"</div>
+    <div class="quote">
+      We didn't<br>
+      become rich.<br>
+      <em>We became free.</em>
+    </div>
+
+    <div class="signature">Anna &amp; Marc</div>
+    <div class="credit">Founders · since 2019</div>
+
+    <div class="freedom-link">
+      Plan your freedom date
+      <span class="arrow">→</span>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#C1D5A5">
+        the tree doesn't rush its growth.
+      </span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

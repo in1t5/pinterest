@@ -111,9 +111,34 @@ Each pin in `01_to_be_released/` needs a `.json` alongside the `.png`:
 
 - Canvas: 1000×1500 px HTML
 - Footer starts at y=1395
-- Logo: `only_tree.png` at sz=72, white circle background on dark footer
-- Logo source: `/Users/o2knh9m/Synology Daten/blog/3_photos/danielas_arbeiten_icons/logo/only_tree.png`
+- Logo: `design/logo_brownish_framed_no_text_2501x2500.png` at sz=72, white circle clip on dark footer. Always reference as `../design/logo_brownish_framed_no_text_2501x2500.png` (all pin HTMLs are one level below repo root).
 - 30 slot types per calculator (Direct Utility, Question Hook, Before/After, Step Ladder, Myth-Buster, Mockup, Educational) — see PIN_TRACKER.md Template Slots table
+
+### Top border clearance standard
+
+All text (and the top edge of any drawn element) must start at **y ≥ 20** — never less. This ensures a visible margin at the top of the exported 1000×1500 PNG. Typical fix when the top section is a coloured bar: extend the bar height and shift all texts inside it down by the same delta so internal gaps are preserved; also update `startY` of the element below the bar to match.
+
+### Canvas display standard
+
+Canvas attribute dimensions are always `width="1000" height="1500"` (used by export). CSS must NOT set fixed pixel dimensions — the viewport-fit JS handles display size. Required pattern in every pin HTML:
+
+**CSS** — no `width`/`height` on canvas:
+```css
+canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+```
+
+**JS** — insert before the `bSave` event listener:
+```js
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
+```
+
+This shows the full pin in any browser window without scrolling while keeping the exported PNG at exactly 1000×1500.
 
 ---
 

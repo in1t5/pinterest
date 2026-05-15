@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 04 — Five Numbers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pins.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-4">
+    <div class="topband">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Free Budget Calculator</span>
+      </span>
+      <h1>
+        Five numbers <em>every family</em><br>
+        should know by heart.
+      </h1>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <div class="num">01</div>
+        <div class="body">
+          <div class="title">Monthly spend</div>
+          <div class="desc">What an average month actually costs — groceries, rent, the small things you keep forgetting about.</div>
+          <span class="pill">Ours: €2,340</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">02</div>
+        <div class="body">
+          <div class="title">Savings rate</div>
+          <div class="desc">The single number that decides when you stop working. Aim for 25% before you optimize anything else.</div>
+          <span class="pill">Target: 25%+</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">03</div>
+        <div class="body">
+          <div class="title">Emergency cushion</div>
+          <div class="desc">Months of expenses sitting boring in a savings account. Boring is exactly the point.</div>
+          <span class="pill">6 months</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">04</div>
+        <div class="body">
+          <div class="title">Annual ETF contribution</div>
+          <div class="desc">One flat number, one fund, automated on the 1st. Calmer than any spreadsheet.</div>
+          <span class="pill">€14,400/yr</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">05</div>
+        <div class="body">
+          <div class="title">Your FI number</div>
+          <div class="desc">Annual spend × 25. The finish line — written down, not vaguely imagined.</div>
+          <span class="pill">€702,000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Calculate yours →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
   .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
-  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
   .ctrl{margin-top:18px}
   .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
   .btn:hover{background:#84A17C}
@@ -46,7 +46,7 @@ function wrapText(text,x,y,maxWidth,lineHeight){
   ctx.fillText(line,x,y);return y;
 }
 let logo=null;
-{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_no_text_2501x2500.png';}
 function drawFooter(){
   ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
   const midY=1447;
@@ -85,7 +85,7 @@ function render(){
   ctx.fillText('See it before you use it',W/2,162);
 
   // Browser chrome mockup
-  const bx=60,by=210,bw=880,bh=700,br=14;
+  const bx=60,by=210,bw=880,bh=840,br=14;
   ctx.save();
   ctx.shadowColor='rgba(0,0,0,0.25)';ctx.shadowBlur=40;ctx.shadowOffsetY=14;
   rrect(bx,by,bw,bh,br);
@@ -185,7 +185,7 @@ function render(){
   ctx.strokeStyle=P.green;ctx.lineWidth=4;ctx.stroke();
 
   // CTA
-  const ctaY=980;
+  const ctaY=1120;
   const ctaW=300,ctaH=68;
   rrect(W/2-ctaW/2,ctaY,ctaW,ctaH,34);
   ctx.fillStyle=P.green;ctx.fill();
@@ -202,10 +202,17 @@ function render(){
   ctx.font='300 24px Lato';
   ctx.textAlign='center';
   ctx.textBaseline='top';
-  ctx.fillText('No sign-up required. Free forever.',W/2,1108);
+  ctx.fillText('No sign-up required. Free forever.',W/2,1260);
 
   drawFooter();
 }
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
 document.getElementById('bSave').addEventListener('click',()=>{
   const a=document.createElement('a');a.download='retirement-withdrawal-21-mockup-browser-1000x1500.png';
   a.href=canvas.toDataURL('image/png');a.click();
