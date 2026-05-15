@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>4 Steps to Calculate Net Worth · Financial Ledger · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 13 · Step Ladder 4-Step · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle=P.cream;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=P.green;ctx.fillRect(0,0,W,8);
+
+  // Headline
+  ctx.fillStyle=P.green;ctx.font='700 22px Lato';ctx.letterSpacing='0.14em';
+  ctx.textAlign='center';ctx.textBaseline='alphabetic';
+  ctx.fillText('HOW TO CALCULATE YOUR NET WORTH',W/2,52);
+  ctx.letterSpacing='0em';
+  ctx.fillStyle=P.warmGray;ctx.font='italic 300 36px "Cormorant Garamond"';
+  ctx.fillText('4 simple steps. Takes 5 minutes.',W/2,98);
+
+  // Dotted connecting line down the left
+  const dotX=100,dotTop=140,dotBot=1070;
+  ctx.setLineDash([6,12]);
+  ctx.strokeStyle=rgba(P.sage,.4);ctx.lineWidth=3;
+  ctx.beginPath();ctx.moveTo(dotX,dotTop);ctx.lineTo(dotX,dotBot);ctx.stroke();
+  ctx.setLineDash([]);
+
+  const steps=[
+    {
+      num:'01',title:'List all your assets',
+      desc:'savings, investments, property, pension',
+      elevated:false,
+    },
+    {
+      num:'02',title:'List all your liabilities',
+      desc:'mortgage, loans, credit cards',
+      elevated:false,
+    },
+    {
+      num:'03',title:'Subtract liabilities from assets',
+      desc:'= your net worth (the number that matters)',
+      elevated:true,
+    },
+    {
+      num:'04',title:'Log it in Financial Ledger',
+      desc:'repeat yearly — watch your wealth grow',
+      elevated:false,
+    },
+  ];
+
+  const cardX=140,cardW=820,cardH=195,cardGap=28,startY=130;
+  steps.forEach((step,i)=>{
+    const cy=startY+i*(cardH+cardGap);
+    // Card
+    rrect(cardX,cy,cardW,cardH,16);
+    if(step.elevated){
+      ctx.fillStyle=P.sageFaint;ctx.fill();
+      ctx.strokeStyle=P.sage;ctx.lineWidth=2.5;ctx.stroke();
+    } else {
+      ctx.fillStyle=rgba(P.green,.06);ctx.fill();
+      ctx.strokeStyle=rgba(P.sage,.25);ctx.lineWidth=1.5;ctx.stroke();
+    }
+
+    // Large step number
+    ctx.fillStyle=step.elevated?P.green:rgba(P.green,.35);
+    ctx.font='300 72px "Cormorant Garamond"';
+    ctx.textAlign='left';ctx.textBaseline='alphabetic';
+    ctx.fillText(step.num,cardX+28,cy+cardH-30);
+
+    // Step title
+    ctx.fillStyle=P.greenDk;ctx.font='700 28px Lato';
+    ctx.textAlign='left';ctx.textBaseline='alphabetic';
+    ctx.fillText(step.title,cardX+130,cy+72);
+
+    // Description
+    ctx.fillStyle=P.warmGray;ctx.font='300 22px Lato';
+    ctx.fillText(step.desc,cardX+130,cy+110);
+
+    // Circle on dotted line
+    ctx.beginPath();ctx.arc(dotX,cy+cardH/2,18,0,Math.PI*2);
+    ctx.fillStyle=step.elevated?P.sage:P.green;ctx.fill();
+    ctx.fillStyle=P.white;ctx.font='700 14px Lato';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(step.num,dotX,cy+cardH/2);
+  });
+
+  // Bottom insight strip
+  const stripY=1080;
+  ctx.fillStyle=P.sageFaint;ctx.fillRect(0,stripY,W,80);
+  ctx.strokeStyle=rgba(P.sage,.4);ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(0,stripY);ctx.lineTo(W,stripY);ctx.stroke();
+  ctx.fillStyle=P.green;ctx.font='italic 300 32px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('"The first entry is always a revelation."',W/2,stripY+40);
+
+  // CTA
+  const pw=360,ph=68,ppx=W/2-pw/2,ppy=1200;
+  rrect(ppx,ppy,pw,ph,34);
+  ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.white;ctx.font='700 26px Lato';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.letterSpacing='0.04em';
+  ctx.fillText('Start Tracking Free  →',W/2,ppy+ph/2);
+  ctx.letterSpacing='0em';
+
+  ctx.fillStyle=rgba(P.warmGray,.72);ctx.font='300 17px Lato';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+  ctx.fillText('financial ledger  ·  net worth tracker  ·  free tool',W/2,1330);
+
+  drawFooter();
+}
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='financial-ledger-13-step-ladder-4-step-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

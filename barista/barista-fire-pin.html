@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Barista FIRE Pin · 1000 × 1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">Barista FIRE Pin · 1000 × 1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+
+// ── Palette ───────────────────────────────────────────────────────────────────
+const P={
+  green:'#47584F', greenDk:'#3B4B42', greenDkk:'#2e3e35',
+  sage:'#84A17C', sagePale:'#C1D5A5', sageFaint:'#EAEDCE',
+  cream:'#F5EEED', nearBlk:'#1A1A18', warmGray:'#6E686A', white:'#FFFFFF',
+  appPrimary:'#2e7d32', appBorder:'#cfd8dc', appBg:'#f4faf4',
+  appText:'#1f2b21', appMuted:'#55635a', appInputBg:'#edf2ee',
+};
+
+// ── Layout ────────────────────────────────────────────────────────────────────
+const HERO_H=605, CREAM_Y=605, FOOT_Y=1395, FOOT_H=105;
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function fill(color){ctx.fillStyle=color;ctx.fill();}
+function stroke(color,lw=1){ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.stroke();}
+
+// ── Asset ─────────────────────────────────────────────────────────────────────
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../../assets/logo_brownish_framed_2501x2500.png';}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render(){
+  ctx.clearRect(0,0,W,H);
+  drawHero();
+  drawCream();
+  drawCard();
+  drawPills();
+  drawBullets();
+  drawFooter();
+}
+
+// ── HERO ──────────────────────────────────────────────────────────────────────
+function drawHero(){
+  // Background
+  ctx.fillStyle=P.green; ctx.fillRect(0,0,W,HERO_H+12);
+
+  // Decorative circles
+  ctx.save();
+  ctx.globalAlpha=0.13; ctx.strokeStyle=P.sagePale; ctx.lineWidth=5;
+  ctx.beginPath(); ctx.arc(874,265,238,0,Math.PI*2); ctx.stroke();
+  ctx.globalAlpha=0.08; ctx.fillStyle=P.sagePale;
+  ctx.beginPath(); ctx.arc(944,510,118,0,Math.PI*2); ctx.fill();
+  ctx.globalAlpha=0.07;
+  ctx.beginPath(); ctx.arc(808,618,56,0,Math.PI*2); ctx.fill();
+  ctx.restore();
+
+  // Badge pill
+  ctx.font='700 19px Lato'; ctx.letterSpacing='0.10em';
+  const badgeText='FREE CALCULATOR · FIRE & EARLY RETIREMENT';
+  const bx=76,by=70,bh=44,br=22;
+  const bw=ctx.measureText(badgeText).width+72;
+  rrect(bx,by-bh/2,bw,bh,br);
+  ctx.strokeStyle=rgba(P.sagePale,.50); ctx.lineWidth=1.5; ctx.stroke();
+  ctx.fillStyle=P.sagePale;
+  ctx.beginPath(); ctx.arc(bx+23,by,6,0,Math.PI*2); ctx.fill();
+  ctx.textBaseline='middle';
+  ctx.fillText(badgeText,bx+39,by);
+
+  // Headline
+  ctx.textBaseline='top'; ctx.letterSpacing='-0.01em';
+  ctx.fillStyle=P.cream; ctx.font='300 104px "Cormorant Garamond"';
+  ctx.fillText('Retire early.',76,120);
+  ctx.fillStyle=P.cream; ctx.font='300 104px "Cormorant Garamond"';
+  ctx.fillText('Work less.',76,238);
+  // Script line
+  ctx.fillStyle=P.sagePale; ctx.font='400 118px "Pinyon Script"'; ctx.letterSpacing='0em';
+  ctx.fillText('Live more.',76,355);
+
+  // Subtext
+  ctx.fillStyle=rgba(P.cream,.76); ctx.font='300 30px Lato'; ctx.letterSpacing='0em';
+  ctx.fillText('Find when you can switch to part-time work',76,490);
+  ctx.fillText('while investments grow to full FIRE.',76,530);
+}
+
+// ── CREAM BACKGROUND ──────────────────────────────────────────────────────────
+function drawCream(){
+  ctx.fillStyle=P.cream; ctx.fillRect(0,CREAM_Y,W,FOOT_Y-CREAM_Y);
+}
+
+// ── CALCULATOR CARD ───────────────────────────────────────────────────────────
+function drawCard(){
+  const cx=80,cy=630,cw=840,ch=358,cr=18;
+
+  // Shadow + card
+  ctx.save();
+  ctx.shadowColor='rgba(26,26,24,0.10)'; ctx.shadowBlur=32; ctx.shadowOffsetY=12;
+  rrect(cx,cy,cw,ch,cr); ctx.fillStyle=P.white; ctx.fill();
+  ctx.shadowColor='transparent';
+  rrect(cx,cy,cw,ch,cr); stroke('#dde8df',1.5);
+  ctx.restore();
+
+  // Card header label
+  ctx.fillStyle=P.appMuted; ctx.font='700 16px Lato'; ctx.letterSpacing='0.12em'; ctx.textBaseline='top';
+  ctx.fillText('BARISTA FIRE CALCULATOR',cx+26,cy+22);
+
+  // ── 2×2 Input grid ────────────────────────────────────────────────────────
+  const gx=cx+26,gy=cy+50,gw=(cw-52-12)/2,gh=64,gap=8;
+  const inputs=[
+    {label:'CURRENT AGE',   val:'30',       unit:'yrs'},
+    {label:'PORTFOLIO',     val:'$150,000',  unit:''},
+    {label:'EXPENSES',      val:'$3,000',    unit:'/mo'},
+    {label:'BARISTA INCOME',val:'$1,500',    unit:'/mo'},
+  ];
+  inputs.forEach((inp,i)=>{
+    const col=i%2, row=Math.floor(i/2);
+    const ix=gx+col*(gw+gap), iy=gy+row*(gh+gap);
+    rrect(ix,iy,gw,gh,8); ctx.fillStyle=P.appInputBg; ctx.fill();
+    ctx.fillStyle=P.appMuted; ctx.font='700 13px Lato'; ctx.letterSpacing='0.08em'; ctx.textBaseline='top';
+    ctx.fillText(inp.label,ix+12,iy+9);
+    ctx.fillStyle=P.appText; ctx.font='300 34px "Cormorant Garamond"'; ctx.letterSpacing='0em';
+    ctx.fillText(inp.val,ix+12,iy+26);
+    if(inp.unit){
+      const vw=ctx.measureText(inp.val).width;
+      ctx.fillStyle=P.appMuted; ctx.font='400 14px Lato';
+      ctx.fillText(inp.unit,ix+12+vw+4,iy+44);
+    }
+  });
+
+  // Strategy pill top-right
+  const spW=234,spH=36,spX=cx+cw-26-spW,spY=cy+52;
+  rrect(spX,spY,spW,spH,18); ctx.fillStyle=P.appPrimary; ctx.fill();
+  ctx.fillStyle=P.white; ctx.font='700 14px Lato'; ctx.letterSpacing='0.03em'; ctx.textBaseline='middle';
+  ctx.fillText('Part-Time Work Strategy',spX+14,spY+spH/2);
+
+  // Divider
+  const divY=cy+208;
+  ctx.strokeStyle='#dde8df'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(cx+26,divY); ctx.lineTo(cx+cw-26,divY); ctx.stroke();
+
+  // Result label
+  ctx.fillStyle=P.appMuted; ctx.font='700 15px Lato'; ctx.letterSpacing='0.12em'; ctx.textBaseline='top';
+  ctx.fillText('YEARS TO BARISTA FIRE',cx+26,divY+14);
+
+  // Result value
+  ctx.fillStyle=P.nearBlk; ctx.font='300 74px "Cormorant Garamond"'; ctx.letterSpacing='-0.02em';
+  ctx.fillText('7 years',cx+26,divY+32);
+
+  // Sub-result
+  ctx.fillStyle=P.appPrimary; ctx.font='400 19px Lato'; ctx.letterSpacing='0em'; ctx.textBaseline='top';
+  ctx.fillText('✓  Full FIRE projected at age 52',cx+26,divY+108);
+
+  // ── Milestone bar chart (right side) ─────────────────────────────────────
+  const bars=[
+    {h:0.38,label:'Now',    val:'$150k'},
+    {h:0.58,label:'Barista',val:'$380k'},
+    {h:1.00,label:'FIRE',   val:'$900k'},
+  ];
+  const bW=52,bGap=14,bMaxH=82;
+  const bColors=[P.sageFaint,P.sagePale,P.sage];
+  const bTW=bars.length*bW+(bars.length-1)*bGap;
+  const bX0=cx+cw-26-bTW, bBotY=cy+ch-26;
+  bars.forEach((b,i)=>{
+    const bh=b.h*bMaxH;
+    rrect(bX0+i*(bW+bGap),bBotY-bh,bW,bh,5);
+    ctx.fillStyle=bColors[i]; ctx.fill();
+    ctx.fillStyle=P.appMuted; ctx.font='700 12px Lato'; ctx.letterSpacing='0em';
+    ctx.textBaseline='top'; ctx.textAlign='center';
+    ctx.fillText(b.label,bX0+i*(bW+bGap)+bW/2,bBotY+5);
+    ctx.fillStyle=P.appText; ctx.font='700 13px Lato';
+    ctx.fillText(b.val,bX0+i*(bW+bGap)+bW/2,bBotY-bh-18);
+    ctx.textAlign='left';
+  });
+}
+
+// ── STRATEGY PILLS ────────────────────────────────────────────────────────────
+function drawPills(){
+  const pills=['Barista FIRE','Lean FIRE','Coast FIRE','Fat FIRE'];
+  const py=CREAM_Y+418,ph=44;
+  let px=80;
+  pills.forEach((label,i)=>{
+    ctx.font='700 20px Lato'; ctx.letterSpacing='0em';
+    const tw=ctx.measureText(label).width;
+    const pw=tw+38;
+    rrect(px,py,pw,ph,22);
+    if(i===0){ctx.fillStyle=P.green;ctx.fill();ctx.fillStyle=P.white;}
+    else{ctx.strokeStyle='#b8c8bc';ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle=P.nearBlk;}
+    ctx.textBaseline='middle'; ctx.fillText(label,px+19,py+ph/2);
+    px+=pw+12;
+  });
+}
+
+// ── CHECKMARK BULLETS ─────────────────────────────────────────────────────────
+function drawBullets(){
+  const items=[
+    {bold:'Barista FIRE number & timeline',    rest:' — years until part-time is enough'},
+    {bold:'Model any part-time income',        rest:' — salary, side hustle, dividends'},
+    {bold:'Full FIRE projection',              rest:' — see when investments take over'},
+    {bold:'Free PDF report',                   rest:' — share or save your full plan'},
+  ];
+  const startY=CREAM_Y+484,lineH=66,iconR=16,iconX=80+iconR;
+  items.forEach((item,i)=>{
+    const y=startY+i*lineH;
+    // Circle
+    ctx.beginPath(); ctx.arc(iconX,y+iconR,iconR,0,Math.PI*2);
+    ctx.fillStyle=P.sage; ctx.fill();
+    ctx.fillStyle=P.white; ctx.font='700 18px Lato'; ctx.textBaseline='middle'; ctx.textAlign='center';
+    ctx.fillText('✓',iconX,y+iconR+1);
+    // Text
+    const tx=iconX+iconR+18;
+    ctx.textAlign='left'; ctx.textBaseline='middle';
+    ctx.fillStyle=P.nearBlk; ctx.font='700 25px Lato'; ctx.letterSpacing='0em';
+    ctx.fillText(item.bold,tx,y+iconR);
+    const bw=ctx.measureText(item.bold).width;
+    ctx.fillStyle=P.warmGray; ctx.font='400 25px Lato';
+    ctx.fillText(item.rest,tx+bw,y+iconR);
+  });
+}
+
+// ── FOOTER ────────────────────────────────────────────────────────────────────
+function drawFooter(){
+  ctx.fillStyle=P.greenDk; ctx.fillRect(0,FOOT_Y,W,FOOT_H);
+  const midY=FOOT_Y+FOOT_H/2;
+  if(logo){
+    const sz=66;
+    ctx.save(); ctx.beginPath(); ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2); ctx.clip();
+    ctx.drawImage(logo,88,midY-sz/2,sz,sz); ctx.restore();
+  } else {
+    ctx.beginPath(); ctx.arc(88+33,midY,33,0,Math.PI*2); ctx.fillStyle=P.green; ctx.fill();
+  }
+  ctx.fillStyle=P.white; ctx.font='700 25px Lato'; ctx.letterSpacing='0em'; ctx.textBaseline='middle';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale; ctx.font='700 16px Lato'; ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26); ctx.strokeStyle=rgba(P.sagePale,.65); ctx.lineWidth=2; ctx.stroke();
+  ctx.fillStyle=P.white; ctx.font='700 21px Lato'; ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle'; ctx.textAlign='center';
+  ctx.fillText('CALCULATE  →',bx+bw/2,midY);
+  ctx.textAlign='left';
+}
+
+// ── SAVE PNG ──────────────────────────────────────────────────────────────────
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');
+  a.download='barista-fire-pin.png';
+  a.href=canvas.toDataURL('image/png');
+  a.click();
+});
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"'; ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"'; ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

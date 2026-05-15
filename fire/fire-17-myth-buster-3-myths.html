@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3 FIRE Myths · FIRE Calculator · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 17 · 3 FIRE Myths · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Forest green bg
+  ctx.fillStyle=P.green;
+  ctx.fillRect(0,0,W,1395);
+
+  // Decorative circles
+  ctx.save();ctx.globalAlpha=0.12;ctx.fillStyle=P.sagePale;
+  ctx.beginPath();ctx.arc(874,265,238,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.arc(944,510,118,0,Math.PI*2);ctx.fill();
+  ctx.restore();
+
+  // Label
+  ctx.fillStyle=P.sagePale;ctx.font='700 18px Lato';ctx.letterSpacing='0.18em';ctx.textBaseline='alphabetic';
+  ctx.fillText('FIRE MYTH-BUSTER',76,62);
+
+  // Headline
+  ctx.fillStyle=P.cream;ctx.font='300 80px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';
+  ctx.fillText('3 Myths Keeping You',76,162);
+  ctx.fillText('From Retiring Early',76,248);
+
+  // 3 myth cards
+  const myths=[
+    {
+      num:'MYTH 01',myth:'"You need to earn $200k+ to FIRE"',
+      reality:'FIRE is determined by savings rate, not income. A $60k earner with 40% savings FIRE\'s faster than a $150k earner with 10%.',
+    },
+    {
+      num:'MYTH 02',myth:'"FIRE means you stop working forever"',
+      reality:'FIRE means work becomes optional. Most people FIRE\'d continue doing meaningful work — just without financial pressure.',
+    },
+    {
+      num:'MYTH 03',myth:'"The 4% rule is too risky"',
+      reality:'Historical data shows 4% has a 95%+ success rate even over 50-year retirements. A 3.5% rate achieves near-certainty.',
+    },
+  ];
+
+  const cardH=334,gap=20,startY=272;
+  myths.forEach((m,i)=>{
+    const cy=startY+i*(cardH+gap);
+    rrect(80,cy,840,cardH,14);
+    ctx.fillStyle=rgba(P.nearBlk,0.25);ctx.fill();
+
+    ctx.fillStyle=P.coral;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';ctx.textBaseline='alphabetic';
+    ctx.fillText(m.num,110,cy+36);
+    ctx.fillStyle=P.cream;ctx.font='italic 300 42px "Cormorant Garamond"';ctx.letterSpacing='0em';
+    wrapText(m.myth,110,cy+88,700,52);
+    // Divider
+    ctx.fillStyle=rgba(P.sagePale,0.4);ctx.fillRect(110,cy+148,700,1);
+    ctx.fillStyle=P.sage;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+    ctx.fillText('REALITY',110,cy+180);
+    ctx.fillStyle=P.sagePale;ctx.font='300 24px Lato';ctx.letterSpacing='0em';
+    wrapText(m.reality,110,cy+214,700,34);
+  });
+
+  // CTA
+  rrect(310,1322,380,68,34);ctx.fillStyle=P.sagePale;ctx.fill();
+  ctx.fillStyle=P.green;ctx.font='700 18px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('Calculate Your FIRE Date →',500,1356);
+  ctx.textAlign='left';ctx.textBaseline='alphabetic';
+
+  drawFooter();
+}
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='fire-17-myth-buster-3-myths-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

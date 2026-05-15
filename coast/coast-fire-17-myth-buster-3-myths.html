@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3 Coast FIRE Myths Nobody Corrects — Debunked · Coast FIRE · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">coast-fire-17 · 3 Myths Nobody Corrects · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',
+};
+
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+
+function drawDecorCircles(){
+  ctx.save();
+  ctx.globalAlpha=0.10;ctx.strokeStyle=P.sagePale;ctx.lineWidth=4;
+  ctx.beginPath();ctx.arc(874,265,238,0,Math.PI*2);ctx.stroke();
+  ctx.globalAlpha=0.07;ctx.fillStyle=P.sagePale;
+  ctx.beginPath();ctx.arc(944,510,118,0,Math.PI*2);ctx.fill();
+  ctx.restore();
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Forest green bg
+  ctx.fillStyle=P.green;ctx.fillRect(0,0,W,1395);
+  drawDecorCircles();
+
+  // Header label
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.18em';ctx.textBaseline='top';
+  ctx.fillText('COAST FIRE MYTH-BUSTER',76,44);
+
+  // Headline
+  ctx.fillStyle=P.cream;ctx.font='300 88px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='top';
+  ctx.fillText('3 Myths Nobody Corrects',76,72);
+
+  // 3 myth cards
+  const myths=[
+    {
+      mythLabel:'MYTH 01',
+      myth:'Coast FIRE only works if you start in your 20s',
+      reality:'The math works at any age. Starting at 40 just means a different (larger) coast number — the strategy is identical.',
+    },
+    {
+      mythLabel:'MYTH 02',
+      myth:"Once you coast, you can't change your mind",
+      reality:'Coasting is optional. You can resume saving any time. The coast number is a floor, not a ceiling.',
+    },
+    {
+      mythLabel:'MYTH 03',
+      myth:'You need a high income to reach coast FIRE',
+      reality:'A 20% savings rate on any income reaches coast FIRE — earlier than you\'d expect.',
+    },
+  ];
+
+  const cardH=310,gap=22,cardY0=210,cardX=80,cardW=840;
+  myths.forEach((m,i)=>{
+    const sy=cardY0+i*(cardH+gap);
+    rrect(cardX,sy,cardW,cardH,14);ctx.fillStyle=rgba(P.nearBlk,.22);ctx.fill();
+
+    // Myth label (coral)
+    ctx.fillStyle=P.coral;ctx.font='700 16px Lato';ctx.letterSpacing='0.12em';ctx.textBaseline='top';
+    ctx.fillText(m.mythLabel,cardX+28,sy+22);
+
+    // Myth text (italic cream)
+    ctx.fillStyle=P.cream;ctx.font='italic 300 42px "Cormorant Garamond"';ctx.letterSpacing='0em';ctx.textBaseline='top';
+    wrapText(m.myth,cardX+28,sy+48,780,48);
+
+    // Divider
+    ctx.strokeStyle=rgba(P.sagePale,.3);ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cardX+28,sy+170);ctx.lineTo(cardX+cardW-28,sy+170);ctx.stroke();
+
+    // Reality label
+    ctx.fillStyle=P.sage;ctx.font='700 15px Lato';ctx.letterSpacing='0.12em';ctx.textBaseline='top';
+    ctx.fillText('REALITY',cardX+28,sy+182);
+
+    // Reality text
+    ctx.fillStyle=P.sagePale;ctx.font='300 24px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+    wrapText(m.reality,cardX+28,sy+210,780,32);
+  });
+
+  // CTA
+  const ctaW=380,ctaH=68,ctaX=(W-ctaW)/2,ctaY=1310;
+  rrect(ctaX,ctaY,ctaW,ctaH,34);ctx.fillStyle=P.sagePale;ctx.fill();
+  ctx.fillStyle=P.green;ctx.font='700 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('Find Your Coast Number →',ctaX+ctaW/2,ctaY+ctaH/2);ctx.textAlign='left';
+
+  ctx.textBaseline='alphabetic';ctx.letterSpacing='0em';
+  drawFooter();
+}
+
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='coast-fire-17-myth-buster-3-myths-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

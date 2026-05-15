@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Barista FIRE — Two Dates That Change Everything · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 02 · Direct Utility Metric Hero · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/only_tree.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=72;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.fillStyle='#ffffff';ctx.fill();ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',200,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',200,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Cream background
+  ctx.fillStyle=P.cream;
+  ctx.fillRect(0,0,W,H);
+
+  // Sage faint top band
+  ctx.fillStyle=P.sageFaint;
+  ctx.fillRect(0,0,W,110);
+
+  // Pinyon Script top accent
+  ctx.fillStyle=P.sage;
+  ctx.font='400 68px "Pinyon Script"';
+  ctx.textBaseline='middle';
+  ctx.textAlign='center';
+  ctx.fillText('two milestones. one freedom.',W/2,62);
+  ctx.textAlign='left';
+
+  // Headline
+  ctx.fillStyle=P.nearBlk;
+  ctx.font='300 72px "Cormorant Garamond"';
+  ctx.textBaseline='top';
+  ctx.textAlign='center';
+  ctx.fillText('Your Barista FIRE Dates',W/2,140);
+  ctx.textAlign='left';
+
+  // Subline italic
+  ctx.fillStyle=P.warmGray;
+  ctx.font='italic 300 32px "Cormorant Garamond"';
+  ctx.textAlign='center';
+  ctx.fillText('Two numbers. Two exits. Complete clarity.',W/2,228);
+  ctx.textAlign='left';
+
+  // Large metric chips
+  const chipY=290,chipH=240,chipW=400,chipGap=20;
+  const chip1X=W/2-chipW-chipGap/2;
+  const chip2X=W/2+chipGap/2;
+
+  // Left chip - pale sage
+  ctx.save();
+  ctx.shadowColor='rgba(0,0,0,0.16)';ctx.shadowBlur=24;ctx.shadowOffsetY=8;
+  rrect(chip1X,chipY,chipW,chipH,20);ctx.fillStyle=P.sagePale;ctx.fill();
+  ctx.restore();
+  // Label
+  ctx.fillStyle=P.greenDk;ctx.font='700 18px Lato';ctx.letterSpacing='0.14em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('BARISTA FI',chip1X+chipW/2,chipY+26);
+  // Large age
+  ctx.fillStyle=P.green;ctx.font='300 88px "Cormorant Garamond"';ctx.letterSpacing='0em';
+  ctx.fillText('Age 38',chip1X+chipW/2,chipY+58);
+  // Sub text
+  ctx.fillStyle=P.greenDk;ctx.font='300 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.fillText('Part-time begins',chip1X+chipW/2,chipY+174);
+  ctx.fillStyle=P.warmGray;ctx.font='300 20px Lato';ctx.letterSpacing='0em';
+  ctx.fillText('8 years away',chip1X+chipW/2,chipY+202);
+
+  // Right chip - forest green
+  ctx.save();
+  ctx.shadowColor='rgba(0,0,0,0.20)';ctx.shadowBlur=28;ctx.shadowOffsetY=10;
+  rrect(chip2X,chipY,chipW,chipH,20);ctx.fillStyle=P.green;ctx.fill();
+  ctx.restore();
+  ctx.fillStyle=P.sagePale;ctx.font='700 18px Lato';ctx.letterSpacing='0.14em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('FULL FIRE',chip2X+chipW/2,chipY+26);
+  ctx.fillStyle=P.cream;ctx.font='300 88px "Cormorant Garamond"';ctx.letterSpacing='0em';
+  ctx.fillText('Age 47',chip2X+chipW/2,chipY+58);
+  ctx.fillStyle=P.sagePale;ctx.font='300 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.fillText('Complete freedom',chip2X+chipW/2,chipY+174);
+  ctx.fillStyle=rgba(P.cream,0.7);ctx.font='300 20px Lato';ctx.letterSpacing='0em';
+  ctx.fillText('17 years away',chip2X+chipW/2,chipY+202);
+  ctx.textAlign='left';
+
+  // Connecting arrow / bridge
+  ctx.strokeStyle=rgba(P.sage,0.5);ctx.lineWidth=2;
+  ctx.setLineDash([8,6]);
+  ctx.beginPath();ctx.moveTo(W/2-chipGap/2,chipY+chipH/2);ctx.lineTo(W/2+chipGap/2,chipY+chipH/2);ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Body headline
+  ctx.fillStyle=P.nearBlk;ctx.font='300 40px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('Work less in 6 years.',W/2,566);
+  ctx.fillText('Retire completely in 15.',W/2,614);
+  ctx.textAlign='left';
+
+  // Divider
+  ctx.strokeStyle=rgba(P.sage,0.3);ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(80,680);ctx.lineTo(920,680);ctx.stroke();
+
+  // Three insight rows
+  const insights=[
+    {icon:'→',text:'Phase 1: Build to Barista FI target ($540K)'},
+    {icon:'→',text:'Phase 2: Part-time while portfolio grows to Full FIRE'},
+    {icon:'→',text:'Phase 3: Complete financial independence at 47'},
+  ];
+  let iy=710;
+  insights.forEach(item=>{
+    // Icon chip
+    rrect(80,iy,44,44,22);ctx.fillStyle=P.green;ctx.fill();
+    ctx.fillStyle=P.cream;ctx.font='700 22px Lato';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(item.icon,102,iy+22);
+    // Text
+    ctx.fillStyle=P.nearBlk;ctx.font='300 28px Lato';ctx.textAlign='left';ctx.textBaseline='middle';
+    ctx.fillText(item.text,142,iy+22);
+    iy+=66;
+  });
+
+  // Divider 2
+  ctx.strokeStyle=rgba(P.sage,0.3);ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(80,920);ctx.lineTo(920,920);ctx.stroke();
+
+  // Keywords
+  const tags=['barista fire calculator','barista fire','fire retirement calculator'];
+  const tagY=950,tagH=40,tagGap=10,tagPad=16;
+  ctx.font='700 17px Lato';ctx.letterSpacing='0.04em';
+  const tagMetrics=tags.map(label=>({label,width:ctx.measureText(label).width+tagPad*2}));
+  const totalTagW=tagMetrics.reduce((sum,{width})=>sum+width,0)+tagGap*(tagMetrics.length-1);
+  let tx=(W-totalTagW)/2;
+  tagMetrics.forEach(({label,width})=>{
+    rrect(tx,tagY,width,tagH,20);ctx.fillStyle=rgba(P.sage,0.18);ctx.fill();
+    ctx.strokeStyle=rgba(P.sage,0.38);ctx.lineWidth=1;ctx.stroke();
+    ctx.fillStyle=P.green;ctx.textBaseline='middle';ctx.textAlign='center';
+    ctx.fillText(label,tx+width/2,tagY+tagH/2);
+    tx+=width+tagGap;
+  });
+
+  // Quote card
+  ctx.save();
+  ctx.shadowColor='rgba(0,0,0,0.08)';ctx.shadowBlur=12;ctx.shadowOffsetY=4;
+  rrect(80,1020,840,180,16);ctx.fillStyle=P.white;ctx.fill();
+  ctx.restore();
+  ctx.strokeStyle=P.green;ctx.lineWidth=4;
+  ctx.beginPath();ctx.moveTo(80,1020);ctx.lineTo(80,1200);ctx.stroke();
+  ctx.fillStyle=P.warmGray;ctx.font='300 26px Lato';ctx.textAlign='left';ctx.textBaseline='top';
+  wrapText('The only free calculator that shows you both your Barista FI date and your Full FIRE date — in seconds.',104,1038,800,38);
+
+  // CTA
+  const ctaW=380,ctaH=68,ctaX=(W-ctaW)/2,ctaY=1280;
+  ctx.save();
+  ctx.shadowColor='rgba(71,88,79,0.35)';ctx.shadowBlur=22;ctx.shadowOffsetY=8;
+  rrect(ctaX,ctaY,ctaW,ctaH,34);ctx.fillStyle=P.green;ctx.fill();
+  ctx.restore();
+  ctx.fillStyle=P.cream;ctx.font='700 24px Lato';ctx.letterSpacing='0.10em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('FIND YOUR DATES →',W/2,ctaY+ctaH/2);
+  ctx.textAlign='left';
+
+  drawFooter();
+}
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='barista-fire-02-direct-utility-metric-hero-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

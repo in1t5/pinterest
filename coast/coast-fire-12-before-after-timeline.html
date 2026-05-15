@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Saving Until 65 vs. Coasting From 38 — 27 Extra Years of Financial Freedom · Coast FIRE · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">coast-fire-12 · 27 Extra Years of Freedom · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',
+};
+
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Cream bg
+  ctx.fillStyle=P.cream;ctx.fillRect(0,0,W,1395);
+
+  // Headline
+  ctx.fillStyle=P.nearBlk;ctx.font='300 78px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='top';
+  ctx.fillText('27 Extra Years of',76,58);
+  ctx.fillText('Financial Freedom',76,148);
+
+  // Sub
+  ctx.fillStyle=P.warmGray;ctx.font='300 28px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Two timelines. Same destination. One is very different.',76,248);
+
+  // Accent line
+  ctx.strokeStyle=rgba(P.sage,.5);ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(76,296);ctx.lineTo(924,296);ctx.stroke();
+
+  // TIMELINE 1
+  ctx.fillStyle=P.warmGray;ctx.font='700 16px Lato';ctx.letterSpacing='0.15em';ctx.textBaseline='top';
+  ctx.fillText('TRADITIONAL — SAVE TO 65',76,316);
+  rrect(76,352,848,72,10);ctx.fillStyle=rgba(P.warmGray,.3);ctx.fill();
+  ctx.fillStyle=P.warmGray;ctx.font='700 16px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('30  ─────────  NEVER COAST  ─────────  67',500,388);
+  ctx.textAlign='left';
+
+  // Age labels TL1
+  ctx.fillStyle=P.warmGray;ctx.font='400 18px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('30',76,432);ctx.fillText('67',900,432);
+
+  // TIMELINE 2
+  ctx.fillStyle=P.nearBlk;ctx.font='700 16px Lato';ctx.letterSpacing='0.15em';ctx.textBaseline='top';
+  ctx.fillText('COAST FIRE PATH',76,476);
+
+  // Phase bars TL2
+  // Save phase
+  rrect(76,512,188,72,10);ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 14px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('Save $247k',170,548);ctx.textAlign='left';
+  // Coast phase
+  rrect(268,512,432,72,0);ctx.fillStyle=P.sage;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 14px Lato';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('Coast — compound growth',484,548);ctx.textAlign='left';
+  // Retire phase
+  rrect(700,512,224,72,0);
+  // clip right corners
+  ctx.fillStyle=P.sagePale;ctx.fill();
+  ctx.fillStyle=P.nearBlk;ctx.font='700 14px Lato';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('Retire',812,548);ctx.textAlign='left';
+
+  // Age labels TL2
+  ctx.fillStyle=P.nearBlk;ctx.font='400 18px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('30–38',76,592);ctx.fillText('38–62',268,592);ctx.fillText('62+',700,592);
+
+  // "24" hero stat
+  ctx.fillStyle=P.green;ctx.font='300 190px "Cormorant Garamond"';ctx.letterSpacing='-0.03em';ctx.textBaseline='top';ctx.textAlign='center';
+  ctx.fillText('24',W/2,616);ctx.textAlign='left';
+
+  ctx.fillStyle=P.warmGray;ctx.font='300 28px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('years of effortless compound growth',76,828);
+
+  // Stats row chips
+  const chips=[
+    {x:76,w:248,t1:'8 yrs active saving',t2:'$87k contributed',bg:P.sageFaint,c1:P.nearBlk,c2:P.warmGray},
+    {x:344,w:312,t1:'24 yrs coasting',t2:'7% compound growth',bg:P.sagePale,c1:P.nearBlk,c2:P.green},
+    {x:676,w:248,t1:'retire at 62',t2:'$1.1M portfolio',bg:P.sageFaint,c1:P.nearBlk,c2:P.green},
+  ];
+  chips.forEach(ch=>{
+    rrect(ch.x,900,ch.w,112,10);ctx.fillStyle=ch.bg;ctx.fill();
+    ctx.fillStyle=ch.c1;ctx.font='700 20px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+    ctx.fillText(ch.t1,ch.x+18,916);
+    ctx.fillStyle=ch.c2;ctx.font='300 26px Lato';ctx.textBaseline='top';
+    ctx.fillText(ch.t2,ch.x+18,944);
+  });
+
+  // Body
+  ctx.fillStyle=P.warmGray;ctx.font='300 26px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Eight years of intentional saving. Then the portfolio grows itself.',76,1062);
+
+  // CTA
+  const ctaW=380,ctaH=68,ctaX=(W-ctaW)/2,ctaY=1140;
+  rrect(ctaX,ctaY,ctaW,ctaH,34);ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('See Your Timeline →',ctaX+ctaW/2,ctaY+ctaH/2);ctx.textAlign='left';
+
+  // Keyword pills
+  const tags=['coast fire calculator','coast fire investing strategy','financial independence'];
+  const tagY=1264,tagH=40,tagGap=12,tagPad=17;
+  ctx.font='400 18px Lato';ctx.letterSpacing='0em';
+  const tagMetrics=tags.map(label=>({label,width:ctx.measureText(label).width+tagPad*2}));
+  const totalTagW=tagMetrics.reduce((sum,{width})=>sum+width,0)+tagGap*(tagMetrics.length-1);
+  let tx=(W-totalTagW)/2;
+  tagMetrics.forEach(({label,width})=>{
+    rrect(tx,tagY,width,tagH,20);ctx.strokeStyle=rgba(P.sage,.6);ctx.lineWidth=1.5;ctx.stroke();
+    ctx.fillStyle=P.sage;ctx.textBaseline='middle';ctx.textAlign='center';
+    ctx.fillText(label,tx+width/2,tagY+tagH/2);
+    tx+=width+tagGap;
+  });
+
+  ctx.textBaseline='alphabetic';ctx.letterSpacing='0em';
+  drawFooter();
+}
+
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='coast-fire-12-before-after-timeline-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The 3 Phases of Coast FIRE — Accumulate, Coast, Retire · Coast FIRE · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">coast-fire-14 · The 3 Phases of Coast FIRE · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',
+};
+
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Cream bg
+  ctx.fillStyle=P.cream;ctx.fillRect(0,0,W,1395);
+
+  // Headline
+  ctx.fillStyle=P.nearBlk;ctx.font='300 84px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='top';
+  ctx.fillText('The 3 Phases of Coast FIRE',76,62);
+
+  // Sub
+  ctx.fillStyle=P.warmGray;ctx.font='300 30px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Accumulate · Coast · Retire',76,162);
+
+  // Accent line
+  ctx.strokeStyle=rgba(P.sage,.5);ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(76,208);ctx.lineTo(924,208);ctx.stroke();
+
+  // PHASE 1 card
+  const p1y=234,ph=290,pw=840,px=80,gap=18;
+  ctx.save();ctx.shadowColor='rgba(26,26,24,0.10)';ctx.shadowBlur=24;ctx.shadowOffsetY=10;
+  rrect(px,p1y,pw,ph,18);ctx.fillStyle=P.green;ctx.fill();ctx.restore();
+
+  ctx.fillStyle=P.sagePale;ctx.font='700 14px Lato';ctx.letterSpacing='0.15em';ctx.textBaseline='top';
+  ctx.fillText('PHASE 1',px+26,p1y+22);
+  ctx.fillStyle=P.cream;ctx.font='700 42px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('ACCUMULATE',px+26,p1y+46);
+  ctx.fillStyle=P.sagePale;ctx.font='400 22px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Ages 22–38  ·  16 years',px+26,p1y+100);
+  ctx.fillStyle=rgba(P.cream,.85);ctx.font='300 24px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  wrapText('Save aggressively toward your coast number. This is the only phase that requires financial discipline.',px+26,p1y+134,780,34);
+  ctx.fillStyle=P.sagePale;ctx.font='700 24px Lato';ctx.letterSpacing='0em';ctx.textBaseline='bottom';ctx.textAlign='right';
+  ctx.fillText('Target: $247,000',px+pw-26,p1y+ph-14);ctx.textAlign='left';
+
+  // PHASE 2 card
+  const p2y=p1y+ph+gap;
+  ctx.save();ctx.shadowColor='rgba(26,26,24,0.10)';ctx.shadowBlur=24;ctx.shadowOffsetY=10;
+  rrect(px,p2y,pw,ph,18);ctx.fillStyle=P.sage;ctx.fill();ctx.restore();
+
+  ctx.fillStyle=rgba(P.cream,.8);ctx.font='700 14px Lato';ctx.letterSpacing='0.15em';ctx.textBaseline='top';
+  ctx.fillText('PHASE 2',px+26,p2y+22);
+  ctx.fillStyle=P.cream;ctx.font='700 50px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('COAST',px+26,p2y+46);
+  ctx.fillStyle=rgba(P.cream,.8);ctx.font='400 22px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Ages 38–62  ·  24 years',px+26,p2y+106);
+  ctx.fillStyle=P.cream;ctx.font='300 24px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  wrapText('Zero contributions required. Your portfolio grows from $247k to $1.1M through compound interest alone.',px+26,p2y+138,780,34);
+  ctx.fillStyle=P.cream;ctx.font='700 24px Lato';ctx.letterSpacing='0em';ctx.textBaseline='bottom';ctx.textAlign='right';
+  ctx.fillText('Savings: optional',px+pw-26,p2y+ph-14);ctx.textAlign='left';
+
+  // PHASE 3 card
+  const p3y=p2y+ph+gap;
+  ctx.save();ctx.shadowColor='rgba(26,26,24,0.08)';ctx.shadowBlur=18;ctx.shadowOffsetY=8;
+  rrect(px,p3y,pw,ph,18);ctx.fillStyle=P.sageFaint;ctx.fill();ctx.restore();
+
+  ctx.fillStyle=P.nearBlk;ctx.font='700 14px Lato';ctx.letterSpacing='0.15em';ctx.textBaseline='top';
+  ctx.fillText('PHASE 3',px+26,p3y+22);
+  ctx.fillStyle=P.nearBlk;ctx.font='700 50px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('RETIRE',px+26,p3y+46);
+  ctx.fillStyle=P.nearBlk;ctx.font='400 22px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Age 62+  ·  Freedom',px+26,p3y+106);
+  ctx.fillStyle=P.nearBlk;ctx.font='300 24px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('$1,100,000 portfolio  ·  4% rule  ·  $44,000/year',px+26,p3y+138);
+  ctx.fillStyle=P.sage;ctx.font='italic 300 30px "Cormorant Garamond"';ctx.letterSpacing='0em';ctx.textBaseline='bottom';ctx.textAlign='right';
+  ctx.fillText('You never had to keep saving.',px+pw-26,p3y+ph-14);ctx.textAlign='left';
+
+  // CTA
+  const ctaW=380,ctaH=68,ctaX=(W-ctaW)/2,ctaY=1292;
+  rrect(ctaX,ctaY,ctaW,ctaH,34);ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('Start Your Coast Plan →',ctaX+ctaW/2,ctaY+ctaH/2);ctx.textAlign='left';
+
+  ctx.textBaseline='alphabetic';ctx.letterSpacing='0em';
+  drawFooter();
+}
+
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='coast-fire-14-step-ladder-3-phase-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

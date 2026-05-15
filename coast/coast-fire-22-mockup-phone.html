@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Coast FIRE Number — Calculated on Your Phone · Coast FIRE · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">coast-fire-22 · Phone Mockup · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',
+};
+
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Cream bg
+  ctx.fillStyle=P.cream;ctx.fillRect(0,0,W,1395);
+
+  // Headline
+  ctx.fillStyle=P.nearBlk;ctx.font='300 88px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='top';
+  ctx.fillText('Coast FIRE Calculator.',76,70);
+  ctx.fillStyle=P.sage;ctx.font='italic 300 78px "Cormorant Garamond"';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('In Your Pocket.',76,168);
+
+  // Sub body
+  ctx.fillStyle=P.warmGray;ctx.font='300 28px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Your coast number in 2 minutes — mobile-optimized, free.',76,270);
+
+  // Phone frame
+  const pfx=300,pfy=340,pfw=400,pfh=740,pfr=40;
+  // Phone body
+  ctx.save();ctx.shadowColor='rgba(26,26,24,0.35)';ctx.shadowBlur=60;ctx.shadowOffsetY=30;
+  rrect(pfx,pfy,pfw,pfh,pfr);ctx.fillStyle=P.nearBlk;ctx.fill();ctx.restore();
+
+  // Screen area
+  const sx=pfx+20,sy=pfy+36,sw=pfw-40,sh=pfh-76;
+  rrect(sx,sy,sw,sh,20);ctx.fillStyle=P.white;ctx.fill();
+
+  // Notch
+  rrect(pfx+pfw/2-40,pfy+10,80,20,10);ctx.fillStyle=P.nearBlk;ctx.fill();
+
+  // App header
+  ctx.fillStyle=P.green;ctx.fillRect(sx,sy,sw,44);
+  ctx.fillStyle=P.cream;ctx.font='700 16px Lato';ctx.letterSpacing='0.04em';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('🌿 Coast FIRE',sx+sw/2,sy+22);ctx.textAlign='left';
+
+  // Metric blocks
+  const metrics=[
+    {l:'Coast #',v:'$247k',vC:P.nearBlk},
+    {l:'Stop saving at',v:'Age 38',vC:P.green},
+    {l:'Retire at',v:'Age 62',vC:P.nearBlk},
+  ];
+  metrics.forEach((m,i)=>{
+    const my=sy+54+i*90,mh=78;
+    ctx.strokeStyle='#e8eceb';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(sx,my+mh);ctx.lineTo(sx+sw,my+mh);ctx.stroke();
+    ctx.fillStyle=P.warmGray;ctx.font='700 12px Lato';ctx.letterSpacing='0.08em';ctx.textBaseline='top';
+    ctx.fillText(m.l,sx+16,my+10);
+    ctx.fillStyle=m.vC;ctx.font='300 44px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='top';
+    ctx.fillText(m.v,sx+16,my+28);
+  });
+
+  // Mini timeline bar
+  const tlY=sy+54+3*90+10,tlH=34;
+  rrect(sx+12,tlY,sw-24,tlH,6);ctx.fillStyle='#e8eceb';ctx.fill();
+  rrect(sx+12,tlY,(sw-24)*0.30,tlH,6);ctx.fillStyle=P.green;ctx.fill();
+  rrect(sx+12+(sw-24)*0.30,tlY,(sw-24)*0.60,tlH,0);ctx.fillStyle=P.sage;ctx.fill();
+  rrect(sx+12+(sw-24)*0.90,tlY,(sw-24)*0.10,tlH,0);ctx.fillStyle=P.sagePale;ctx.fill();
+
+  // Calculate button
+  const cbY=tlY+tlH+16,cbH=44;
+  rrect(sx+12,cbY,sw-24,cbH,22);ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 18px Lato';ctx.letterSpacing='0.06em';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('Calculate →',sx+sw/2,cbY+cbH/2);ctx.textAlign='left';
+
+  // Home bar
+  rrect(pfx+pfw/2-40,pfy+pfh-24,80,8,4);ctx.fillStyle=P.white;ctx.fill();
+
+  // Label below phone
+  ctx.fillStyle=P.warmGray;ctx.font='300 26px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';ctx.textAlign='center';
+  ctx.fillText('Works beautifully on any device',W/2,1120);ctx.textAlign='left';
+
+  // CTA
+  const ctaW=380,ctaH=68,ctaX=(W-ctaW)/2,ctaY=1192;
+  rrect(ctaX,ctaY,ctaW,ctaH,34);ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('Open Free →',ctaX+ctaW/2,ctaY+ctaH/2);ctx.textAlign='left';
+
+  // Keywords
+  const tags=['coast fire calculator','coast fire number','fire calculator'];
+  const tagY=1306,tagH=42,tagGap=12,tagPad=17;
+  ctx.font='400 18px Lato';ctx.letterSpacing='0em';
+  const tagMetrics=tags.map(label=>({label,width:ctx.measureText(label).width+tagPad*2}));
+  const totalTagW=tagMetrics.reduce((sum,{width})=>sum+width,0)+tagGap*(tagMetrics.length-1);
+  let tx=(W-totalTagW)/2;
+  tagMetrics.forEach(({label,width})=>{
+    rrect(tx,tagY,width,tagH,21);ctx.strokeStyle=rgba(P.sage,.6);ctx.lineWidth=1.5;ctx.stroke();
+    ctx.fillStyle=P.sage;ctx.textBaseline='middle';ctx.textAlign='center';
+    ctx.fillText(label,tx+width/2,tagY+tagH/2);
+    tx+=width+tagGap;
+  });
+
+  ctx.textBaseline='alphabetic';ctx.letterSpacing='0em';
+  drawFooter();
+}
+
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='coast-fire-22-mockup-phone-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

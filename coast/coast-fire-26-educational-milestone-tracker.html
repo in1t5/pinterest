@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coast FIRE Progress Milestones — How Close Are You · Coast FIRE · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">coast-fire-26 · Portfolio Milestones · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',
+};
+
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+
+function drawAgePill(age,x,y){
+  const pw=100,ph=36;
+  rrect(x,y,pw,ph,18);ctx.fillStyle=P.cream;ctx.fill();
+  ctx.fillStyle=P.green;ctx.font='700 16px Lato';ctx.letterSpacing='0.08em';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText(age,x+pw/2,y+ph/2);ctx.textAlign='left';
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Cream bg
+  ctx.fillStyle=P.cream;ctx.fillRect(0,0,W,1395);
+
+  // Forest green band top
+  ctx.fillStyle=P.green;ctx.fillRect(0,0,W,100);
+  ctx.fillStyle=P.cream;ctx.font='700 18px Lato';ctx.letterSpacing='0.15em';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('COAST FIRE PORTFOLIO MILESTONES',W/2,50);ctx.textAlign='left';
+
+  // Headline
+  ctx.fillStyle=P.nearBlk;ctx.font='300 88px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='top';
+  ctx.fillText('How Close Are You?',76,110);
+
+  // Sub
+  ctx.fillStyle=P.warmGray;ctx.font='300 26px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Age-based benchmarks for Coast FIRE.',76,208);
+
+  // 6 milestone rows
+  const milestones=[
+    {bg:P.green,age:'AGE 25',range:'$50k–$80k invested',label:'early coast range',textC:P.cream,labelC:P.sagePale,rangeC:P.cream},
+    {bg:'#5f7a65',age:'AGE 30',range:'$80k–$150k',label:'approaching coast territory',textC:P.cream,labelC:P.sagePale,rangeC:P.cream},
+    {bg:P.sage,age:'AGE 35',range:'$150k–$250k',label:'Coast FIRE range',badge:'MOST COMMON WINDOW',textC:P.cream,labelC:rgba(P.cream,.8),rangeC:P.cream},
+    {bg:P.sagePale,age:'AGE 40',range:'$200k–$350k',label:'Coast FIRE still achievable',textC:P.nearBlk,labelC:P.nearBlk,rangeC:P.nearBlk},
+    {bg:P.sageFaint,age:'AGE 45',range:'$300k–$500k',label:'approaching Full FIRE',textC:P.nearBlk,labelC:P.warmGray,rangeC:P.nearBlk},
+    {bg:P.white,border:P.green,borderW:6,age:'AGE 50',range:'$500k+',label:'Full FIRE territory',textC:P.nearBlk,labelC:P.green,rangeC:P.green,bold:true},
+  ];
+
+  const rowH=148,gap=8,rowY0=246,rowX=80,rowW=840;
+  milestones.forEach((ms,i)=>{
+    const ry=rowY0+i*(rowH+gap);
+    rrect(rowX,ry,rowW,rowH,12);ctx.fillStyle=ms.bg;ctx.fill();
+    if(ms.border){
+      ctx.strokeStyle=ms.border;ctx.lineWidth=ms.borderW;
+      ctx.beginPath();ctx.moveTo(rowX,ry+12);ctx.lineTo(rowX,ry+rowH-12);ctx.stroke();
+    }
+
+    // Age pill
+    const pillBg=i<3?P.cream:P.green;
+    const pillTxt=i<3?P.green:P.cream;
+    const pw=110,ph=34;
+    rrect(rowX+22,ry+(rowH-ph)/2,pw,ph,17);ctx.fillStyle=pillBg;ctx.fill();
+    ctx.fillStyle=pillTxt;ctx.font='700 16px Lato';ctx.letterSpacing='0.08em';ctx.textBaseline='middle';ctx.textAlign='center';
+    ctx.fillText(ms.age,rowX+22+pw/2,ry+rowH/2);ctx.textAlign='left';
+
+    // Range value
+    ctx.fillStyle=ms.rangeC;ctx.font=ms.bold?'700 44px "Cormorant Garamond"':'300 50px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='middle';
+    ctx.fillText(ms.range,rowX+154,ry+rowH/2-10);
+
+    // Label below range
+    ctx.fillStyle=ms.labelC;ctx.font='400 18px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+    ctx.fillText(ms.label,rowX+154,ry+rowH/2+26);
+
+    // Badge chip for row 3
+    if(ms.badge){
+      ctx.font='700 12px Lato';const bw=ctx.measureText(ms.badge).width+24,bh=26;
+      rrect(rowX+rowW-bw-22,ry+rowH/2-bh/2,bw,bh,13);ctx.fillStyle=P.green;ctx.fill();
+      ctx.fillStyle=P.cream;ctx.font='700 11px Lato';ctx.letterSpacing='0.08em';ctx.textBaseline='middle';ctx.textAlign='center';
+      ctx.fillText(ms.badge,rowX+rowW-bw/2-22,ry+rowH/2);ctx.textAlign='left';
+    }
+  });
+
+  // CTA
+  const ctaW=380,ctaH=68,ctaX=(W-ctaW)/2,ctaY=1304;
+  rrect(ctaX,ctaY,ctaW,ctaH,34);ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('Find Your Milestone →',ctaX+ctaW/2,ctaY+ctaH/2);ctx.textAlign='left';
+
+  ctx.textBaseline='alphabetic';ctx.letterSpacing='0em';
+  drawFooter();
+}
+
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='coast-fire-26-educational-milestone-tracker-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

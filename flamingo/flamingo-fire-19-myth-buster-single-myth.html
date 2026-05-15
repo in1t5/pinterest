@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Myth: I'll Spend Less in Retirement · Flamingo FIRE Calculator · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 19 · Myth Buster Single Myth · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Cream background
+  ctx.fillStyle=P.sageFaint;
+  ctx.fillRect(0,0,W,1395);
+
+  // MYTH CHIP top center
+  const chipW=130,chipH=48;
+  rrect((W-chipW)/2,40,chipW,chipH,24);
+  ctx.fillStyle=P.coral;ctx.fill();
+  ctx.fillStyle=P.white;
+  ctx.font='700 18px Lato';ctx.letterSpacing='0.16em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('MYTH',W/2,64);
+  ctx.letterSpacing='0em';
+
+  // Large myth quote
+  ctx.fillStyle=rgba(P.nearBlk,0.75);
+  ctx.font='italic 300 72px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('"I\'ll spend less',W/2,118);
+  ctx.fillText('in retirement."',W/2,204);
+
+  // Coral underline
+  ctx.strokeStyle=P.coral;ctx.lineWidth=4;
+  ctx.beginPath();ctx.moveTo(120,298);ctx.lineTo(880,298);ctx.stroke();
+
+  // Divider label
+  ctx.fillStyle=P.coral;
+  ctx.font='700 13px Lato';ctx.letterSpacing='0.18em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('THE REALITY',W/2,320);
+  ctx.letterSpacing='0em';
+
+  // Correction card with sage left border
+  ctx.fillStyle=P.white;
+  rrect(60,354,880,290,16);ctx.fill();
+  ctx.fillStyle=P.sage;
+  rrect(60,354,8,290,4);ctx.fill();
+
+  ctx.fillStyle=rgba(P.nearBlk,0.82);
+  ctx.font='300 23px Lato';
+  ctx.textAlign='left';ctx.textBaseline='top';
+  ctx.fillText('Research shows early retirement spending',84,376);
+  ctx.fillText('often matches or exceeds working income.',84,408);
+
+  // Category chips
+  const cats=['Healthcare','Travel','Home maintenance','Lifestyle freedom'];
+  let cx=84,cy=462;
+  cats.forEach(cat=>{
+    const tw=ctx.measureText(cat).width+30;
+    if(cx+tw>880){cx=84;cy+=50;}
+    rrect(cx,cy,tw,40,20);
+    ctx.fillStyle=rgba(P.sage,0.2);ctx.fill();
+    ctx.strokeStyle=P.sage;ctx.lineWidth=1.5;ctx.stroke();
+    ctx.fillStyle=P.green;
+    ctx.font='700 17px Lato';ctx.letterSpacing='0.04em';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(cat,cx+tw/2,cy+20);
+    ctx.letterSpacing='0em';
+    cx+=tw+14;
+  });
+
+  // Additional insight block
+  ctx.fillStyle=P.green;
+  rrect(60,690,880,120,16);ctx.fill();
+  ctx.fillStyle=P.sagePale;
+  ctx.font='italic 300 36px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('"Freedom fills the hours — and it costs money."',W/2,750);
+
+  // Three stats
+  const stats=[
+    {val:'~100%',label:'Of working income'},
+    {val:'+18%',label:'Healthcare at 65-75'},
+    {val:'2-3×',label:'Travel vs. working years'},
+  ];
+  let sx=80;
+  stats.forEach(st=>{
+    const sw=(W-160)/3;
+    ctx.fillStyle=P.white;
+    rrect(sx,840,sw-16,150,14);ctx.fill();
+    ctx.fillStyle=P.green;
+    ctx.font='700 42px "Cormorant Garamond"';
+    ctx.textAlign='center';ctx.textBaseline='top';
+    ctx.fillText(st.val,sx+sw/2-8,858);
+    ctx.fillStyle=rgba(P.nearBlk,0.6);
+    ctx.font='300 18px Lato';
+    ctx.textBaseline='top';
+    ctx.fillText(st.label,sx+sw/2-8,910);
+    sx+=sw;
+  });
+
+  // Body
+  ctx.fillStyle=rgba(P.nearBlk,0.7);
+  ctx.font='300 24px Lato';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('Model your real retirement spending.',W/2,1030);
+  ctx.fillText('Not what you hope to spend.',W/2,1064);
+
+  // CTA
+  const ctaW=420,ctaH=76,ctaX=(W-ctaW)/2,ctaY=1250;
+  rrect(ctaX,ctaY,ctaW,ctaH,38);
+  ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='700 24px Lato';ctx.letterSpacing='0.06em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('Model Your Real Spending →',W/2,ctaY+ctaH/2);
+  ctx.letterSpacing='0em';
+
+  // URL
+  ctx.fillStyle=rgba(P.green,0.38);
+  ctx.font='300 18px Lato';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('timeandmoneytree.com',W/2,1358);
+
+  drawFooter();
+}
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='flamingo-fire-19-myth-buster-single-myth-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

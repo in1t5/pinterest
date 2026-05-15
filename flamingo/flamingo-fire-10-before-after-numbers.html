@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vague vs. Specific Retirement Planning · Flamingo FIRE Calculator · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 10 · Before After Numbers · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../design/logo_brownish_framed_2501x2500.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // LEFT panel - warm gray/muted
+  ctx.fillStyle='#4a4847';
+  ctx.fillRect(0,0,W/2,1395);
+
+  // RIGHT panel - forest green
+  ctx.fillStyle=P.green;
+  ctx.fillRect(W/2,0,W/2,1395);
+
+  // Center divider line
+  ctx.strokeStyle=P.greenDk;ctx.lineWidth=4;
+  ctx.beginPath();ctx.moveTo(W/2,0);ctx.lineTo(W/2,560);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(W/2,680);ctx.lineTo(W/2,1395);ctx.stroke();
+
+  // Panel labels
+  ctx.font='700 13px Lato';ctx.letterSpacing='0.16em';ctx.textBaseline='top';
+
+  ctx.fillStyle=rgba(P.cream,0.45);
+  ctx.textAlign='center';
+  ctx.fillText('VAGUE PLAN',W/4,44);
+
+  ctx.fillStyle=P.sagePale;
+  ctx.fillText('FLAMINGO FIRE',W/2+W/4,44);
+  ctx.letterSpacing='0em';
+
+  // LEFT italic items - muted
+  const leftLines=[
+    '"Retire someday"',
+    'Unknown target',
+    'Retire at 67',
+    'Success: Guess',
+  ];
+  let ly=120;
+  leftLines.forEach((line,i)=>{
+    ctx.fillStyle=rgba(P.cream,i===0?0.55:0.38);
+    ctx.font=i===0?'italic 300 38px "Cormorant Garamond"':'italic 300 34px "Cormorant Garamond"';
+    ctx.textAlign='center';ctx.textBaseline='top';
+    ctx.fillText(line,W/4,ly);
+    ly+=i===0?70:60;
+  });
+
+  // RIGHT - specific numbers
+  const rightLines=[
+    {val:'$1.2M',label:'PORTFOLIO'},
+    {val:'Retire at 58',label:'TARGET DATE'},
+    {val:'97%',label:'SUCCESS RATE'},
+  ];
+  let ry=110;
+  rightLines.forEach(item=>{
+    ctx.fillStyle=P.cream;
+    ctx.font='700 52px "Cormorant Garamond"';
+    ctx.textAlign='center';ctx.textBaseline='top';
+    ctx.fillText(item.val,W/2+W/4,ry);
+    ctx.fillStyle=P.sagePale;
+    ctx.font='700 12px Lato';ctx.letterSpacing='0.14em';
+    ctx.textBaseline='top';
+    ctx.fillText(item.label,W/2+W/4,ry+56);
+    ctx.letterSpacing='0em';
+    ry+=110;
+  });
+
+  // Headline band center
+  ctx.fillStyle=P.greenDk;
+  ctx.fillRect(0,560,W,120);
+  ctx.fillStyle=P.cream;
+  ctx.font='italic 300 52px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('Vague vs. Specific Retirement',W/2,610);
+  ctx.font='italic 300 40px "Cormorant Garamond"';
+  ctx.fillText('Planning',W/2,655);
+
+  // Lower comparison strips
+  const pairs=[
+    {l:'No number to aim for',r:'Precise portfolio target'},
+    {l:'Working until 67',r:'Freedom at 58 — 9 years earlier'},
+    {l:'Fingers crossed',r:'97% stress-tested confidence'},
+  ];
+  let sy=730;
+  pairs.forEach(p=>{
+    ctx.fillStyle=rgba(P.cream,0.38);
+    ctx.font='300 22px Lato';ctx.textAlign='center';ctx.textBaseline='top';
+    ctx.fillText('✗  '+p.l,W/4,sy);
+    ctx.fillStyle=P.cream;
+    ctx.fillText('✓  '+p.r,W/2+W/4,sy);
+    sy+=72;
+  });
+
+  // Thin rule
+  ctx.strokeStyle=rgba(P.sagePale,0.22);ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(80,1000);ctx.lineTo(920,1000);ctx.stroke();
+
+  // Body text
+  ctx.fillStyle=rgba(P.cream,0.75);
+  ctx.font='300 24px Lato';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('The numbers exist. You just need',W/2,1026);
+  ctx.fillText('the right tool to find them.',W/2,1060);
+
+  // CTA button
+  const ctaW=380,ctaH=76,ctaX=(W-ctaW)/2,ctaY=1250;
+  rrect(ctaX,ctaY,ctaW,ctaH,38);
+  ctx.fillStyle=P.sagePale;ctx.fill();
+  ctx.fillStyle=P.green;ctx.font='700 26px Lato';ctx.letterSpacing='0.06em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('Get Specific →',W/2,ctaY+ctaH/2);
+  ctx.letterSpacing='0em';
+
+  // URL
+  ctx.fillStyle=rgba(P.cream,0.32);
+  ctx.font='300 18px Lato';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('timeandmoneytree.com',W/2,1358);
+
+  drawFooter();
+}
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='flamingo-fire-10-before-after-numbers-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

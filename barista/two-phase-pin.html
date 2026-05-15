@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three-Phase FIRE Pin · Barista FIRE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;width:420px;height:630px;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">Three-Phase FIRE Pin (#7) · 1000 × 1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F', greenDk:'#3B4B42', greenDkk:'#2e3c34',
+  sage:'#84A17C', sagePale:'#C1D5A5', sageFaint:'#EAEDCE',
+  cream:'#F5EEED', nearBlk:'#1A1A18', warmGray:'#6E686A', white:'#FFFFFF',
+  appPrimary:'#2e7d32', appText:'#1f2b21', appMuted:'#55635a',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../../../assets/logo_brownish_framed_2501x2500.png';}
+
+const PHASES=[
+  {num:1, name:'ACCUMULATE', color:P.appPrimary, light:false,
+   age:'30 → 37', years:'7 years', portfolio:'$150k → $450k',
+   work:'40 hrs/wk', stat:'7 yrs', statLbl:'TO BARISTA FIRE',
+   tagline:'Save aggressively. Hit the target. Then choose.'},
+  {num:2, name:'BARISTA COAST', color:P.sage, light:false,
+   age:'37 → 52', years:'15 years', portfolio:'$450k → $900k',
+   work:'20 hrs/wk', stat:'20 hrs', statLbl:'PART-TIME PER WEEK',
+   tagline:'Work your terms. Portfolio coasts to $900k.'},
+  {num:3, name:'FULL FIRE', color:P.sagePale, light:true,
+   age:'52+', years:'Forever', portfolio:'$900k+',
+   work:'0 hrs / optional', stat:'$0', statLbl:'REQUIRED INCOME',
+   tagline:'Work only if you choose to.'},
+];
+
+function wrapText(text,x,y,maxW,lineH){
+  const words=text.split(' ');let line='',ly=y;
+  words.forEach(w=>{const t=line+(line?' ':'')+w;if(ctx.measureText(t).width>maxW&&line){ctx.fillText(line,x,ly);ly+=lineH;line=w;}else line=t;});
+  if(line)ctx.fillText(line,x,ly);
+}
+
+function drawPanel(x,y,w,h,ph){
+  const hdrTxt=ph.light?P.appPrimary:P.white;
+  ctx.save();
+  ctx.shadowColor='rgba(26,26,24,0.12)';ctx.shadowBlur=18;ctx.shadowOffsetY=5;
+  rrect(x,y,w,h,14);ctx.fillStyle=P.white;ctx.fill();
+  ctx.restore();
+
+  // Colored header, clipped to panel shape
+  ctx.save();
+  rrect(x,y,w,h,14);ctx.clip();
+  ctx.fillStyle=ph.color;ctx.fillRect(x,y,w,86);
+  ctx.globalAlpha=0.13;
+  ctx.fillStyle=ph.light?rgba(P.appPrimary,1):P.white;
+  ctx.font='700 78px Lato';ctx.letterSpacing='0em';
+  ctx.textBaseline='middle';ctx.textAlign='right';
+  ctx.fillText(''+ph.num,x+w-10,y+43);
+  ctx.restore();
+
+  ctx.fillStyle=rgba(hdrTxt,0.60);ctx.font='700 12px Lato';ctx.letterSpacing='0.12em';
+  ctx.textBaseline='top';ctx.textAlign='left';
+  ctx.fillText('PHASE '+ph.num,x+16,y+13);
+  ctx.fillStyle=hdrTxt;ctx.font='700 16px Lato';ctx.letterSpacing='0.05em';
+  ctx.fillText(ph.name,x+16,y+44);
+
+  // Content rows
+  const rows=[{l:'AGE',v:ph.age},{l:'DURATION',v:ph.years},{l:'PORTFOLIO',v:ph.portfolio},{l:'WORK',v:ph.work}];
+  let ry=y+102;
+  rows.forEach(r=>{
+    ctx.fillStyle=P.appMuted;ctx.font='700 12px Lato';ctx.letterSpacing='0.08em';
+    ctx.textBaseline='top';ctx.textAlign='left';
+    ctx.fillText(r.l,x+16,ry);
+    ctx.fillStyle=P.appText;ctx.font='300 25px "Cormorant Garamond"';ctx.letterSpacing='0em';
+    ctx.fillText(r.v,x+16,ry+14);
+    ry+=47;
+  });
+
+  // Divider
+  ctx.strokeStyle='#eef3ef';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(x+16,ry+4);ctx.lineTo(x+w-16,ry+4);ctx.stroke();
+  ry+=18;
+
+  // Big stat
+  ctx.fillStyle=ph.color;ctx.font='300 46px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';
+  ctx.textBaseline='top';ctx.fillText(ph.stat,x+16,ry);
+  ctx.fillStyle=P.appMuted;ctx.font='700 11px Lato';ctx.letterSpacing='0.08em';
+  ctx.fillText(ph.statLbl,x+16,ry+50);
+
+  // Tagline
+  ctx.fillStyle=rgba(P.appText,0.48);ctx.font='300 italic 18px "Cormorant Garamond"';ctx.letterSpacing='0em';
+  wrapText(ph.tagline,x+16,ry+76,w-32,22);
+
+  ctx.textAlign='left';
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+  const HERO_H=480,CREAM_Y=480,FOOT_Y=1395;
+
+  // ── Hero ─────────────────────────────────────────────────────────────────
+  ctx.fillStyle=P.green;ctx.fillRect(0,0,W,HERO_H+12);
+  ctx.save();
+  ctx.globalAlpha=0.11;ctx.strokeStyle=P.sagePale;ctx.lineWidth=5;
+  ctx.beginPath();ctx.arc(870,190,220,0,Math.PI*2);ctx.stroke();
+  ctx.globalAlpha=0.07;ctx.fillStyle=P.sagePale;
+  ctx.beginPath();ctx.arc(920,420,100,0,Math.PI*2);ctx.fill();
+  ctx.restore();
+
+  ctx.font='700 19px Lato';ctx.letterSpacing='0.10em';
+  const bt='FREE CALCULATOR · FIRE & EARLY RETIREMENT';
+  const bw=ctx.measureText(bt).width+72,bh=44,bx=76,by=68;
+  rrect(bx,by-bh/2,bw,bh,22);ctx.strokeStyle=rgba(P.sagePale,.50);ctx.lineWidth=1.5;ctx.stroke();
+  ctx.fillStyle=P.sagePale;
+  ctx.beginPath();ctx.arc(bx+23,by,6,0,Math.PI*2);ctx.fill();
+  ctx.textBaseline='middle';ctx.fillText(bt,bx+39,by);
+
+  ctx.textBaseline='top';ctx.letterSpacing='-0.01em';
+  ctx.fillStyle=P.cream;ctx.font='300 100px "Cormorant Garamond"';
+  ctx.fillText('Three phases.',76,112);
+  ctx.fillStyle=P.sagePale;ctx.font='300 100px "Cormorant Garamond"';
+  ctx.fillText('One freedom.',76,226);
+
+  ctx.fillStyle=rgba(P.cream,.76);ctx.font='300 30px Lato';ctx.letterSpacing='0em';
+  ctx.fillText('The Barista FIRE roadmap — simplified.',76,366);
+  ctx.fillText('From $150k to complete independence.',76,406);
+
+  // ── Cream ─────────────────────────────────────────────────────────────────
+  ctx.fillStyle=P.cream;ctx.fillRect(0,CREAM_Y,W,FOOT_Y-CREAM_Y);
+
+  // ── Phase panels ──────────────────────────────────────────────────────────
+  const panW=274,panH=502,panGap=13,panY=CREAM_Y+32;
+  const panXs=[76,76+panW+panGap,76+(panW+panGap)*2];
+
+  PHASES.forEach((ph,i)=>drawPanel(panXs[i],panY,panW,panH,ph));
+
+  // Arrows between panels
+  [0,1].forEach(i=>{
+    const ax=panXs[i]+panW+2,ay=panY+panH/2-14;
+    ctx.strokeStyle=rgba(P.appPrimary,0.28);ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(ax+panGap-4,ay);ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(ax+panGap-9,ay-5);ctx.lineTo(ax+panGap-3,ay);ctx.lineTo(ax+panGap-9,ay+5);
+    ctx.stroke();
+  });
+
+  // ── Timeline bar ─────────────────────────────────────────────────────────
+  const tlX=76,tlW=848,tlH=28,tlY=panY+panH+44;
+  const segs=[{years:7,color:P.appPrimary},{years:15,color:P.sage},{years:3,color:P.sagePale}];
+
+  // Clipped segments
+  ctx.save();
+  rrect(tlX,tlY,tlW,tlH,6);ctx.clip();
+  let cx=tlX;
+  segs.forEach(s=>{const sw=s.years/25*tlW;ctx.fillStyle=s.color;ctx.fillRect(cx,tlY,sw,tlH);cx+=sw;});
+  ctx.restore();
+
+  // Age markers
+  const ageToX=a=>tlX+(a-30)/25*tlW;
+  [[30,'30'],[37,'37'],[52,'52']].forEach(([age,lbl])=>{
+    const mx=ageToX(age);
+    ctx.strokeStyle=P.white;ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(mx,tlY);ctx.lineTo(mx,tlY+tlH);ctx.stroke();
+    ctx.fillStyle=P.appMuted;ctx.font='700 17px Lato';ctx.letterSpacing='0em';
+    ctx.textAlign='center';ctx.textBaseline='top';
+    ctx.fillText(lbl,mx,tlY+tlH+8);
+  });
+
+  // Phase labels above timeline
+  ctx.textBaseline='bottom';ctx.font='700 13px Lato';ctx.letterSpacing='0.08em';
+  ctx.fillStyle=rgba(P.appPrimary,0.55);ctx.textAlign='left';
+  ctx.fillText('ACCUMULATE',tlX+6,tlY-7);
+  ctx.fillStyle=rgba(P.sage,0.85);
+  ctx.fillText('BARISTA COAST',ageToX(37)+6,tlY-7);
+  ctx.fillStyle=rgba(P.appMuted,0.70);
+  ctx.fillText('FULL FIRE',ageToX(52)+6,tlY-7);
+  ctx.textAlign='left';
+
+  // ── Summary card ─────────────────────────────────────────────────────────
+  const sumY=tlY+tlH+56;
+  ctx.save();
+  ctx.shadowColor='rgba(26,26,24,0.08)';ctx.shadowBlur=16;ctx.shadowOffsetY=4;
+  rrect(76,sumY,848,96,12);ctx.fillStyle=P.white;ctx.fill();
+  ctx.restore();
+  rrect(76,sumY,848,96,12);ctx.strokeStyle='#dde8df';ctx.lineWidth=1;ctx.stroke();
+
+  ctx.fillStyle=P.appPrimary;ctx.font='700 20px Lato';ctx.letterSpacing='0.08em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('COMPLETE FREEDOM IN 22 YEARS',W/2,sumY+32);
+  ctx.fillStyle=P.appMuted;ctx.font='300 italic 26px "Cormorant Garamond"';ctx.letterSpacing='0em';
+  ctx.fillText('The full Barista FIRE path, from $150k to full independence.',W/2,sumY+64);
+  ctx.textAlign='left';
+
+  // Note
+  ctx.fillStyle=P.appMuted;ctx.font='300 italic 23px "Cormorant Garamond"';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.textAlign='center';
+  ctx.fillText('Starting point: age 30 · $150,000 portfolio · $36,000/yr expenses',W/2,sumY+116);
+  ctx.textAlign='left';
+
+  drawFooter(FOOT_Y);
+}
+
+function drawFooter(y){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,y,W,H-y);
+  const midY=y+52;
+  if(logo){const sz=64;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  ctx.fillStyle=P.white;ctx.font='700 24px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';
+  ctx.fillText('Try it free — no sign-up',174,midY-14);
+  ctx.fillStyle=P.sagePale;ctx.font='700 15px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+14);
+  const bw=210,bh=48,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,24);ctx.strokeStyle=rgba(P.sagePale,0.60);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 20px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+
+document.getElementById('bSave').addEventListener('click',()=>{const a=document.createElement('a');a.download='barista-fire-three-phase-pin.png';a.href=canvas.toDataURL('image/png');a.click();});
+document.fonts.ready.then(()=>{ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);render();});
+</script>
+</body>
+</html>
