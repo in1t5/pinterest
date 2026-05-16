@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 99 — Calculator Quote (dark green)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="pins.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #0a0a08; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+
+  /* ── Pin 99 — Calculator-branded mindset quote on deep green ─────────────── */
+  .pin-99 {
+    background: var(--green-deep);
+    color: var(--cream);
+  }
+
+  /* Decorative circle blobs */
+  .pin-99 .blobs {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .pin-99 .blobs svg { width: 100%; height: 100%; }
+
+  /* Big decorative open-quote mark */
+  .pin-99 .deco-quote {
+    position: absolute;
+    top: 62px; left: 44px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 300px;
+    line-height: 1;
+    color: var(--green-light);
+    opacity: 0.10;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Top eyebrow */
+  .pin-99 .top {
+    position: absolute;
+    top: 70px; left: 76px; right: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pin-99 .top .eyebrow { color: var(--green-light); }
+  .pin-99 .top .tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: rgba(193,213,165,0.65);
+  }
+
+  /* Quote block */
+  .pin-99 .quote-block {
+    position: absolute;
+    top: 270px; left: 76px; right: 76px;
+  }
+  .pin-99 .quote-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 105px;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    display: block;
+  }
+  .pin-99 .quote-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 118px;
+    line-height: 1.12;
+    color: var(--green-light);
+    display: block;
+    margin-top: 6px;
+  }
+
+  /* Attribution */
+  .pin-99 .attribution {
+    position: absolute;
+    top: 678px; left: 76px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pin-99 .attribution .rule {
+    width: 18px; height: 1.5px;
+    background: var(--green-sage);
+    flex-shrink: 0;
+  }
+  .pin-99 .attribution .text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 28px;
+    color: rgba(193,213,165,0.65);
+    letter-spacing: 0.04em;
+  }
+
+  /* Context paragraph */
+  .pin-99 .context {
+    position: absolute;
+    top: 768px; left: 76px; right: 76px;
+    font-family: 'Lato', sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.45;
+    color: rgba(245,238,237,0.68);
+  }
+
+  /* Divider */
+  .pin-99 .divider {
+    position: absolute;
+    top: 916px; left: 76px; right: 76px;
+    height: 1px;
+    background: rgba(132,161,124,0.30);
+  }
+
+  /* Stats row */
+  .pin-99 .stats-row {
+    position: absolute;
+    top: 948px; left: 76px; right: 76px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .pin-99 .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 52px;
+    letter-spacing: -0.01em;
+    color: var(--green-light);
+    line-height: 1;
+  }
+  .pin-99 .stat-lbl {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(193,213,165,0.55);
+    margin-top: 6px;
+  }
+
+  /* Outlined pill CTA */
+  .pin-99 .pill-cta {
+    position: absolute;
+    top: 1108px; left: 76px; right: 76px;
+    text-align: center;
+  }
+  .pin-99 .pill-cta span {
+    display: inline-block;
+    padding: 11px 32px;
+    border: 1.5px solid rgba(193,213,165,0.45);
+    border-radius: 100px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--green-light);
+  }
+
+  /* URL */
+  .pin-99 .site-url {
+    position: absolute;
+    top: 1180px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(193,213,165,0.45);
+  }
+
+  /* Footer strip — darker green */
+  .pin-99 .footer {
+    background: var(--green-deep);
+    filter: brightness(0.82);
+    color: var(--cream);
+  }
+  .pin-99 .footer-brand .name { color: var(--cream); }
+  .pin-99 .footer-brand .url  { color: var(--green-light); }
+  .pin-99 .cta-pill {
+    border: 2px solid rgba(193,213,165,0.60);
+    color: var(--cream);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    border-radius: 100px;
+  }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-99">
+
+    <!-- Decorative blobs -->
+    <div class="blobs">
+      <svg viewBox="0 0 1000 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="880" cy="200" r="280" stroke="#C1D5A5" stroke-width="4" opacity="0.07"/>
+        <circle cx="920" cy="850" r="160" fill="#C1D5A5" opacity="0.05"/>
+        <circle cx="100" cy="1200" r="200" fill="#C1D5A5" opacity="0.04"/>
+      </svg>
+    </div>
+
+    <!-- Decorative quote mark -->
+    <div class="deco-quote">"</div>
+
+    <!-- Top bar -->
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot" style="background:var(--green-light)"></span>
+        <span>Barista FIRE Calculator</span>
+      </span>
+      <span class="tag">— the mindset shift —</span>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote-block">
+      <span class="quote-line">I don't want</span>
+      <span class="quote-line">to retire.</span>
+      <span class="quote-script">I want to choose.</span>
+    </div>
+
+    <!-- Attribution -->
+    <div class="attribution">
+      <div class="rule"></div>
+      <div class="text">The Barista FIRE mindset</div>
+    </div>
+
+    <!-- Context -->
+    <div class="context">
+      Work part-time. Let your investments<br>
+      grow. Reach full FIRE on your terms.
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div>
+        <div class="stat-num">7 yrs</div>
+        <div class="stat-lbl">to Barista FIRE</div>
+      </div>
+      <div>
+        <div class="stat-num">$450k</div>
+        <div class="stat-lbl">target portfolio</div>
+      </div>
+      <div>
+        <div class="stat-num">$0</div>
+        <div class="stat-lbl">extra savings needed</div>
+      </div>
+    </div>
+
+    <!-- Pill CTA -->
+    <div class="pill-cta">
+      <span>Free Barista FIRE Calculator</span>
+    </div>
+
+    <!-- URL -->
+    <div class="site-url">TIMEANDMONEYTREE.COM</div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">CALCULATE  →</span>
+    </div>
+
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

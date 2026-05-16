@@ -1,12 +1,19 @@
 
 
-The icon in the refresh PINS is very small. Can we adapt the templates directly?
+design/templates/pin-28-certificate.png: "Awarded in your ..." is not covered by the "badge" it is in. Make the orange circle larger.
 
-Check for missing .jsons in 01_to_be_released/batch_1.
+design/templates/pin-30-polaroids.png: text at the bottom of the polaroids is weird. Barely readable.
 
-I deleted some initial pins (html and png). Rename all remaining refresh Pins where no normal PIN is there anymore. Keep the normal and refresh for all the rest since I post both.
+design/templates/pin-31-topographic-map.png: Make the "milestones" larger. The "base camp" label is not at the base camp at all. It is hovering behind the map legend.
 
-Is it ensured that we have all templates in our templates folder or do we actually have PINs created which do not have a template counterpart in the templates folder?
+generate all missing PNGs in design/templates.
+
+all templates in design/templates/old: Rename them to pin-00-x. Where X is a name like we have it in the other templates in design/templates.
+
+
+
+
+Check for missing .jsons in 01_to_be_released
 
 
 
@@ -16,3 +23,16 @@ ideas?
 
 
 Alle Templates Durchgehen und checken (Logo, Text)
+
+
+
+CLAUDE DESIGN:
+
+Create a template based of: 
+- /barista/comparison-table-pin.html
+- /barista/crossover-chart-pin.html
+- /barista/fire-number-pin.html
+- /barista/two-phase-pin.html
+
+
+

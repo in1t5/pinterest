@@ -1,0 +1,684 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Pinterest Pin Templates — Pins 36–40 · More tree themes
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Match the larger logo from batch 4 */
+.pin-36 .footer-brand img,
+.pin-37 .footer-brand img,
+.pin-38 .footer-brand img,
+.pin-39 .footer-brand img,
+.pin-40 .footer-brand img { width: 68px; height: 68px; }
+.pin-36 .footer-brand .name,
+.pin-37 .footer-brand .name,
+.pin-38 .footer-brand .name,
+.pin-39 .footer-brand .name,
+.pin-40 .footer-brand .name { font-size: 24px; }
+.pin-36 .footer-brand .url,
+.pin-37 .footer-brand .url,
+.pin-38 .footer-brand .url,
+.pin-39 .footer-brand .url,
+.pin-40 .footer-brand .url { font-size: 12px; margin-top: 6px; }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 36 — Family Tree · Branching financial goals
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-36 { background: var(--cream); }
+.pin-36 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pin-36 .top .eyebrow { color: var(--green-forest); }
+.pin-36 .top .tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--green-forest);
+}
+.pin-36 .headline {
+  position: absolute;
+  top: 140px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 78px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+  max-width: 720px;
+}
+.pin-36 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-36 .deck {
+  position: absolute;
+  top: 360px; left: 70px;
+  max-width: 540px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--warm-gray);
+  line-height: 1.4;
+}
+
+.pin-36 .tree-diagram {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 500px;
+  height: 660px;
+}
+.pin-36 .tree-svg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pin-36 .tree-svg svg { width: 100%; height: 100%; }
+
+.pin-36 .trunk-node {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  background: var(--green-forest);
+  color: var(--cream);
+  border-radius: 100px;
+  padding: 18px 28px;
+  text-align: center;
+  min-width: 280px;
+  box-shadow: 0 8px 22px rgba(58,84,119,0.12);
+  z-index: 2;
+}
+.pin-36 .trunk-node .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green-light);
+}
+.pin-36 .trunk-node .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 30px;
+  color: var(--cream);
+  margin-top: 4px;
+  line-height: 1;
+}
+
+.pin-36 .branch-node {
+  position: absolute;
+  background: #fff;
+  border: 1px solid var(--green-light);
+  border-radius: 12px;
+  padding: 16px 18px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(58,84,119,0.06);
+  z-index: 2;
+}
+.pin-36 .branch-node .role {
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.pin-36 .branch-node .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--green-deep);
+  margin-top: 4px;
+  line-height: 1.05;
+}
+.pin-36 .branch-node .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--green-forest);
+  margin-top: 6px;
+  line-height: 1;
+}
+.pin-36 .branch-node .small {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  color: var(--warm-gray);
+  margin-top: 2px;
+  letter-spacing: 0.06em;
+}
+
+.pin-36 .footer {
+  background: transparent;
+  color: var(--green-forest);
+  padding: 24px 70px;
+  border-top: 1px solid var(--green-light);
+}
+.pin-36 .footer-brand .name { color: var(--green-forest); }
+.pin-36 .footer-brand .url { color: var(--warm-gray); }
+.pin-36 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 37 — Pocket Watch Tree · Logo's clock+tree pairing
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-37 {
+  background: var(--green-deep);
+  color: var(--cream);
+}
+.pin-37 .grain {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at top right, rgba(193,213,165,0.10), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(81,146,198,0.07), transparent 60%);
+  pointer-events: none;
+}
+.pin-37 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pin-37 .top .eyebrow { color: var(--green-light); }
+.pin-37 .top .tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--green-light);
+}
+.pin-37 .headline {
+  position: absolute;
+  top: 130px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 78px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+}
+.pin-37 .headline em {
+  font-style: italic;
+  color: var(--green-light);
+}
+
+.pin-37 .watch {
+  position: absolute;
+  left: 50%;
+  top: 340px;
+  transform: translateX(-50%);
+  width: 660px;
+  height: 740px;
+}
+.pin-37 .watch svg { width: 100%; height: 100%; }
+
+.pin-37 .watch-overlay {
+  position: absolute;
+  left: 50%;
+  top: 770px;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+}
+.pin-37 .watch-overlay .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+.pin-37 .watch-overlay .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 90px;
+  letter-spacing: -0.02em;
+  color: var(--green-deep);
+  line-height: 0.95;
+  margin-top: 6px;
+}
+.pin-37 .watch-overlay .val em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-37 .legend {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.pin-37 .legend .item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245,238,237,0.85);
+}
+.pin-37 .legend .item .hand {
+  width: 32px; height: 4px;
+  border-radius: 2px;
+}
+.pin-37 .legend .item .hand.now { background: var(--green-light); }
+.pin-37 .legend .item .hand.fi  { background: var(--orange); }
+
+.pin-37 .footer {
+  background: rgba(0,0,0,0.18);
+  color: var(--cream);
+  padding: 24px 70px;
+}
+.pin-37 .footer-brand .name { color: var(--cream); }
+.pin-37 .footer-brand .url { color: var(--green-light); }
+.pin-37 .cta-pill {
+  background: var(--orange);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 38 — Forest of Accounts · Meadow of differently-sized trees
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-38 {
+  background: linear-gradient(180deg,
+    #F5EEED 0%,
+    #F5EEED 30%,
+    #EAEDCE 60%,
+    #C1D5A5 100%);
+}
+.pin-38 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 3;
+}
+.pin-38 .top .eyebrow { color: var(--green-forest); }
+.pin-38 .top .tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--green-forest);
+}
+.pin-38 .headline {
+  position: absolute;
+  top: 130px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 78px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+  z-index: 3;
+}
+.pin-38 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-38 .meadow {
+  position: absolute;
+  left: 0; right: 0;
+  top: 380px;
+  height: 740px;
+  z-index: 1;
+}
+.pin-38 .meadow svg { width: 100%; height: 100%; }
+
+.pin-38 .horizon-line {
+  position: absolute;
+  left: 0; right: 0;
+  top: 920px;
+  height: 1px;
+  background: rgba(71,88,79,0.35);
+  z-index: 2;
+}
+
+.pin-38 .ground-row {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 950px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  z-index: 3;
+}
+.pin-38 .acct {
+  text-align: center;
+}
+.pin-38 .acct .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 9.5px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+.pin-38 .acct .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--green-deep);
+  line-height: 1;
+  margin-top: 6px;
+}
+.pin-38 .acct .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--green-forest);
+  margin-top: 6px;
+  line-height: 1;
+}
+.pin-38 .acct .val.coral { color: var(--orange); }
+.pin-38 .acct .pct {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--warm-gray);
+  margin-top: 4px;
+}
+
+.pin-38 .footer {
+  background: var(--green-forest);
+  color: var(--cream);
+  padding: 24px 70px;
+  z-index: 4;
+}
+.pin-38 .footer-brand .name { color: var(--cream); }
+.pin-38 .footer-brand .url { color: var(--green-light); }
+.pin-38 .cta-pill {
+  background: var(--cream);
+  color: var(--green-forest);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 39 — Leaf Calendar · Branch with 12 monthly leaves
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-39 { background: var(--cream); }
+.pin-39 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pin-39 .top .eyebrow { color: var(--green-forest); }
+.pin-39 .top .tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--green-forest);
+}
+.pin-39 .headline {
+  position: absolute;
+  top: 140px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 84px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-39 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-39 .branch-art {
+  position: absolute;
+  left: 0; right: 0;
+  top: 340px;
+  height: 660px;
+}
+.pin-39 .branch-art svg { width: 100%; height: 100%; }
+
+/* Month labels positioned over the leaves */
+.pin-39 .month-label {
+  position: absolute;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  z-index: 3;
+}
+.pin-39 .month-label .m {
+  font-family: 'Lato', sans-serif;
+  font-size: 9.5px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+.pin-39 .month-label .v {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--orange);
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.pin-39 .sum-row {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1030px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  z-index: 3;
+}
+.pin-39 .sum-cell {
+  background: #fff;
+  border: 1px solid var(--green-pale);
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-align: center;
+}
+.pin-39 .sum-cell .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+}
+.pin-39 .sum-cell .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 36px;
+  color: var(--green-forest);
+  line-height: 1;
+  margin-top: 6px;
+}
+.pin-39 .sum-cell.big .val { color: var(--orange); font-style: italic; font-size: 44px; }
+
+.pin-39 .footer {
+  background: transparent;
+  color: var(--green-forest);
+  padding: 24px 70px;
+  border-top: 1px solid var(--green-light);
+}
+.pin-39 .footer-brand .name { color: var(--green-forest); }
+.pin-39 .footer-brand .url { color: var(--warm-gray); }
+.pin-39 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 40 — Acorn to Oak · Five-stage silhouette progression
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-40 { background: var(--cream); }
+.pin-40 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+}
+.pin-40 .top .eyebrow { color: var(--green-forest); }
+.pin-40 .headline {
+  position: absolute;
+  top: 140px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 80px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-40 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-40 .deck {
+  position: absolute;
+  top: 360px; left: 70px;
+  max-width: 540px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--warm-gray);
+  line-height: 1.4;
+}
+
+.pin-40 .progression {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 540px;
+}
+.pin-40 .stages-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  gap: 12px;
+  height: 360px;
+  position: relative;
+}
+.pin-40 .stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.pin-40 .stage svg { display: block; }
+.pin-40 .ground-line {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -2px;
+  height: 1.5px;
+  background: var(--green-forest);
+  z-index: 1;
+}
+
+.pin-40 .labels-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+.pin-40 .label-cell {
+  text-align: center;
+}
+.pin-40 .label-cell .yr {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+}
+.pin-40 .label-cell .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--green-forest);
+  margin-top: 4px;
+  line-height: 1;
+}
+.pin-40 .label-cell .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--green-deep);
+  margin-top: 6px;
+  line-height: 1;
+}
+.pin-40 .label-cell.final .val { color: var(--orange); font-style: italic; font-size: 32px; }
+
+.pin-40 .quote {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1130px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 28px;
+  color: var(--warm-gray);
+  line-height: 1.3;
+}
+.pin-40 .quote::before, .pin-40 .quote::after {
+  content: '—';
+  margin: 0 14px;
+  color: var(--green-sage);
+  font-style: normal;
+}
+
+.pin-40 .footer {
+  background: transparent;
+  color: var(--green-forest);
+  padding: 24px 70px;
+  border-top: 1px solid var(--green-light);
+}
+.pin-40 .footer-brand .name { color: var(--green-forest); }
+.pin-40 .footer-brand .url { color: var(--warm-gray); }
+.pin-40 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}

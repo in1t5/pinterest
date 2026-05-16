@@ -1,0 +1,510 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Pinterest Pin Templates — Pins 33–35 · Tree theme
+   Inspired by the Time & Moneytree logo: bonsai + watch + €
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Match the larger logo from batch 4 */
+.pin-33 .footer-brand img,
+.pin-34 .footer-brand img,
+.pin-35 .footer-brand img { width: 68px; height: 68px; }
+.pin-33 .footer-brand .name,
+.pin-34 .footer-brand .name,
+.pin-35 .footer-brand .name { font-size: 24px; }
+.pin-33 .footer-brand .url,
+.pin-34 .footer-brand .url,
+.pin-35 .footer-brand .url { font-size: 12px; margin-top: 6px; }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 33 — Growth Rings · Compound interest as a tree cross-section
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-33 { background: var(--cream); }
+.pin-33 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pin-33 .top .eyebrow { color: var(--green-forest); }
+.pin-33 .top .meta {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--warm-gray);
+  text-align: right;
+  line-height: 1.5;
+}
+.pin-33 .headline {
+  position: absolute;
+  top: 150px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 80px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+  max-width: 720px;
+}
+.pin-33 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-33 .deck {
+  position: absolute;
+  top: 360px; left: 70px;
+  max-width: 540px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--warm-gray);
+  line-height: 1.4;
+}
+
+.pin-33 .rings-wrap {
+  position: absolute;
+  left: 50%;
+  top: 480px;
+  transform: translateX(-50%);
+  width: 720px;
+  height: 720px;
+}
+.pin-33 .rings-wrap svg { width: 100%; height: 100%; }
+
+/* Floating labels around the rings */
+.pin-33 .ring-label {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  text-align: left;
+  z-index: 2;
+}
+.pin-33 .ring-label.right { text-align: left; }
+.pin-33 .ring-label.left { text-align: right; }
+.pin-33 .ring-label .yr {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+}
+.pin-33 .ring-label .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--green-forest);
+  line-height: 1;
+  margin-top: 4px;
+}
+.pin-33 .ring-label .lead {
+  position: absolute;
+  height: 1px;
+  background: var(--green-sage);
+  top: 50%;
+}
+.pin-33 .ring-label.right .lead { left: -80px; width: 70px; }
+.pin-33 .ring-label.left  .lead { right: -80px; width: 70px; }
+
+.pin-33 .center-num {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+  width: 240px;
+}
+.pin-33 .center-num .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+.pin-33 .center-num .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 76px;
+  color: var(--cream);
+  line-height: 0.95;
+  margin-top: 6px;
+  letter-spacing: -0.02em;
+}
+.pin-33 .center-num .sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--green-light);
+  margin-top: 8px;
+}
+
+.pin-33 .footer {
+  background: transparent;
+  color: var(--green-forest);
+  padding: 24px 70px;
+  border-top: 1px solid var(--green-light);
+}
+.pin-33 .footer-brand .name { color: var(--green-forest); }
+.pin-33 .footer-brand .url { color: var(--warm-gray); }
+.pin-33 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 34 — Roots & Canopy · Below the surface / above the surface
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-34 {
+  background:
+    linear-gradient(180deg,
+      #F5EEED 0%,
+      #F5EEED 46%,
+      #d6c4b3 46.05%,
+      #b39a82 49%,
+      #5C4033 50%,
+      #4a3326 100%);
+  color: var(--cream);
+}
+.pin-34 .top {
+  position: absolute;
+  top: 60px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 4;
+}
+.pin-34 .top .eyebrow { color: var(--green-forest); }
+.pin-34 .top .tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--green-forest);
+}
+
+/* Soil line label */
+.pin-34 .ground-band {
+  position: absolute;
+  left: 0; right: 0;
+  top: 680px;
+  height: 30px;
+  background: linear-gradient(180deg, transparent 0, rgba(92,64,51,0.1) 100%);
+  z-index: 1;
+}
+.pin-34 .surface-label-left {
+  position: absolute;
+  left: 70px;
+  top: 658px;
+  z-index: 3;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+.pin-34 .surface-label-right {
+  position: absolute;
+  right: 70px;
+  top: 704px;
+  z-index: 3;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+/* The tree illustration sits centered, crossing the soil line */
+.pin-34 .tree-svg {
+  position: absolute;
+  left: 50%;
+  top: 260px;
+  transform: translateX(-50%);
+  width: 560px;
+  height: 740px;
+  z-index: 2;
+  pointer-events: none;
+}
+.pin-34 .tree-svg svg { width: 100%; height: 100%; }
+
+/* Canopy labels — float beside the tree above the soil */
+.pin-34 .canopy-label {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  z-index: 3;
+}
+.pin-34 .canopy-label .yr {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+}
+.pin-34 .canopy-label .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 30px;
+  color: var(--green-forest);
+  line-height: 1;
+  margin-top: 4px;
+}
+
+/* Roots labels — below soil */
+.pin-34 .root-label {
+  position: absolute;
+  z-index: 3;
+}
+.pin-34 .root-label .what {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--cream);
+  line-height: 1;
+}
+.pin-34 .root-label .amt {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--green-light);
+  margin-top: 4px;
+}
+
+.pin-34 .above-headline {
+  position: absolute;
+  top: 80px;
+  left: 70px;
+  right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+  z-index: 4;
+  max-width: 720px;
+}
+.pin-34 .above-headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-34 .above-sub {
+  display: none;
+}
+
+.pin-34 .below-tagline {
+  position: absolute;
+  bottom: 140px;
+  left: 70px; right: 70px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  color: var(--cream);
+  z-index: 5;
+}
+.pin-34 .below-tagline strong {
+  color: var(--green-light);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.pin-34 .footer {
+  background: rgba(0,0,0,0.18);
+  color: var(--cream);
+  padding: 24px 70px;
+  z-index: 6;
+}
+.pin-34 .footer-brand .name { color: var(--cream); }
+.pin-34 .footer-brand .url { color: var(--green-light); }
+.pin-34 .cta-pill {
+  background: var(--green-light);
+  color: var(--green-deep);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 35 — Three Seasons · Sapling, mature, harvest
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-35 { background: var(--cream); }
+.pin-35 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  text-align: center;
+}
+.pin-35 .top .eyebrow {
+  color: var(--green-forest);
+  justify-content: center;
+}
+.pin-35 .headline {
+  position: absolute;
+  top: 130px; left: 70px; right: 70px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 80px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-35 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-35 .deck {
+  position: absolute;
+  top: 320px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 620px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--warm-gray);
+  line-height: 1.4;
+}
+
+.pin-35 .row {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 440px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  height: 720px;
+}
+.pin-35 .stage {
+  background: #fff;
+  border: 1px solid var(--green-pale);
+  border-radius: 14px;
+  padding: 26px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pin-35 .stage .phase {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.pin-35 .stage .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 32px;
+  color: var(--green-forest);
+  margin-top: 4px;
+  line-height: 1;
+}
+.pin-35 .stage .age {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  color: var(--warm-gray);
+  margin-top: 6px;
+}
+.pin-35 .stage .art {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 16px;
+}
+.pin-35 .stage .art svg {
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+}
+.pin-35 .stage .ground {
+  width: 80%;
+  height: 1px;
+  background: var(--green-light);
+  margin: 8px auto 0;
+}
+.pin-35 .stage .num-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+  margin-top: 14px;
+}
+.pin-35 .stage .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 56px;
+  color: var(--green-forest);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-top: 4px;
+}
+.pin-35 .stage .num em { font-style: italic; color: var(--orange); }
+.pin-35 .stage .caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--warm-gray);
+  margin-top: 8px;
+  line-height: 1.3;
+  max-width: 220px;
+}
+
+/* Middle (harvest) stage emphasized */
+.pin-35 .stage.harvest {
+  background: var(--green-forest);
+  color: var(--cream);
+  border: 0;
+}
+.pin-35 .stage.harvest .phase { color: var(--green-light); }
+.pin-35 .stage.harvest .name { color: var(--cream); }
+.pin-35 .stage.harvest .age { color: rgba(245,238,237,0.7); }
+.pin-35 .stage.harvest .ground { background: var(--green-light); opacity: 0.3; }
+.pin-35 .stage.harvest .num-label { color: var(--green-light); }
+.pin-35 .stage.harvest .num { color: var(--cream); }
+.pin-35 .stage.harvest .num em { color: var(--green-light); }
+.pin-35 .stage.harvest .caption { color: rgba(245,238,237,0.78); }
+
+.pin-35 .footer {
+  background: transparent;
+  color: var(--green-forest);
+  padding: 24px 70px;
+  border-top: 1px solid var(--green-light);
+}
+.pin-35 .footer-brand .name { color: var(--green-forest); }
+.pin-35 .footer-brand .url { color: var(--warm-gray); }
+.pin-35 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
