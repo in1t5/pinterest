@@ -1,14 +1,4 @@
 
-01_to_be_released/barista-fire-26-educational-milestone-tracker-refresh.html: Text from the first area barely readable since it is white and not covered fully by the bar.
-Also applies to: 01_to_be_released/coast-fire-26-educational-milestone-tracker-refresh.html
-
-
-01_to_be_released/coast-fire-17-myth-buster-3-myths.html: Move the  Find Your Coast Number button up a bit.
-
-
-
- 
-01_to_be_released: Create the missing PNGs.
 
 The icon in the refresh PINS is very small. Can we adapt the templates directly?
 
