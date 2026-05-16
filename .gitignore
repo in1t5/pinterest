@@ -1,3 +1,4 @@
 .DS_Store
 .env
 scripts/node_modules/
+00_scripts/node_modules/
