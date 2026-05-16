@@ -1,6 +1,4 @@
 
-01_to_be_released/batch_1/barista-fire-03-direct-utility-timeline-refresh.html: The age numbers below phases are not in line with the correct switch from phase to phase. They are a bit shifted horizontally.
-
 01_to_be_released/batch_1/barista-fire-alex-story-pin-refresh.html: I keep both Alex pins. Change the name from the sample person in this one to a woman. Also rename the file.
 
 01_to_be_released/batch_1/financial-ledger-05-question-hook-aspiration-refresh.html: The 100k is directly in the graph line. Move it a bit higher.
@@ -37,3 +35,6 @@ Is it ensured that we have all templates in our templates folder or do we actual
 I do not like the structure of the repo. 
 I want a clear separation of scripts, designs etc and the pin data itself.
 ideas?
+
+
+Alle Templates Durchgehen und checken (Logo, Text)
