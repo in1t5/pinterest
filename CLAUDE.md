@@ -4,6 +4,12 @@ Pinterest pin creation and publishing for **Time And Money Tree** blog.
 
 ---
 
+## Rules
+
+**Never commit or push without explicit instruction from the user.**
+
+---
+
 ## Repo Structure
 
 ```
