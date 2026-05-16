@@ -2,14 +2,10 @@
 design/templates/pin-31-topographic-map.html: Positioning of the labels does not fit at all right?
 See image.
 
-generate all missing PNGs in design/templates.
-
-all templates in design/templates/old: Rename them to pin-00-x. Where X is a name like we have it in the other templates in design/templates.
-
 in all templates: Check for text smaller 22px. Report only a list of found text too small for pinterest.
 
 
-Check for missing .jsons in 01_to_be_released
+Check for missing .jsons in /pins/staged
 
 
 

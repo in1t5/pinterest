@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tracking Creates Wealth Misconception · Financial Ledger · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 20 · Myth Buster Misconception · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+  // Pale sage background
+  ctx.fillStyle=P.sageFaint;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=P.green;ctx.fillRect(0,0,W,8);
+
+  // Headline
+  ctx.fillStyle=P.green;ctx.font='700 22px Lato';ctx.letterSpacing='0.14em';
+  ctx.textAlign='center';ctx.textBaseline='alphabetic';
+  ctx.fillText('THE WEALTH-BUILDING PARADOX',W/2,56);
+  ctx.letterSpacing='0em';
+
+  // ❌ Myth card
+  rrect(60,90,880,220,18);
+  ctx.fillStyle=rgba(P.coral,.12);ctx.fill();
+  ctx.strokeStyle=P.coral;ctx.lineWidth=2;ctx.stroke();
+
+  ctx.fillStyle=P.coral;ctx.font='700 30px Lato';ctx.textAlign='left';ctx.textBaseline='alphabetic';
+  ctx.fillText('❌',88,160);
+  ctx.fillStyle=rgba(P.nearBlk,.7);ctx.font='italic 300 40px "Cormorant Garamond"';
+  ctx.fillText('"I\'ll start tracking when',138,160);
+  ctx.fillText('I have more money"',138,208);
+  ctx.fillStyle=rgba(P.coral,.7);ctx.font='700 16px Lato';ctx.letterSpacing='0.08em';
+  ctx.fillText('THE MYTH — reverses cause and effect',88,268);
+  ctx.letterSpacing='0em';
+
+  // Arrow down
+  ctx.fillStyle=P.green;ctx.font='700 40px Lato';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('↓',W/2,352);
+
+  // ✓ Truth card
+  rrect(60,380,880,260,18);
+  ctx.fillStyle=rgba(P.green,.1);ctx.fill();
+  ctx.strokeStyle=P.green;ctx.lineWidth=2.5;ctx.stroke();
+
+  ctx.fillStyle=P.sage;ctx.font='700 30px Lato';ctx.textAlign='left';ctx.textBaseline='alphabetic';
+  ctx.fillText('✓',88,452);
+  ctx.fillStyle=P.greenDk;ctx.font='italic 300 38px "Cormorant Garamond"';
+  ctx.fillText('"People who track net worth',138,452);
+  ctx.fillText('accumulate wealth faster —',138,498);
+  ctx.fillText('tracking creates wealth."',138,544);
+  ctx.fillStyle=P.sage;ctx.font='700 16px Lato';ctx.letterSpacing='0.08em';
+  ctx.fillText('THE TRUTH — tracking is the cause',88,596);
+  ctx.letterSpacing='0em';
+
+  // Divider
+  ctx.strokeStyle=rgba(P.sage,.3);ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(60,660);ctx.lineTo(940,660);ctx.stroke();
+
+  // Proof chips
+  ctx.fillStyle=P.green;ctx.font='700 20px Lato';ctx.letterSpacing='0.10em';
+  ctx.textAlign='center';ctx.textBaseline='alphabetic';
+  ctx.fillText('THE NUMBERS SPEAK',W/2,708);
+  ctx.letterSpacing='0em';
+
+  const proofChips=[
+    {label:'Trackers',value:'+23%/yr',color:P.green},
+    {label:'Non-trackers',value:'+8%/yr',color:rgba(P.warmGray,.6)},
+  ];
+  const chipW=360,chipH=110,chipGap=20,chipStartX=W/2-(chipW*2+chipGap)/2;
+  proofChips.forEach((chip,i)=>{
+    const cx=chipStartX+i*(chipW+chipGap),cy=730;
+    rrect(cx,cy,chipW,chipH,14);
+    ctx.fillStyle=i===0?rgba(P.green,.12):rgba(P.warmGray,.1);ctx.fill();
+    ctx.strokeStyle=i===0?P.sage:rgba(P.warmGray,.3);ctx.lineWidth=i===0?2:1.5;ctx.stroke();
+    ctx.fillStyle=chip.color;ctx.font='700 36px Lato';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+    ctx.fillText(chip.value,cx+chipW/2,cy+66);
+    ctx.fillStyle=rgba(P.nearBlk,.5);ctx.font='300 18px Lato';
+    ctx.fillText(chip.label,cx+chipW/2,cy+96);
+  });
+
+  // Delta arrow
+  ctx.fillStyle=P.sage;ctx.font='700 28px Lato';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('↑ 3× difference',W/2,910);
+
+  // Insight
+  ctx.fillStyle=rgba(P.green,.75);ctx.font='italic 300 36px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='alphabetic';
+  ctx.fillText('"The habit precedes the wealth."',W/2,976);
+
+  // Additional support lines
+  ctx.fillStyle=rgba(P.warmGray,.6);ctx.font='300 22px Lato';
+  ctx.textAlign='center';ctx.textBaseline='alphabetic';
+  ctx.fillText('Start your ledger today. Watch it change',W/2,1026);
+  ctx.fillText('how you think about money.',W/2,1060);
+
+  // CTA
+  const pw=380,ph=68,ppx=W/2-pw/2,ppy=1110;
+  rrect(ppx,ppy,pw,ph,34);
+  ctx.fillStyle=P.green;ctx.fill();
+  ctx.fillStyle=P.white;ctx.font='700 26px Lato';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.letterSpacing='0.04em';
+  ctx.fillText('Start Tracking  →',W/2,ppy+ph/2);
+  ctx.letterSpacing='0em';
+
+  ctx.fillStyle=rgba(P.warmGray,.72);ctx.font='300 17px Lato';ctx.textAlign='center';ctx.textBaseline='alphabetic';
+  ctx.fillText('financial ledger  ·  net worth tracker  ·  free tool',W/2,1260);
+
+  drawFooter();
+}
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='financial-ledger-20-myth-buster-misconception-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

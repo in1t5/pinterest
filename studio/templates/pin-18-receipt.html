@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 18 — Monthly Budget Receipt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="pins.css" />
+<link rel="stylesheet" href="pins-fresh-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-18">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Monthly Budget Calculator</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      What a month <em>actually</em><br>
+      costs us — line by line.
+    </h1>
+
+    <div class="receipt">
+      <div class="r-head">
+        <div class="biz">TIME &amp; MONEYTREE</div>
+        <div class="sub">April 2025 · Family of 5 · No. 047</div>
+      </div>
+
+      <div class="r-section">Needs</div>
+      <div class="r-row"><span class="lbl">Mortgage</span><span class="dots"></span><span class="amt">€780.00</span></div>
+      <div class="r-row"><span class="lbl">Groceries</span><span class="dots"></span><span class="amt">€420.00</span></div>
+      <div class="r-row"><span class="lbl">Utilities</span><span class="dots"></span><span class="amt">€140.00</span></div>
+      <div class="r-row"><span class="lbl">Transport</span><span class="dots"></span><span class="amt">€90.00</span></div>
+      <div class="r-row"><span class="lbl">Insurance</span><span class="dots"></span><span class="amt">€115.00</span></div>
+
+      <div class="r-section">Wants</div>
+      <div class="r-row"><span class="lbl">Coffee + dining</span><span class="dots"></span><span class="amt">€95.00</span></div>
+      <div class="r-row"><span class="lbl">Kids' activities</span><span class="dots"></span><span class="amt">€180.00</span></div>
+      <div class="r-row"><span class="lbl">Subscriptions</span><span class="dots"></span><span class="amt">€38.00</span></div>
+
+      <div class="r-section">Future</div>
+      <div class="r-row"><span class="lbl">ETF transfer</span><span class="dots"></span><span class="amt">€420.00</span></div>
+      <div class="r-row"><span class="lbl">Buffer fund</span><span class="dots"></span><span class="amt">€62.00</span></div>
+
+      <div class="r-total">
+        <span class="lbl">Total</span>
+        <span class="amt">€2,340</span>
+      </div>
+
+      <div class="r-foot">
+        ── thank you for spending honestly ──
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Print your month →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

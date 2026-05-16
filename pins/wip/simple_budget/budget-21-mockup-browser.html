@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Monthly Budget Calculator Preview · Simple Budget Calculator · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 21 · Mockup Browser Desktop · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // White background
+  ctx.fillStyle=P.white;
+  ctx.fillRect(0,0,W,1395);
+
+  // Top header
+  ctx.fillStyle=P.green;
+  ctx.fillRect(0,0,W,136);
+
+  ctx.fillStyle=P.sagePale;ctx.font='700 18px Lato';ctx.letterSpacing='0.16em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('FREE TOOL',W/2,20);ctx.letterSpacing='0em';
+
+  ctx.fillStyle=P.white;ctx.font='700 42px Lato';ctx.letterSpacing='0.04em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('MONTHLY BUDGET CALCULATOR',W/2,56);ctx.letterSpacing='0em';
+
+  ctx.fillStyle=rgba(P.sagePale,.8);ctx.font='300 22px Lato';ctx.letterSpacing='0em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('Organized. Tracked. Free.',W/2,108);
+
+  // Browser chrome mockup
+  const brX=80,brY=150,brW=840;
+  const barH=54;
+  const screenH=680;
+
+  // Outer browser shadow
+  ctx.save();
+  ctx.shadowColor='rgba(0,0,0,0.18)';ctx.shadowBlur=32;ctx.shadowOffsetY=10;
+  ctx.fillStyle=P.green;
+  rrect(brX,brY,brW,barH+screenH,12);ctx.fill();
+  ctx.restore();
+
+  // Browser bar
+  ctx.fillStyle=P.green;
+  rrect(brX,brY,brW,barH+screenH,12);ctx.fill();
+
+  // Square off bottom corners of bar
+  ctx.fillRect(brX,brY+barH-12,brW,12);
+
+  // Browser dots
+  const dotY=brY+barH/2;
+  [{c:'#FF5F56',x:brX+22},{c:'#FFBD2E',x:brX+46},{c:'#27C93F',x:brX+70}].forEach(d=>{
+    ctx.beginPath();ctx.arc(d.x,dotY,9,0,Math.PI*2);ctx.fillStyle=d.c;ctx.fill();
+  });
+
+  // Address bar
+  ctx.fillStyle=rgba(P.white,.18);
+  rrect(brX+100,brY+10,brW-200,34,5);ctx.fill();
+  ctx.fillStyle=P.cream;ctx.font='400 18px Lato';ctx.letterSpacing='0em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('Time And Money Tree — Budget Calculator',brX+100+(brW-200)/2,brY+27);
+
+  // Screen area
+  ctx.fillStyle=P.white;
+  ctx.fillRect(brX,brY+barH,brW,screenH);
+
+  // Screen header
+  ctx.fillStyle=P.sageFaint;
+  ctx.fillRect(brX,brY+barH,brW,56);
+  ctx.fillStyle=P.green;ctx.font='700 26px Lato';ctx.letterSpacing='0.05em';
+  ctx.textAlign='left';ctx.textBaseline='middle';
+  ctx.fillText('Monthly Budget — May 2026',brX+24,brY+barH+28);ctx.letterSpacing='0em';
+
+  // Table header row
+  const tableY=brY+barH+56;
+  const cols=[
+    {label:'Category',x:brX+20,w:220},
+    {label:'Budget',x:brX+240,w:170},
+    {label:'Actual',x:brX+410,w:170},
+    {label:'Variance',x:brX+580,w:200},
+  ];
+  ctx.fillStyle=rgba(P.nearBlk,.06);
+  ctx.fillRect(brX,tableY,brW,48);
+  cols.forEach(col=>{
+    ctx.fillStyle=P.nearBlk;ctx.font='700 22px Lato';ctx.letterSpacing='0em';
+    ctx.textAlign='left';ctx.textBaseline='middle';
+    ctx.fillText(col.label,col.x,tableY+24);
+  });
+
+  // Table rows
+  const rows=[
+    {cat:'Housing',budget:'$1,500',actual:'$1,400',variance:'+$100',bg:P.white,varColor:P.green,bold:false},
+    {cat:'Food',budget:'$700',actual:'$620',variance:'+$80',bg:P.sageFaint,varColor:P.green,bold:false},
+    {cat:'Transport',budget:'$300',actual:'$290',variance:'+$10',bg:P.white,varColor:P.green,bold:false},
+    {cat:'Savings',budget:'$800',actual:'$880',variance:'+$80 ↑',bg:P.sagePale,varColor:P.green,bold:true},
+    {cat:'Entertainment',budget:'$400',actual:'$362',variance:'+$38',bg:P.white,varColor:P.green,bold:false},
+    {cat:'Misc',budget:'$200',actual:'$176',variance:'+$24',bg:P.sageFaint,varColor:P.green,bold:false},
+  ];
+
+  const rowH=60;
+  rows.forEach((row,i)=>{
+    const ry=tableY+48+i*rowH;
+    ctx.fillStyle=row.bg;
+    ctx.fillRect(brX,ry,brW,rowH);
+
+    // Divider
+    ctx.strokeStyle=rgba(P.sage,.3);ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(brX,ry+rowH);ctx.lineTo(brX+brW,ry+rowH);ctx.stroke();
+
+    const textY=ry+rowH/2;
+    ctx.fillStyle=row.bold?P.green:P.nearBlk;
+    ctx.font=row.bold?'700 22px Lato':'400 22px Lato';ctx.letterSpacing='0em';
+    ctx.textAlign='left';ctx.textBaseline='middle';
+    ctx.fillText(row.cat,brX+20,textY);
+    ctx.fillText(row.budget,brX+240,textY);
+    ctx.fillText(row.actual,brX+410,textY);
+    ctx.fillStyle=row.varColor;
+    ctx.font=row.bold?'700 22px Lato':'400 22px Lato';
+    ctx.fillText(row.variance,brX+580,textY);
+  });
+
+  // Sage divider
+  ctx.fillStyle=P.sage;
+  ctx.fillRect(brX,tableY+48+rows.length*rowH,brW,2);
+
+  // Progress bar area
+  const pbY=tableY+48+rows.length*rowH+12;
+  ctx.fillStyle=P.nearBlk;ctx.font='700 22px Lato';ctx.letterSpacing='0em';
+  ctx.textAlign='left';ctx.textBaseline='top';
+  ctx.fillText('Savings Rate: 24%',brX+20,pbY+8);
+
+  const pbBg={x:brX+20,y:pbY+44,w:brW-40,h:26,r:13};
+  ctx.fillStyle=P.sageFaint;
+  rrect(pbBg.x,pbBg.y,pbBg.w,pbBg.h,pbBg.r);ctx.fill();
+  ctx.fillStyle=P.green;
+  rrect(pbBg.x,pbBg.y,pbBg.w*0.24,pbBg.h,pbBg.r);ctx.fill();
+
+  // CTA
+  const ctaY=brY+barH+screenH+36;
+  ctx.fillStyle=P.green;
+  rrect(W/2-220,ctaY,440,88,44);ctx.fill();
+  ctx.fillStyle=P.white;ctx.font='700 28px Lato';ctx.letterSpacing='0.06em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('Open Your Budget  →',W/2,ctaY+44);ctx.letterSpacing='0em';
+
+  // Tag
+  ctx.fillStyle=P.warmGray;ctx.font='300 20px Lato';ctx.letterSpacing='0em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('budget calculator · free · timeandmoneytree.com',W/2,ctaY+108);
+
+  drawFooter();
+}
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='budget-21-mockup-browser-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

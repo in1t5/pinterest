@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 98 — Question + Metric Hero (navy)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="pins.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #1e2428; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+
+  /* ── Pin 98 — Question + metric hero on navy ─────────────────────────────── */
+  .pin-98 {
+    background: var(--blue-dark);
+    color: var(--cream);
+  }
+
+  /* Subtle grid */
+  .pin-98 .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,238,237,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,238,237,0.04) 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: -1px -1px;
+    pointer-events: none;
+  }
+
+  /* Horizon line */
+  .pin-98 .horizon {
+    position: absolute;
+    bottom: 380px;
+    left: 0; right: 0;
+    height: 1px;
+    background: rgba(193,213,165,0.20);
+  }
+
+  /* Top bar */
+  .pin-98 .top {
+    position: absolute;
+    top: 70px; left: 70px; right: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pin-98 .top .eyebrow { color: var(--cyan); }
+  .pin-98 .top .tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--green-light);
+  }
+
+  /* Question hook */
+  .pin-98 .question {
+    position: absolute;
+    top: 180px; left: 70px; right: 70px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 52px;
+    line-height: 1.12;
+    color: var(--green-light);
+  }
+
+  /* Main metric — reduced from pin-5's 600px to 200px */
+  .pin-98 .big-num {
+    position: absolute;
+    top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 200px;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+    z-index: 2;
+  }
+  /* Currency symbol / prefix — can italic + colour */
+  .pin-98 .big-num .prefix {
+    font-style: italic;
+    color: var(--cyan);
+    letter-spacing: 0;
+  }
+
+  /* Metric label */
+  .pin-98 .answer-label {
+    position: absolute;
+    top: 590px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    z-index: 2;
+  }
+
+  /* 3-column inputs */
+  .pin-98 .inputs-row {
+    position: absolute;
+    top: 660px;
+    left: 70px; right: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+  }
+  .pin-98 .input-cell {
+    background: rgba(245,238,237,0.06);
+    border: 1px solid rgba(193,213,165,0.25);
+    border-radius: 10px;
+    padding: 20px 20px;
+  }
+  .pin-98 .input-cell .lbl {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-light);
+  }
+  .pin-98 .input-cell .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-top: 6px;
+    line-height: 1;
+  }
+  .pin-98 .input-cell .val sup {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green-light);
+    letter-spacing: 0.06em;
+    margin-left: 2px;
+  }
+
+  /* Body copy */
+  .pin-98 .deck {
+    position: absolute;
+    bottom: 210px;
+    left: 70px; right: 70px;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: rgba(245,238,237,0.85);
+  }
+
+  /* Footer */
+  .pin-98 .footer { color: var(--cream); }
+  .pin-98 .footer-brand .name { color: var(--cream); }
+  .pin-98 .footer-brand .url { color: var(--green-light); }
+  .pin-98 .cta-pill {
+    background: var(--cyan);
+    color: var(--blue-deep);
+    font-weight: 900;
+    font-size: 19px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border-radius: 100px;
+  }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-98">
+    <div class="grid-bg"></div>
+    <div class="horizon"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Coast FIRE Calculator · Free</span>
+      </span>
+      <span class="tag">— your number, in 60 seconds —</span>
+    </div>
+
+    <div class="question">
+      Could you stop saving forever —<br>
+      starting today?
+    </div>
+
+    <div class="big-num"><span class="prefix">€</span>186K</div>
+    <div class="answer-label">Your Coast FI Number</div>
+
+    <div class="inputs-row">
+      <div class="input-cell">
+        <div class="lbl">Monthly spend</div>
+        <div class="val">€2,100<sup>/mo</sup></div>
+      </div>
+      <div class="input-cell">
+        <div class="lbl">Age today</div>
+        <div class="val">Age 34</div>
+      </div>
+      <div class="input-cell">
+        <div class="lbl">Retire at</div>
+        <div class="val">Age 65</div>
+      </div>
+    </div>
+
+    <div class="deck">
+      Hit €186K once — then stop. At 7% annual growth, that single pot
+      compounds to your full FI target by 65 without another euro of
+      contributions. Coast FIRE: the permission to ease off.
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Find your Coast number →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

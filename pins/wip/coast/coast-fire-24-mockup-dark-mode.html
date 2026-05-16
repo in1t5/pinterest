@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coast FIRE Calculator — Dark Mode Preview · Coast FIRE · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">coast-fire-24 · Dark Mode Preview · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',
+};
+
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png';}
+
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+}
+
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Near-black bg
+  ctx.fillStyle=P.nearBlk;ctx.fillRect(0,0,W,1395);
+
+  // Script accent
+  ctx.fillStyle=P.sagePale;ctx.font='400 90px "Pinyon Script"';ctx.textBaseline='top';ctx.letterSpacing='0em';
+  ctx.fillText('compound interest does the work',76,62);
+
+  // Headline
+  ctx.fillStyle=P.cream;ctx.font='300 110px "Cormorant Garamond"';ctx.letterSpacing='-0.02em';ctx.textBaseline='top';
+  ctx.fillText('Coast FIRE',76,168);
+  ctx.fillStyle=P.sagePale;ctx.font='italic 300 80px "Cormorant Garamond"';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('Dark Mode',76,290);
+
+  // Dark browser mockup
+  const bfx=60,bfy=402,bfw=880,bfh=830;
+  ctx.save();ctx.shadowColor='rgba(0,0,0,0.60)';ctx.shadowBlur=80;ctx.shadowOffsetY=36;
+  rrect(bfx,bfy,bfw,bfh,16);ctx.fillStyle='#1a2420';ctx.fill();ctx.restore();
+
+  // Chrome bar dark
+  ctx.fillStyle='#111d17';ctx.fillRect(bfx,bfy,bfw,50);
+  [{c:P.coral,x:88},{c:P.sage,x:110},{c:P.green,x:132}].forEach(d=>{
+    ctx.beginPath();ctx.arc(d.x,bfy+25,8,0,Math.PI*2);ctx.fillStyle=d.c;ctx.fill();
+  });
+  // URL bar
+  rrect(152,bfy+13,400,24,12);ctx.fillStyle='#0e1812';ctx.fill();
+  ctx.fillStyle='#557060';ctx.font='400 12px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';
+  ctx.fillText('timeandmoneytree.com',162,bfy+25);
+
+  // Content area
+  const cx=bfx,cy=bfy+50,cw=bfw,ch=bfh-50;
+  ctx.fillStyle='#1a2420';ctx.fillRect(cx,cy,cw,ch);
+
+  // App header dark
+  ctx.fillStyle='#2a3c32';ctx.fillRect(cx,cy,cw,50);
+  ctx.fillStyle=P.sagePale;ctx.font='700 17px Lato';ctx.letterSpacing='0.04em';ctx.textBaseline='middle';ctx.textAlign='center';
+  ctx.fillText('Coast FIRE Calculator',cx+cw/2,cy+25);ctx.textAlign='left';
+
+  // Inputs dark
+  const inputs=[
+    {l:'CURRENT AGE',v:'30'},{l:'RETIREMENT AGE',v:'62'},
+    {l:'ANNUAL EXPENSES',v:'$45,000'},{l:'CURRENT PORTFOLIO',v:'$87,000'}
+  ];
+  const igx=cx+32,igy=cy+68,igw=(cw-88)/2,igh=68,igGap=10;
+  inputs.forEach((inp,i)=>{
+    const col=i%2,row=Math.floor(i/2);
+    const ix=igx+col*(igw+igGap),iy=igy+row*(igh+8);
+    rrect(ix,iy,igw,igh,8);ctx.fillStyle='#0f1a14';ctx.fill();
+    ctx.fillStyle=P.sagePale;ctx.font='700 11px Lato';ctx.letterSpacing='0.08em';ctx.textBaseline='top';
+    ctx.fillText(inp.l,ix+12,iy+8);
+    ctx.fillStyle=P.cream;ctx.font='300 34px "Cormorant Garamond"';ctx.letterSpacing='-0.01em';ctx.textBaseline='top';
+    ctx.fillText(inp.v,ix+12,iy+24);
+  });
+
+  // Divider
+  const divY=cy+230;
+  ctx.strokeStyle='#2a3c32';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(cx+30,divY);ctx.lineTo(cx+cw-30,divY);ctx.stroke();
+
+  // Result with glow
+  ctx.fillStyle=P.sagePale;ctx.font='700 13px Lato';ctx.letterSpacing='0.12em';ctx.textBaseline='top';
+  ctx.fillText('COAST FIRE NUMBER',cx+32,divY+14);
+
+  ctx.save();
+  ctx.shadowColor=P.sagePale;ctx.shadowBlur=20;
+  ctx.fillStyle=P.cream;ctx.font='300 80px "Cormorant Garamond"';ctx.letterSpacing='-0.02em';ctx.textBaseline='top';
+  ctx.fillText('$207,000',cx+32,divY+34);
+  ctx.restore();
+
+  ctx.fillStyle=P.sage;ctx.font='400 17px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';
+  ctx.fillText('✓  Reach at age 33',cx+32,divY+122);
+
+  // Timeline arc
+  const arcCX=cx+cw/2,arcCY=divY+250,arcR=120;
+  ctx.save();
+  ctx.shadowColor=P.sagePale;ctx.shadowBlur=15;
+  ctx.beginPath();ctx.arc(arcCX,arcCY,arcR,Math.PI,2*Math.PI);
+  ctx.strokeStyle=P.sage;ctx.lineWidth=4;ctx.stroke();
+  ctx.restore();
+
+  // Age labels on arc
+  ctx.fillStyle=P.sagePale;ctx.font='700 14px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';
+  ctx.fillText('30',arcCX-arcR-20,arcCY);
+  ctx.fillText('38',arcCX-10,arcCY-arcR-14);
+  ctx.fillText('62',arcCX+arcR+8,arcCY);
+
+  // Label
+  ctx.fillStyle=rgba(P.cream,.6);ctx.font='300 26px Lato';ctx.letterSpacing='0em';ctx.textBaseline='top';ctx.textAlign='center';
+  ctx.fillText('Premium calculator experience — free',W/2,1274);ctx.textAlign='left';
+
+  // CTA
+  const ctaW=380,ctaH=68,ctaX=(W-ctaW)/2,ctaY=1306;
+  rrect(ctaX,ctaY,ctaW,ctaH,34);ctx.fillStyle=P.sagePale;ctx.fill();
+  ctx.fillStyle=P.greenDk;ctx.font='700 22px Lato';ctx.letterSpacing='0.04em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('Try Dark Mode Free →',ctaX+ctaW/2,ctaY+ctaH/2);ctx.textAlign='left';
+
+  ctx.textBaseline='alphabetic';ctx.letterSpacing='0em';
+  drawFooter();
+}
+
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='coast-fire-24-mockup-dark-mode-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>

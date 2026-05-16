@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>What Does a 97% Retirement Success Rate Actually Mean? · Flamingo FIRE Calculator · 1000×1500</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lato:wght@300;400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0e0e0c;display:flex;flex-direction:column;align-items:center;padding:36px 20px 64px;font-family:Lato,sans-serif}
+  .hdr{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#3a3a38;margin-bottom:22px}
+  canvas{display:block;border-radius:8px;box-shadow:0 28px 80px rgba(0,0,0,.7)}
+  .ctrl{margin-top:18px}
+  .btn{background:#47584F;color:#F5EEED;border:none;padding:10px 24px;border-radius:6px;cursor:pointer;font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase}
+  .btn:hover{background:#84A17C}
+</style>
+</head>
+<body>
+<p class="hdr">PIN 30 · Educational — What Your Number Means · 1000×1500 px</p>
+<canvas id="c" width="1000" height="1500"></canvas>
+<div class="ctrl"><button class="btn" id="bSave">⬇ Save PNG</button></div>
+<script>
+'use strict';
+const W=1000,H=1500;
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const P={
+  green:'#47584F',greenDk:'#3B4B42',
+  sage:'#84A17C',sagePale:'#C1D5A5',sageFaint:'#EAEDCE',
+  cream:'#F5EEED',nearBlk:'#1A1A18',warmGray:'#6E686A',
+  white:'#FFFFFF',coral:'#F1683F',navy:'#3A5477',cornflower:'#5192C6',
+};
+function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return `rgba(${r},${g},${b},${a})`;}
+function rrect(x,y,w,h,r){
+  if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,r);}
+  else{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+}
+function wrapText(text,x,y,maxWidth,lineHeight){
+  const words=text.split(' ');let line='';
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    if(ctx.measureText(test).width>maxWidth&&n>0){ctx.fillText(line,x,y);line=words[n]+' ';y+=lineHeight;}
+    else line=test;
+  }
+  ctx.fillText(line,x,y);return y;
+}
+let logo=null;
+{const i=new Image();i.onload=()=>{logo=i;render();};i.onerror=()=>render();i.src='../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png';}
+function drawFooter(){
+  ctx.fillStyle=P.greenDk;ctx.fillRect(0,1395,W,105);
+  const midY=1447;
+  if(logo){const sz=66;ctx.save();ctx.beginPath();ctx.arc(88+sz/2,midY,sz/2,0,Math.PI*2);ctx.clip();ctx.drawImage(logo,88,midY-sz/2,sz,sz);ctx.restore();}
+  else{ctx.beginPath();ctx.arc(121,midY,33,0,Math.PI*2);ctx.fillStyle=P.green;ctx.fill();}
+  ctx.fillStyle=P.white;ctx.font='700 25px Lato';ctx.letterSpacing='0em';ctx.textBaseline='middle';ctx.textAlign='left';
+  ctx.fillText('Try it free — no sign-up',174,midY-15);
+  ctx.fillStyle=P.sagePale;ctx.font='700 16px Lato';ctx.letterSpacing='0.10em';
+  ctx.fillText('TIMEANDMONEYTREE.COM',174,midY+15);
+  const bw=210,bh=50,bx=W-88-bw,by=midY-bh/2;
+  rrect(bx,by,bw,bh,26);ctx.strokeStyle=rgba(P.sagePale,.65);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.white;ctx.font='700 21px Lato';ctx.letterSpacing='0.06em';
+  ctx.textBaseline='middle';ctx.textAlign='center';ctx.fillText('CALCULATE  →',bx+bw/2,midY);ctx.textAlign='left';
+  ctx.letterSpacing='0em';
+}
+function render(){
+  ctx.clearRect(0,0,W,H);
+
+  // Forest green background
+  ctx.fillStyle=P.green;
+  ctx.fillRect(0,0,W,1395);
+
+  // Subtle gradient overlay for depth
+  const bgGrd=ctx.createRadialGradient(W/2,600,0,W/2,600,700);
+  bgGrd.addColorStop(0,rgba(P.sagePale,0.07));
+  bgGrd.addColorStop(1,'transparent');
+  ctx.fillStyle=bgGrd;
+  ctx.fillRect(0,0,W,1395);
+
+  // Watermark "97%" — very low alpha
+  ctx.save();
+  ctx.globalAlpha=0.08;
+  ctx.fillStyle=P.sagePale;
+  ctx.font='300 280px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('97%',W/2,720);
+  ctx.restore();
+
+  // Top — Cormorant italic pale sage "what does"
+  ctx.fillStyle=P.sagePale;
+  ctx.font='italic 300 52px "Cormorant Garamond"';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('what does',W/2,46);
+
+  // Cream bold Lato "97% MEAN?"
+  ctx.fillStyle=P.cream;
+  ctx.font='700 96px Lato';ctx.letterSpacing='-0.02em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('97% MEAN?',W/2,108);
+  ctx.letterSpacing='0em';
+
+  ctx.fillStyle=rgba(P.sagePale,0.6);
+  ctx.font='700 14px Lato';ctx.letterSpacing='0.18em';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('RETIREMENT SUCCESS RATE EXPLAINED',W/2,222);
+  ctx.letterSpacing='0em';
+
+  // 3 cream rounded cards
+  const cardData=[
+    {
+      label:'IT MEANS',
+      body:'Portfolio survived 97 out of 100 historical market scenarios tested across 40 years.'
+    },
+    {
+      label:'IT MEANS',
+      body:'40-year horizon tested across boom and bust cycles — recessions, crashes, recoveries.'
+    },
+    {
+      label:'IT MEANS',
+      body:'3% risk of depletion — rare, and mitigated by dynamic withdrawal adjustments.'
+    },
+  ];
+
+  const cardX=72,cardW=856,cardH=232,cardGap=22;
+  let cy=268;
+  cardData.forEach((card,i)=>{
+    // Card shadow
+    ctx.fillStyle=rgba(P.greenDk,0.5);
+    rrect(cardX+4,cy+4,cardW,cardH,18);ctx.fill();
+
+    // Card background — cream
+    ctx.fillStyle=P.cream;
+    rrect(cardX,cy,cardW,cardH,18);ctx.fill();
+
+    // Left accent bar — greenDk
+    ctx.fillStyle=P.greenDk;
+    rrect(cardX,cy,8,cardH,4);ctx.fill();
+
+    // "IT MEANS" label — small warmGray
+    ctx.fillStyle=P.warmGray;
+    ctx.font='700 13px Lato';ctx.letterSpacing='0.14em';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText(card.label,cardX+32,cy+24);
+    ctx.letterSpacing='0em';
+
+    // Body text with wrap
+    ctx.fillStyle=P.nearBlk;
+    ctx.font='400 26px Lato';ctx.letterSpacing='0em';
+    ctx.textBaseline='top';
+    wrapText(card.body,cardX+32,cy+62,cardW-64,40);
+
+    cy+=cardH+cardGap;
+  });
+
+  // Pale sage bottom insight strip
+  const stripY=cy+14,stripH=80;
+  ctx.fillStyle=P.sagePale;
+  rrect(72,stripY,856,stripH,18);ctx.fill();
+  ctx.fillStyle=P.greenDk;
+  ctx.font='400 23px Lato';ctx.letterSpacing='0em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  wrapText('A 90%+ success rate is considered retirement-confident. Yours: 97%.',84,stripY+22,844,32);
+
+  // CTA pill — cream stroke, cream text (on forest green bg)
+  const ctaW=420,ctaH=72,ctaX=(W-ctaW)/2,ctaY=1256;
+  rrect(ctaX,ctaY,ctaW,ctaH,36);
+  ctx.strokeStyle=rgba(P.cream,0.75);ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle=P.cream;ctx.font='700 25px Lato';ctx.letterSpacing='0.06em';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('Find Your Success Rate  →',W/2,ctaY+ctaH/2);
+  ctx.letterSpacing='0em';
+
+  // URL
+  ctx.fillStyle=rgba(P.cream,0.35);
+  ctx.font='300 18px Lato';
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('timeandmoneytree.com',W/2,1358);
+
+  drawFooter();
+}
+function fitCanvas(){
+  const scale=Math.min(1,(window.innerHeight-140)/1500,(window.innerWidth-40)/1000);
+  canvas.style.width=Math.round(1000*scale)+'px';
+  canvas.style.height=Math.round(1500*scale)+'px';
+}
+fitCanvas();
+window.addEventListener('resize',fitCanvas);
+document.getElementById('bSave').addEventListener('click',()=>{
+  const a=document.createElement('a');a.download='flamingo-fire-30-educational-what-number-means-1000x1500.png';
+  a.href=canvas.toDataURL('image/png');a.click();
+});
+document.fonts.ready.then(()=>{
+  ctx.font='400 1px "Pinyon Script"';ctx.fillText('',0,0);
+  ctx.font='300 1px "Cormorant Garamond"';ctx.fillText('',0,0);
+  render();
+});
+</script>
+</body>
+</html>
