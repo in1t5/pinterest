@@ -299,7 +299,7 @@
 .pin-11 .top .eyebrow { color: var(--green-forest); }
 .pin-11 .headline {
   position: absolute;
-  top: 140px; left: 70px; right: 70px;
+  top: 160px; left: 70px; right: 70px;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   font-size: 80px;
@@ -313,7 +313,7 @@
 }
 .pin-11 .deck {
   position: absolute;
-  top: 350px; left: 70px;
+  top: 390px; left: 70px;
   max-width: 540px;
   font-size: 22px;
   color: var(--warm-gray);
@@ -323,7 +323,7 @@
 .pin-11 .compare {
   position: absolute;
   left: 70px; right: 70px;
-  top: 470px;
+  top: 530px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
@@ -407,7 +407,7 @@
 .pin-11 .verdict {
   position: absolute;
   left: 70px; right: 70px;
-  top: 1060px;
+  top: 1120px;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 300;
@@ -480,8 +480,8 @@
 /* big number floating on top of the sage block */
 .pin-12 .sage-num {
   position: absolute;
-  top: 200px;
-  right: 70px;
+  top: 260px;
+  right: 60px;
   text-align: right;
   z-index: 3;
 }
@@ -489,18 +489,20 @@
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--cream);
+  white-space: nowrap;
+  margin-left: auto;
 }
 .pin-12 .sage-num .val {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
-  font-size: 200px;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
+  font-size: 120px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
   color: var(--cream);
-  margin-top: 14px;
+  margin-top: 12px;
 }
 .pin-12 .sage-num .sub {
   font-family: 'Cormorant Garamond', serif;
@@ -508,7 +510,9 @@
   font-weight: 300;
   font-size: 22px;
   color: rgba(245,238,237,0.9);
-  margin-top: 12px;
+  margin-top: 22px;
+  white-space: nowrap;
+  margin-left: auto;
 }
 
 .pin-12 .breakdown {
