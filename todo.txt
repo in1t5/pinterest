@@ -1,6 +1,3 @@
-Check Pinterest PIN Templates-handoff.zip and extract templates 25-32 as new templates for our templates folder.
-
-01_to_be_released/batch_1/barista-fire-01-direct-utility-hero-refresh-1000x1500.png: Add "Age" to the age numbers.
 
 01_to_be_released/batch_1/barista-fire-03-direct-utility-timeline-refresh.html: The age numbers below phases are not in line with the correct switch from phase to phase. They are a bit shifted horizontally.
 
@@ -35,3 +32,8 @@ I deleted some initial pins (html and png). Rename all remaining refresh Pins wh
 
 Is it ensured that we have all templates in our templates folder or do we actually have PINs created which do not have a template counterpart in the templates folder?
 
+
+
+I do not like the structure of the repo. 
+I want a clear separation of scripts, designs etc and the pin data itself.
+ideas?

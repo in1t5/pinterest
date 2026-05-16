@@ -1,0 +1,616 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Pinterest Pin Templates — Pins 29–32
+   Type Specimen · Polaroids · Topographic Map · Notebook
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 29 — Type Specimen Poster
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-29 { background: var(--cream); }
+.pin-29 .top-rule {
+  position: absolute;
+  top: 60px; left: 70px; right: 70px;
+  border-top: 6px solid var(--green-deep);
+  border-bottom: 1px solid var(--green-deep);
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+}
+.pin-29 .top-rule .center {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--green-forest);
+}
+
+.pin-29 .glyph {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 880px;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: var(--green-deep);
+}
+
+.pin-29 .corners {
+  position: absolute;
+  top: 200px; left: 80px; right: 80px;
+  height: 660px;
+  pointer-events: none;
+}
+.pin-29 .corners .c {
+  position: absolute;
+  width: 26px; height: 26px;
+  border: 1.5px solid var(--orange);
+}
+.pin-29 .corners .tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.pin-29 .corners .tr { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+.pin-29 .corners .bl { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+.pin-29 .corners .br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+.pin-29 .center-label {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 940px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.pin-29 .headline {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 980px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-29 .headline em {
+  font-style: italic;
+  color: var(--green-forest);
+  font-weight: 300;
+}
+
+.pin-29 .scale {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid var(--green-forest);
+  padding-top: 14px;
+}
+.pin-29 .scale span {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--green-forest);
+}
+.pin-29 .scale .s1 { font-size: 14px; }
+.pin-29 .scale .s2 { font-size: 22px; }
+.pin-29 .scale .s3 { font-size: 32px; }
+.pin-29 .scale .s4 { font-size: 46px; font-style: italic; color: var(--orange); }
+.pin-29 .scale .s5 { font-size: 18px; }
+
+.pin-29 .footer {
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 24px 70px;
+}
+.pin-29 .footer-brand .name { color: var(--cream); }
+.pin-29 .footer-brand .url { color: var(--green-light); }
+.pin-29 .cta-pill {
+  background: var(--orange);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 30 — Polaroids · Years arranged like photos on a page
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-30 { background: #f0e8d6; }
+.pin-30 .canvas-grain {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(110,104,106,0.07), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(110,104,106,0.05), transparent 50%);
+  pointer-events: none;
+}
+.pin-30 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pin-30 .top .eyebrow { color: var(--green-forest); }
+.pin-30 .top .tag {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 38px;
+  color: var(--green-forest);
+  line-height: 1;
+  transform: rotate(-4deg);
+  transform-origin: top right;
+}
+.pin-30 .headline {
+  position: absolute;
+  top: 150px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 72px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+  max-width: 760px;
+}
+.pin-30 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-30 .album {
+  position: absolute;
+  left: 60px; right: 60px;
+  top: 500px;
+  height: 700px;
+}
+.pin-30 .polaroid {
+  position: absolute;
+  width: 280px;
+  background: #fbf6f3;
+  padding: 14px 14px 56px;
+  box-shadow: 0 14px 30px rgba(58,84,119,0.18);
+  font-family: 'Pinyon Script', cursive;
+}
+.pin-30 .polaroid .photo {
+  width: 100%; height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--cream);
+  position: relative;
+}
+.pin-30 .polaroid .photo .y {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.pin-30 .polaroid .photo .v {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  margin-top: 4px;
+  display: block;
+}
+.pin-30 .polaroid .caption {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 34px;
+  color: var(--green-forest);
+  position: absolute;
+  bottom: 8px; left: 0; right: 0;
+  text-align: center;
+  line-height: 1;
+}
+.pin-30 .polaroid .tape {
+  position: absolute;
+  width: 70px; height: 22px;
+  background: rgba(241,104,63,0.55);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pin-30 .p1 {
+  top: 0; left: 0;
+  transform: rotate(-6deg);
+}
+.pin-30 .p1 .photo { background: var(--green-pale); color: var(--green-forest); }
+.pin-30 .p2 {
+  top: 40px; left: 300px;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+.pin-30 .p2 .photo { background: var(--green-sage); }
+.pin-30 .p3 {
+  top: 20px; right: 0;
+  transform: rotate(-4deg);
+}
+.pin-30 .p3 .photo { background: var(--blue-dark); }
+.pin-30 .p4 {
+  top: 380px; left: 30px;
+  transform: rotate(4deg);
+  z-index: 3;
+}
+.pin-30 .p4 .photo { background: var(--orange); }
+.pin-30 .p5 {
+  top: 360px; right: 30px;
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+.pin-30 .p5 .photo { background: var(--green-forest); }
+
+.pin-30 .footer {
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 24px 70px;
+}
+.pin-30 .footer-brand .name { color: var(--cream); }
+.pin-30 .footer-brand .url { color: var(--green-light); }
+.pin-30 .cta-pill {
+  background: var(--cream);
+  color: var(--green-deep);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 31 — Topographic Map · A route to FI
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-31 { background: #ecdfd2; color: var(--green-deep); }
+.pin-31 .topo-bg {
+  position: absolute; inset: 0;
+}
+.pin-31 .topo-bg svg { width: 100%; height: 100%; }
+.pin-31 .top {
+  position: absolute;
+  top: 70px; left: 70px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+}
+.pin-31 .top .eyebrow { color: var(--green-forest); }
+.pin-31 .top .compass {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--green-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--green-forest);
+  background: rgba(245,238,237,0.5);
+}
+.pin-31 .headline {
+  position: absolute;
+  top: 150px; left: 70px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 80px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+  z-index: 2;
+}
+.pin-31 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-31 .legend {
+  position: absolute;
+  left: 70px;
+  top: 360px;
+  background: rgba(245,238,237,0.8);
+  border: 1px solid var(--green-forest);
+  padding: 18px 22px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--green-deep);
+  z-index: 3;
+  max-width: 280px;
+}
+.pin-31 .legend .lt {
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+  margin-bottom: 10px;
+}
+.pin-31 .legend .lr {
+  display: flex; align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.pin-31 .legend .lr .dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.pin-31 .legend .lr .dot.start { background: var(--green-pale); border: 2px solid var(--green-forest); }
+.pin-31 .legend .lr .dot.end { background: var(--green-forest); }
+.pin-31 .legend .lr .dot.mid { background: var(--orange); }
+
+/* Map waypoint labels */
+.pin-31 .waypoint {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  z-index: 3;
+}
+.pin-31 .waypoint .wp-name {
+  font-size: 22px;
+  color: var(--green-deep);
+  line-height: 1;
+}
+.pin-31 .waypoint .wp-val {
+  font-size: 16px;
+  color: var(--orange);
+  margin-top: 2px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.pin-31 .destination {
+  position: absolute;
+  right: 70px;
+  top: 1020px;
+  text-align: right;
+  z-index: 3;
+}
+.pin-31 .destination .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.pin-31 .destination .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--green-deep);
+  margin-top: 6px;
+}
+.pin-31 .destination .meta {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--green-forest);
+  margin-top: 6px;
+}
+
+.pin-31 .footer {
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 24px 70px;
+  z-index: 4;
+}
+.pin-31 .footer-brand .name { color: var(--cream); }
+.pin-31 .footer-brand .url { color: var(--green-light); }
+.pin-31 .cta-pill {
+  background: var(--orange);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 32 — Notebook · Handwritten margins + calculation
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-32 { background: #f7f1e6; }
+.pin-32 .notebook {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(81,146,198,0.18) 1px, transparent 1px);
+  background-size: 100% 44px;
+  background-position: 0 100px;
+  pointer-events: none;
+}
+.pin-32 .margin-line {
+  position: absolute;
+  left: 110px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(241,104,63,0.55);
+}
+.pin-32 .top {
+  position: absolute;
+  top: 60px; left: 140px; right: 70px;
+}
+.pin-32 .top .eyebrow { color: var(--green-forest); }
+.pin-32 .headline {
+  position: absolute;
+  top: 130px; left: 140px; right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 78px;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-32 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.pin-32 .work {
+  position: absolute;
+  top: 340px;
+  left: 140px;
+  right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--green-deep);
+}
+.pin-32 .step-line {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 28px;
+  padding: 8px 0;
+  height: 44px;
+  position: relative;
+}
+.pin-32 .step-line .kk {
+  flex: 0 0 auto;
+  font-weight: 400;
+  color: var(--green-deep);
+}
+.pin-32 .step-line .vv {
+  font-weight: 500;
+  font-style: italic;
+  color: var(--green-forest);
+}
+.pin-32 .step-line .annot {
+  margin-left: 24px;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 30px;
+  color: var(--orange);
+  transform: rotate(-3deg);
+  display: inline-block;
+  white-space: nowrap;
+  align-self: center;
+}
+.pin-32 .equation-line {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--green-deep);
+  margin: 6px 0 6px;
+  padding-bottom: 4px;
+  position: relative;
+}
+.pin-32 .equation-line .label {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 30px;
+  color: var(--green-deep);
+}
+.pin-32 .equation-line .arrow {
+  position: absolute;
+  right: 0;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 40px;
+  color: var(--orange);
+  transform: rotate(8deg);
+}
+
+.pin-32 .answer {
+  position: absolute;
+  left: 140px;
+  right: 70px;
+  top: 760px;
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding-bottom: 14px;
+}
+.pin-32 .answer .label {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 50px;
+  color: var(--green-forest);
+  transform: rotate(-3deg);
+  line-height: 1;
+}
+.pin-32 .answer .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 160px;
+  letter-spacing: -0.02em;
+  color: var(--orange);
+  line-height: 0.9;
+  position: relative;
+}
+.pin-32 .answer .val::after {
+  /* hand-drawn circle */
+  content: '';
+  position: absolute;
+  left: -28px; right: -28px;
+  top: 0; bottom: -8px;
+  border: 3px solid var(--orange);
+  border-radius: 50%;
+  transform: rotate(-2deg);
+  opacity: 0.7;
+}
+
+.pin-32 .scribble {
+  position: absolute;
+  left: 140px;
+  top: 1030px;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 40px;
+  color: var(--green-forest);
+  transform: rotate(-2deg);
+  line-height: 1.2;
+  max-width: 600px;
+}
+.pin-32 .scribble small {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 6px;
+  transform: rotate(2deg);
+}
+
+.pin-32 .footer {
+  background: transparent;
+  color: var(--green-deep);
+  border-top: 1.5px solid var(--green-forest);
+  padding: 22px 70px 22px 140px;
+}
+.pin-32 .footer-brand .name { color: var(--green-deep); }
+.pin-32 .footer-brand .url { color: var(--warm-gray); }
+.pin-32 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}

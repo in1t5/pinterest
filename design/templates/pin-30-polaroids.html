@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 30 — Polaroids</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="pins.css" />
+<link rel="stylesheet" href="pins-29-32.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-30">
+    <div class="canvas-grain"></div>
+    <div class="top">
+      <span class="eyebrow"><span class="dot"></span><span>Net Worth Tracker</span></span>
+      <div class="tag">our family album</div>
+    </div>
+
+    <h1 class="headline">
+      Eleven years.<br />
+      Five <em>snapshots.</em>
+    </h1>
+
+    <div class="album">
+      <div class="polaroid p1">
+        <div class="tape"></div>
+        <div class="photo">
+          <div>
+            <span class="y">2014</span>
+            <span class="v">€−8,200</span>
+          </div>
+        </div>
+        <div class="caption">starting honest</div>
+      </div>
+
+      <div class="polaroid p2">
+        <div class="tape"></div>
+        <div class="photo">
+          <div>
+            <span class="y">2018</span>
+            <span class="v">€38K</span>
+          </div>
+        </div>
+        <div class="caption">first six figures, eventually</div>
+      </div>
+
+      <div class="polaroid p3">
+        <div class="tape"></div>
+        <div class="photo">
+          <div>
+            <span class="y">2021</span>
+            <span class="v">€124K</span>
+          </div>
+        </div>
+        <div class="caption">mortgage halved</div>
+      </div>
+
+      <div class="polaroid p4">
+        <div class="tape"></div>
+        <div class="photo">
+          <div>
+            <span class="y">2024</span>
+            <span class="v">€296K</span>
+          </div>
+        </div>
+        <div class="caption">compounding showed up</div>
+      </div>
+
+      <div class="polaroid p5">
+        <div class="tape"></div>
+        <div class="photo">
+          <div>
+            <span class="y">2025</span>
+            <span class="v">€412K</span>
+          </div>
+        </div>
+        <div class="caption">today — half-way home</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Start your album →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

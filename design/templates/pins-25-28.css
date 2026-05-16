@@ -1,0 +1,691 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Pinterest Pin Templates — Pins 25–28
+   Newspaper · Planner · Bauhaus Grid · Certificate
+   Slightly larger logo across this batch (64px vs prior 48–52px).
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Slightly larger logo applies to all pins in this batch (25–32) */
+.pin-25 .footer-brand img,
+.pin-26 .footer-brand img,
+.pin-27 .footer-brand img,
+.pin-28 .footer-brand img,
+.pin-29 .footer-brand img,
+.pin-30 .footer-brand img,
+.pin-31 .footer-brand img,
+.pin-32 .footer-brand img {
+  width: 68px;
+  height: 68px;
+}
+.pin-25 .footer-brand .name,
+.pin-26 .footer-brand .name,
+.pin-27 .footer-brand .name,
+.pin-28 .footer-brand .name,
+.pin-29 .footer-brand .name,
+.pin-30 .footer-brand .name,
+.pin-31 .footer-brand .name,
+.pin-32 .footer-brand .name {
+  font-size: 24px;
+}
+.pin-25 .footer-brand .url,
+.pin-26 .footer-brand .url,
+.pin-27 .footer-brand .url,
+.pin-28 .footer-brand .url,
+.pin-29 .footer-brand .url,
+.pin-30 .footer-brand .url,
+.pin-31 .footer-brand .url,
+.pin-32 .footer-brand .url {
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 25 — Newspaper Front Page
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-25 { background: #f3ece4; }
+.pin-25 .paper {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(110,104,106,0.06), transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(110,104,106,0.04), transparent 50%);
+  pointer-events: none;
+}
+.pin-25 .masthead {
+  position: absolute;
+  top: 56px; left: 70px; right: 70px;
+  text-align: center;
+  border-bottom: 3px double var(--green-deep);
+  padding-bottom: 22px;
+}
+.pin-25 .masthead .title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 76px;
+  letter-spacing: 0.04em;
+  color: var(--green-deep);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.pin-25 .masthead .title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--orange);
+  letter-spacing: 0.02em;
+}
+.pin-25 .masthead .meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+.pin-25 .masthead .meta-bar .center {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--green-forest);
+}
+
+.pin-25 .lead {
+  position: absolute;
+  top: 280px;
+  left: 70px; right: 70px;
+}
+.pin-25 .lead .kicker {
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 18px;
+}
+.pin-25 .lead h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 92px;
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-25 .lead h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--green-forest);
+}
+.pin-25 .lead .byline {
+  margin-top: 18px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.pin-25 .body {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  border-top: 1px solid var(--green-forest);
+  padding-top: 22px;
+}
+.pin-25 .col {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--green-deep);
+  text-align: justify;
+  hyphens: auto;
+}
+.pin-25 .col::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 500;
+  float: left;
+  line-height: 0.9;
+  padding: 4px 6px 0 0;
+  color: var(--orange);
+}
+.pin-25 .col + .col {
+  border-left: 1px solid rgba(71,88,79,0.2);
+  padding-left: 24px;
+}
+
+.pin-25 .pullquote {
+  position: absolute;
+  left: 70px; right: 70px;
+  top: 1130px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 32px;
+  color: var(--green-forest);
+  line-height: 1.2;
+  padding: 0 60px;
+}
+.pin-25 .pullquote::before,
+.pin-25 .pullquote::after {
+  content: '—';
+  margin: 0 16px;
+  color: var(--orange);
+  font-style: normal;
+}
+
+.pin-25 .footer {
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 24px 70px;
+}
+.pin-25 .footer-brand .name { color: var(--cream); }
+.pin-25 .footer-brand .url { color: var(--green-light); }
+.pin-25 .cta-pill {
+  background: var(--cream);
+  color: var(--green-deep);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 26 — Planner Page · A weekly money ritual
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-26 { background: #f7f1e6; }
+.pin-26 .grid-paper {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(71,88,79,0.07) 1px, transparent 1px);
+  background-size: 100% 38px;
+  background-position: 0 80px;
+  pointer-events: none;
+}
+.pin-26 .punch-holes {
+  position: absolute;
+  left: 32px;
+  top: 0; bottom: 0;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  pointer-events: none;
+}
+.pin-26 .punch-holes .h {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: rgba(71,88,79,0.16);
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.18);
+}
+.pin-26 .red-margin {
+  position: absolute;
+  left: 96px; top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(241,104,63,0.5);
+}
+
+.pin-26 .top {
+  position: absolute;
+  top: 60px; left: 124px; right: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1.5px solid var(--green-forest);
+  padding-bottom: 14px;
+}
+.pin-26 .top .date {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--green-forest);
+}
+.pin-26 .top .week {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.pin-26 .headline {
+  position: absolute;
+  top: 150px;
+  left: 124px;
+  right: 70px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 86px;
+  line-height: 0.96;
+  letter-spacing: -0.015em;
+  color: var(--green-deep);
+}
+.pin-26 .headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-26 .handwritten {
+  position: absolute;
+  top: 320px;
+  right: 70px;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 56px;
+  color: var(--green-forest);
+  transform: rotate(-4deg);
+  line-height: 1;
+}
+
+.pin-26 .checklist {
+  position: absolute;
+  top: 470px;
+  left: 124px;
+  right: 70px;
+}
+.pin-26 .check {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(71,88,79,0.25);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--green-deep);
+}
+.pin-26 .check .box {
+  width: 26px; height: 26px;
+  border: 2px solid var(--green-forest);
+  border-radius: 4px;
+  position: relative;
+}
+.pin-26 .check.done .label {
+  text-decoration: line-through;
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px;
+  color: var(--warm-gray);
+}
+.pin-26 .check.done .box::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1;
+}
+.pin-26 .check .amt {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--green-forest);
+  white-space: nowrap;
+}
+
+.pin-26 .doodle {
+  position: absolute;
+  right: 64px;
+  bottom: 200px;
+  width: 160px;
+  height: 100px;
+  pointer-events: none;
+  transform: rotate(-6deg);
+}
+
+.pin-26 .footer {
+  background: transparent;
+  color: var(--green-deep);
+  border-top: 1.5px solid var(--green-forest);
+  padding: 22px 70px 22px 124px;
+}
+.pin-26 .footer-brand .name { color: var(--green-deep); }
+.pin-26 .footer-brand .url { color: var(--warm-gray); }
+.pin-26 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 27 — Bauhaus Grid · Modernist color blocks
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-27 { background: var(--cream); }
+.pin-27 .grid {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0;
+}
+.pin-27 .blk {
+  position: relative;
+  padding: 28px 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.pin-27 .blk .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+.pin-27 .blk .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 78px;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  margin-top: auto;
+}
+.pin-27 .blk .val em { font-style: italic; }
+.pin-27 .blk .sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+/* Blocks */
+.pin-27 .b1 { /* large headline block 2x2 */
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 56px 60px;
+}
+.pin-27 .b1 .eyebrow { color: var(--green-light); }
+.pin-27 .b1 h1 {
+  margin-top: 36px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 92px;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+}
+.pin-27 .b1 h1 em {
+  font-style: italic;
+  color: var(--green-light);
+}
+.pin-27 .b1 .deck {
+  margin-top: auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: rgba(245,238,237,0.85);
+  line-height: 1.35;
+  max-width: 420px;
+}
+
+.pin-27 .b2 { /* orange small */
+  background: var(--orange);
+  color: var(--cream);
+}
+.pin-27 .b2 .lbl { color: rgba(245,238,237,0.75); }
+.pin-27 .b3 { /* sage */
+  background: var(--green-sage);
+  color: var(--cream);
+}
+.pin-27 .b3 .lbl { color: var(--green-pale); }
+.pin-27 .b4 { /* pale */
+  background: var(--green-pale);
+  color: var(--green-forest);
+}
+.pin-27 .b4 .lbl { color: var(--green-forest); }
+.pin-27 .b5 { /* circle inside cream block */
+  background: var(--cream);
+  color: var(--green-deep);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.pin-27 .b5 .circle {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin: auto;
+  position: relative;
+}
+.pin-27 .b5 .circle::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 60%; height: 60%;
+  border-radius: 50%;
+  background: var(--cream);
+  transform: translate(-50%, -50%);
+}
+.pin-27 .b6 { /* navy block */
+  background: var(--blue-dark);
+  color: var(--cream);
+}
+.pin-27 .b6 .lbl { color: var(--cyan); }
+
+/* Wide bottom bar block 3 wide */
+.pin-27 .b7 {
+  grid-column: span 3;
+  background: var(--green-forest);
+  color: var(--cream);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  padding: 0;
+}
+.pin-27 .b7 .seg {
+  padding: 24px 28px;
+  border-right: 1px solid rgba(193,213,165,0.18);
+}
+.pin-27 .b7 .seg:last-child { border-right: 0; }
+.pin-27 .b7 .seg .lbl { color: var(--green-light); }
+.pin-27 .b7 .seg .val {
+  font-size: 44px;
+  margin-top: 8px;
+}
+
+.pin-27 .footer {
+  background: var(--cream);
+  color: var(--green-forest);
+  padding: 24px 70px;
+}
+.pin-27 .footer-brand .name { color: var(--green-forest); }
+.pin-27 .footer-brand .url { color: var(--warm-gray); }
+.pin-27 .cta-pill {
+  background: var(--green-forest);
+  color: var(--cream);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PIN 28 — Certificate · "Hereby Awarded" diploma
+   ─────────────────────────────────────────────────────────────────────────── */
+.pin-28 { background: var(--cream); }
+.pin-28 .frame {
+  position: absolute;
+  top: 60px; left: 60px; right: 60px; bottom: 200px;
+  border: 6px double var(--green-forest);
+  padding: 50px 60px;
+  background:
+    radial-gradient(ellipse at center, rgba(193,213,165,0.10) 0%, transparent 60%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.pin-28 .frame::before {
+  content: '';
+  position: absolute;
+  top: 16px; left: 16px; right: 16px; bottom: 16px;
+  border: 1px solid var(--green-forest);
+  pointer-events: none;
+}
+/* Decorative corners */
+.pin-28 .corner {
+  position: absolute;
+  width: 80px; height: 80px;
+  pointer-events: none;
+}
+.pin-28 .corner svg { width: 100%; height: 100%; }
+.pin-28 .corner.tl { top: 30px; left: 30px; }
+.pin-28 .corner.tr { top: 30px; right: 30px; transform: scaleX(-1); }
+.pin-28 .corner.bl { bottom: 30px; left: 30px; transform: scaleY(-1); }
+.pin-28 .corner.br { bottom: 30px; right: 30px; transform: scale(-1,-1); }
+
+.pin-28 .crest {
+  margin: 30px auto 14px;
+  width: 78px; height: 78px;
+  display: block;
+}
+.pin-28 .crest img { width: 100%; height: 100%; }
+.pin-28 .crest-line {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-top: 8px;
+}
+
+.pin-28 .award-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 26px;
+  color: var(--warm-gray);
+  margin-top: 36px;
+}
+.pin-28 .recipient {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 96px;
+  color: var(--green-forest);
+  line-height: 1;
+  margin: 20px 0 6px;
+}
+.pin-28 .recipient-rule {
+  width: 60%;
+  height: 1px;
+  background: var(--green-forest);
+  margin: 0 auto 20px;
+  opacity: 0.4;
+}
+.pin-28 .recipient-sub {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.pin-28 .citation {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 28px;
+  color: var(--green-deep);
+  margin-top: 36px;
+  line-height: 1.35;
+  padding: 0 30px;
+}
+.pin-28 .citation strong {
+  font-weight: 500;
+  color: var(--orange);
+  font-style: normal;
+}
+
+.pin-28 .badges {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 20px;
+}
+.pin-28 .badges .badge {
+  text-align: center;
+}
+.pin-28 .badges .badge .v {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 38px;
+  color: var(--green-forest);
+  line-height: 1;
+}
+.pin-28 .badges .badge .l {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 6px;
+}
+.pin-28 .badges .seal {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.1;
+  padding: 0 12px;
+  box-shadow: 0 4px 10px rgba(241,104,63,0.3);
+  position: relative;
+}
+.pin-28 .badges .seal::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,238,237,0.5);
+}
+
+.pin-28 .footer {
+  background: var(--green-deep);
+  color: var(--cream);
+  padding: 24px 70px;
+}
+.pin-28 .footer-brand .name { color: var(--cream); }
+.pin-28 .footer-brand .url { color: var(--green-light); }
+.pin-28 .cta-pill {
+  background: var(--cream);
+  color: var(--green-deep);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 100px;
+}
