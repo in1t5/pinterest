@@ -82,7 +82,7 @@
 .pin-33 .ring-label.left { text-align: right; }
 .pin-33 .ring-label .yr {
   font-family: 'Lato', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -117,7 +117,7 @@
 }
 .pin-33 .center-num .lbl {
   font-family: 'Lato', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -244,7 +244,7 @@
 }
 .pin-34 .canopy-label .yr {
   font-family: 'Lato', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -406,7 +406,7 @@
 }
 .pin-35 .stage .phase {
   font-family: 'Lato', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -448,7 +448,7 @@
 }
 .pin-35 .stage .num-label {
   font-family: 'Lato', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.28em;
   text-transform: uppercase;
