@@ -1,6 +1,4 @@
 
-01_to_be_released/batch_1/financial-ledger-05-question-hook-aspiration-refresh.html: The 100k is directly in the graph line. Move it a bit higher.
-
 01_to_be_released/batch_1/retirement-withdrawal-22-mockup-phone-refresh-1000x1500.png: 
 The phone looks weird. Use the phone from 01_to_be_released/batch_1/retirement-withdrawal-22-mockup-phone-refresh.html and update the related template as well please.
 Also applies to 01_to_be_released/barista-fire-22-mockup-phone-refresh.html and 01_to_be_released/coast-fire-22-mockup-phone-refresh.html.
