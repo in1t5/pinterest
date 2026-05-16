@@ -1,14 +1,4 @@
 
-01_to_be_released/batch_1/retirement-withdrawal-22-mockup-phone-refresh-1000x1500.png: 
-The phone looks weird. Use the phone from 01_to_be_released/batch_1/retirement-withdrawal-22-mockup-phone-refresh.html and update the related template as well please.
-Also applies to 01_to_be_released/barista-fire-22-mockup-phone-refresh.html and 01_to_be_released/coast-fire-22-mockup-phone-refresh.html.
-But the calculate button should still be there somewhere.
-
-
-
-
-
-
 01_to_be_released/barista-fire-26-educational-milestone-tracker-refresh.html: Text from the first area barely readable since it is white and not covered fully by the bar.
 Also applies to: 01_to_be_released/coast-fire-26-educational-milestone-tracker-refresh.html
 
@@ -17,8 +7,7 @@ Also applies to: 01_to_be_released/coast-fire-26-educational-milestone-tracker-r
 
 
 
-
-
+ 
 01_to_be_released: Create the missing PNGs.
 
 The icon in the refresh PINS is very small. Can we adapt the templates directly?
