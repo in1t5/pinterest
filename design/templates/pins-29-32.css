@@ -215,13 +215,15 @@
   display: block;
 }
 .pin-30 .polaroid .caption {
-  font-family: 'Pinyon Script', cursive;
-  font-size: 34px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
   color: var(--green-forest);
   position: absolute;
-  bottom: 8px; left: 0; right: 0;
+  bottom: 14px; left: 8px; right: 8px;
   text-align: center;
-  line-height: 1;
+  line-height: 1.2;
 }
 .pin-30 .polaroid .tape {
   position: absolute;
@@ -370,14 +372,14 @@
   z-index: 3;
 }
 .pin-31 .waypoint .wp-name {
-  font-size: 22px;
+  font-size: 32px;
   color: var(--green-deep);
   line-height: 1;
 }
 .pin-31 .waypoint .wp-val {
-  font-size: 16px;
+  font-size: 22px;
   color: var(--orange);
-  margin-top: 2px;
+  margin-top: 4px;
   font-style: normal;
   font-weight: 400;
 }

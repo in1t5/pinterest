@@ -1,16 +1,12 @@
 
-
-design/templates/pin-28-certificate.png: "Awarded in your ..." is not covered by the "badge" it is in. Make the orange circle larger.
-
-design/templates/pin-30-polaroids.png: text at the bottom of the polaroids is weird. Barely readable.
-
-design/templates/pin-31-topographic-map.png: Make the "milestones" larger. The "base camp" label is not at the base camp at all. It is hovering behind the map legend.
+design/templates/pin-31-topographic-map.html: Positioning of the labels does not fit at all right?
+See image.
 
 generate all missing PNGs in design/templates.
 
 all templates in design/templates/old: Rename them to pin-00-x. Where X is a name like we have it in the other templates in design/templates.
 
-
+in all templates: Check for text smaller 22px. Report only a list of found text too small for pinterest.
 
 
 Check for missing .jsons in 01_to_be_released
