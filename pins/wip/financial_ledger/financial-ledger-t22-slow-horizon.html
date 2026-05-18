@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Financial Ledger — The slow, inevitable horizon · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-fresh-b.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-22">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Financial Ledger</span>
+      </span>
+      <span class="tag">— a number, not a feeling —</span>
+    </div>
+
+    <div class="quote">
+      Your net worth isn't a guess<br>
+      <em>— it's the last row of your ledger.</em>
+    </div>
+
+    <div class="sun"></div>
+    <div class="sun-disk"></div>
+
+    <div class="horizon-line"></div>
+
+    <div class="lower">
+      <div class="lbl">Net worth · 15-year goal</div>
+      <div class="num">€480K</div>
+      <div class="sub">assets minus liabilities · tracked monthly · financial ledger online</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Track my net worth →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

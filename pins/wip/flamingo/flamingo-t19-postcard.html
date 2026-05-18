@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Flamingo FIRE — A postcard from semi-retirement · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-fresh-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-19">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Flamingo FIRE Calculator</span>
+      </span>
+      <span class="tag">a postcard from forty-one</span>
+    </div>
+    <h1 class="headline">
+      Life on <em>your own schedule.</em>
+    </h1>
+
+    <div class="postcard">
+      <div class="pc-left">
+        <div class="greet">Hi, future me —</div>
+        <div class="note">
+          Three days a week now. The portfolio covers
+          half the bills, the work covers the rest.
+          Nobody asked me to justify my lunch break.<br><br>
+          <strong>Flamingo FIRE. It was enough.</strong><br><br>
+          Start the calculator. The number is smaller than you think.
+        </div>
+        <div class="signoff">
+          — me, in 2033
+          <small>postmarked from semi-retirement</small>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="pc-right">
+        <div class="stamp">
+          <span class="lbl">Flamingo</span>
+          <span class="yr">2033</span>
+          <span class="lbl">€480K</span>
+        </div>
+        <div class="postmark">
+          POSTMARKED<br>
+          MAY · 14 · 2033<br>
+          FLAMINGO · FIRE
+        </div>
+
+        <div class="pc-address">
+          <div class="lead">To · younger me, c/o ·</div>
+          <div class="line">The Still-Full-Timer</div>
+          <div class="line">An Ordinary House With Trees</div>
+          <div class="line">Somewhere Patient · 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Send yourself one →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Budget Calculator — Newspaper Front Page · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-25">
+    <div class="paper"></div>
+
+    <div class="masthead">
+      <div class="title">The Money <em>Tree</em></div>
+      <div class="meta-bar">
+        <span>Vol. XII · No. 51</span>
+        <span class="center">— a calmer budgeting weekly —</span>
+        <span>Free Edition · 2026</span>
+      </div>
+    </div>
+
+    <div class="lead">
+      <div class="kicker">Personal Finance · Budgeting for Beginners</div>
+      <h1>
+        Household of four<br />
+        saves €700 a month<br />
+        without <em>trying harder.</em>
+      </h1>
+      <div class="byline">By the numbers · with our free budget calculator</div>
+    </div>
+
+    <div class="body">
+      <div class="col">
+        They didn't earn more. They tracked spending for thirty days, found three subscriptions they'd forgotten about, and moved €700 to savings on the first of every month before spending anything.
+      </div>
+      <div class="col">
+        The 50/30/20 rule handled the rest. Half for needs, three-tenths for wants, two-tenths for the future. No categories. No spreadsheet paranoia. Just a monthly budget planner.
+      </div>
+      <div class="col">
+        The calculator takes four inputs — income, fixed costs, variable spend, savings goal — and returns a plan in sixty seconds. You'll recognise the feeling: relief.
+      </div>
+    </div>
+
+    <div class="pullquote">
+      We didn't change our lifestyle. We just decided what mattered.
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Build my budget →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

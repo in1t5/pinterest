@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Retirement Withdrawal — Bauhaus Grid · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-27">
+    <div class="grid">
+      <div class="blk b1">
+        <span class="eyebrow"><span class="dot" style="background:#3A5477"></span><span>Retirement Withdrawal Calculator</span></span>
+        <h1>
+          One portfolio.<br />
+          One rate.<br />
+          <em>One income.</em>
+        </h1>
+        <div class="deck">
+          The withdrawal rate is the most important number in retirement. Get it right and the portfolio outlives you.
+        </div>
+      </div>
+
+      <div class="blk b2">
+        <div class="lbl">Withdrawal rate</div>
+        <div class="val">4<em>%</em></div>
+        <div class="sub">safe · historically tested</div>
+      </div>
+
+      <div class="blk b3">
+        <div class="lbl">Annual income</div>
+        <div class="val">€28.8K</div>
+        <div class="sub">€720K × 4%</div>
+      </div>
+
+      <div class="blk b4">
+        <div class="lbl">Monthly income</div>
+        <div class="val">€2,400</div>
+        <div class="sub">drawn each month</div>
+      </div>
+
+      <div class="blk b5">
+        <div class="circle"></div>
+      </div>
+
+      <div class="blk b6">
+        <div class="lbl">Real return</div>
+        <div class="val">7<em>%</em></div>
+        <div class="sub">after inflation · historical</div>
+      </div>
+
+      <div class="blk b7">
+        <div class="seg">
+          <div class="lbl">Portfolio at Year 10</div>
+          <div class="val">€960K</div>
+        </div>
+        <div class="seg">
+          <div class="lbl">Portfolio at Year 20</div>
+          <div class="val">€1.1M</div>
+        </div>
+        <div class="seg">
+          <div class="lbl">Portfolio at Year 30</div>
+          <div class="val">€1.4M</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Run the calculator →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

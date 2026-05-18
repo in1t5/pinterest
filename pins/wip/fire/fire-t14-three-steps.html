@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>FIRE in Three Steps · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-modern-b.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-14">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>FIRE Calculator</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      Know your retirement date in <em>three honest numbers.</em>
+    </h1>
+    <div class="deck">
+      No spreadsheet. No advisor. No login. Three inputs and the math tells you everything.
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="nbox">01</div>
+        <div class="body">
+          <div class="title">Enter your monthly expenses — the real number, not the hopeful one.</div>
+          <div class="desc">
+            Not what you earn. Your real monthly cost of living — the most
+            important number in any retirement plan.
+          </div>
+        </div>
+        <div class="tag">€2,500<em>per month</em></div>
+      </div>
+
+      <div class="step">
+        <div class="nbox">02</div>
+        <div class="body">
+          <div class="title">See your FIRE number — 25× your annual spend.</div>
+          <div class="desc">
+            25 times your annual expenses. Invested in a diversified portfolio.
+            Sustainable at 4% withdrawal indefinitely.
+          </div>
+        </div>
+        <div class="tag">€750,000<em>FIRE number</em></div>
+      </div>
+
+      <div class="step">
+        <div class="nbox">03</div>
+        <div class="body">
+          <div class="title">Your savings rate sets the timeline. 50% = 15 years.</div>
+          <div class="desc">
+            Built on a 7% real return and the 4% rule — the same assumptions
+            used by every credible FI study since 1998.
+          </div>
+        </div>
+        <div class="tag">Retire at 45<em>the date</em></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Calculate my FIRE number →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

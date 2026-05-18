@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Barista FIRE Monthly Ritual · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-26">
+    <div class="grid-paper"></div>
+    <div class="punch-holes">
+      <div class="h"></div>
+      <div class="h"></div>
+      <div class="h"></div>
+      <div class="h"></div>
+      <div class="h"></div>
+      <div class="h"></div>
+    </div>
+    <div class="red-margin"></div>
+
+    <div class="top">
+      <span class="date">Monthly Review</span>
+      <span class="week">BARISTA FIRE RITUAL</span>
+    </div>
+
+    <h1 class="headline">
+      The ritual that moves you<br />
+      from full-time<br />
+      <em>to part-time.</em>
+    </h1>
+
+    <div class="handwritten">almost there</div>
+
+    <div class="checklist">
+      <div class="check done">
+        <span class="box"></span>
+        <span class="label">Invest €1,200 in index ETF.</span>
+        <span class="amt">€1,200</span>
+      </div>
+      <div class="check done">
+        <span class="box"></span>
+        <span class="label">Log portfolio value.</span>
+        <span class="amt">€312K</span>
+      </div>
+      <div class="check">
+        <span class="box"></span>
+        <span class="label">Recalculate barista FIRE number.</span>
+        <span class="amt">€420K</span>
+      </div>
+      <div class="check">
+        <span class="box"></span>
+        <span class="label">Review part-time income options.</span>
+        <span class="amt">€18K/yr</span>
+      </div>
+      <div class="check">
+        <span class="box"></span>
+        <span class="label">Estimate months to freedom.</span>
+        <span class="amt">9 left</span>
+      </div>
+    </div>
+
+    <svg class="doodle" viewBox="0 0 160 100" fill="none">
+      <path d="M 10 80 Q 50 30 80 50 T 150 20" stroke="#F1683F" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M 140 30 L 150 20 L 144 32" stroke="#F1683F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="10" cy="80" r="4" fill="#F1683F" />
+      <text x="20" y="92" font-family="Pinyon Script, cursive" font-size="24" fill="#47584F">barista FIRE :)</text>
+    </svg>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Calculate my number →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

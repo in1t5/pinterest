@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Retirement Withdrawal — A postcard from retirement · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-fresh-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-19">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Retirement Withdrawal Calculator</span>
+      </span>
+      <span class="tag">a postcard from the other side</span>
+    </div>
+    <h1 class="headline">
+      The portfolio <em>still grows.</em>
+    </h1>
+
+    <div class="postcard">
+      <div class="pc-left">
+        <div class="greet">To my younger self —</div>
+        <div class="note">
+          Year fifteen. The portfolio is worth more than
+          the day I retired. I've drawn €2,400 a month,
+          every month. It didn't care.<br><br>
+          <strong>4% is not a guess. It's a fact.</strong><br><br>
+          Run the calculator. The number is waiting for you.
+        </div>
+        <div class="signoff">
+          — me, in 2041
+          <small>postmarked from a long retirement</small>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="pc-right">
+        <div class="stamp">
+          <span class="lbl">Retire at</span>
+          <span class="yr">60</span>
+          <span class="lbl">€720K</span>
+        </div>
+        <div class="postmark">
+          POSTMARKED<br>
+          JUN · 12 · 2041<br>
+          RETIREMENT · YEAR · 15
+        </div>
+
+        <div class="pc-address">
+          <div class="lead">To · working me, c/o ·</div>
+          <div class="line">The Still-Employed</div>
+          <div class="line">A Patient House With Trees</div>
+          <div class="line">Somewhere Accumulating · 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Model my retirement →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

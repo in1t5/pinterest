@@ -66,15 +66,65 @@ PINTEREST_APP_SECRET=...
 
 ## Automated PNG Export
 
-All dependencies live in `studio/scripts/`:
+All dependencies live in `studio/scripts/`. **All export scripts must be run from `studio/scripts/`** — `node_modules` (puppeteer-core) resolves from the script's own directory.
 
 ```bash
 cd studio/scripts && npm install   # first time only
 node export_pins.js                 # exports all HTMLs in pins/staged/ to PNGs
+node export_refresh_all.js          # exports all *-refresh.html PNGs across wip + staged
 ```
 
 Requires: Node.js + Google Chrome at `/Applications/Google Chrome.app/`.
 Dep: `puppeteer-core ^25.0.2`.
+
+### Two pin types — different export methods
+
+| Pin type | Capture method | Selector |
+|---|---|---|
+| **Canvas-based** (most WIP pins) | `canvas.toDataURL('image/png')` | `#c` |
+| **Div-based** (pin-04 CSS style) | `element.screenshot()` | `.pin-wrap > div` |
+
+### Regen a single WIP pin
+
+Write a temp script to `studio/scripts/`, run it, delete it. Must live there for `puppeteer-core` to resolve.
+
+**Canvas-based pin:**
+```js
+// studio/scripts/_tmp.js
+const puppeteer=require('puppeteer-core'),http=require('http'),fs=require('fs'),path=require('path');
+const CHROME='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const ROOT=path.resolve(__dirname,'../..'),PORT=8750;
+const HTML_REL='pins/wip/<calc>/<filename>.html';
+const PNG_OUT=path.join(ROOT,HTML_REL.replace('.html','-1000x1500.png'));
+(async()=>{
+  const server=await new Promise(r=>{const s=http.createServer((req,res)=>{const fp=path.join(ROOT,decodeURIComponent(req.url));fs.readFile(fp,(e,d)=>{if(e){res.writeHead(404);res.end();return;}const m={'.html':'text/html','.png':'image/png','.css':'text/css','.js':'application/javascript'};res.writeHead(200,{'Content-Type':m[path.extname(fp)]||'application/octet-stream'});res.end(d);});});s.listen(PORT,()=>r(s));});
+  const browser=await puppeteer.launch({executablePath:CHROME,args:['--no-sandbox'],headless:true});
+  const page=await browser.newPage();
+  await page.setViewport({width:1200,height:900,deviceScaleFactor:1});
+  await page.goto('http://localhost:'+PORT+'/'+HTML_REL,{waitUntil:'networkidle0',timeout:15000});
+  await new Promise(r=>setTimeout(r,3000));
+  const data=await page.evaluate(()=>{const c=document.getElementById('c');return c?c.toDataURL('image/png').split(',')[1]:null;});
+  if(!data){console.log('ERROR: no canvas#c');process.exit(1);}
+  fs.writeFileSync(PNG_OUT,Buffer.from(data,'base64'));
+  console.log('Saved: '+PNG_OUT+' ('+Math.round(fs.statSync(PNG_OUT).size/1024)+' KB)');
+  await browser.close();server.close();
+})();
+```
+
+**Div-based pin** (uses `pins.css`, `.pin-wrap > div` structure):
+```js
+// studio/scripts/_tmp.js  — same boilerplate, replace capture block:
+  const el=await page.$('.pin-wrap > div');
+  if(!el){console.log('ERROR: no .pin-wrap > div');process.exit(1);}
+  await el.screenshot({path:PNG_OUT,type:'png'});
+```
+
+Run and clean up:
+```bash
+cd studio/scripts
+node _tmp.js
+rm _tmp.js
+```
 
 ---
 

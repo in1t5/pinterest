@@ -1,23 +1,77 @@
 
-design/templates/pin-31-topographic-map.html: Positioning of the labels does not fit at all right?
-See image.
-
-in all templates: Check for text smaller 22px. Report only a list of found text too small for pinterest.
-
-
-Check for missing .jsons in /pins/staged
 
 
 
-I do not like the structure of the repo. 
-I want a clear separation of scripts, designs etc and the pin data itself.
-ideas?
 
+FONT SIZE AUDIT — text too small for Pinterest (< 22px)
+=========================================================
+
+FIXED (9–10px → 13px, committed):
+  pins-33-35.css  .pin-33 .ring-label .yr        10px → 13px
+  pins-33-35.css  .pin-33 .center-num .lbl        10px → 13px
+  pins-33-35.css  .pin-34 .canopy-label .yr        10px → 13px
+  pins-33-35.css  .pin-35 .stage .phase            10px → 13px
+  pins-33-35.css  .pin-35 .stage .num-label         9px → 13px
+  pins-36-40.css  .pin-36 .trunk-node .lbl         10px → 13px
+  pins-36-40.css  .pin-36 .branch-node .role        9px → 13px
+  pins-36-40.css  .pin-36 .branch-node .small      10px → 13px
+  pins-36-40.css  .pin-37 .watch-overlay .lbl      10px → 13px
+  pins-36-40.css  .pin-38 .acct .lbl              9.5px → 13px
+  pins-36-40.css  .pin-38 .acct .pct              10px → 13px
+  pins-36-40.css  .pin-39 .month-label .m         9.5px → 13px
+  pins-36-40.css  .pin-39 .sum-cell .lbl           10px → 13px
+  pins-36-40.css  .pin-40 .label-cell .yr          10px → 13px
+  pins-25-28.css  .pin-28 .badges .badge .l        10px → 13px
+
+TODO — still too small (11–21px), review & decide:
+  [ ] pins-29-32.css  .pin-31 .legend               12px  (map legend text)
+  [ ] pins-29-32.css  .pin-31 .destination .lbl      11px  (SUMMIT label)
+  [ ] pins-36-40.css  .pin-37 .legend .item          12px  (watch legend)
+  [ ] pins-25-28.css  .pin-28 .crest-line            11px  (certificate header)
+  [ ] pins-25-28.css  .pin-28 .recipient-sub         11px  (certificate sub)
+  [ ] pins-33-35.css  .pin-34 .surface-label-left    11px  (ABOVE GROUND label)
+  [ ] pins-33-35.css  .pin-34 .surface-label-right   11px  (BELOW GROUND label)
+  [ ] pins-33-35.css  .pin-35 .stage .age            14px
+  [ ] pins-33-35.css  .pin-35 .stage .caption        16px
+  [ ] pins-33-35.css  .pin-34 .root-label .amt       18px
+  [ ] pins.css         .pin-1 .tagline               17px
+  [ ] pins.css         .pin-1 .tagline em            19px
+  [ ] pins-modern-b   .pin-14 .step .body .desc      20px
+  [ ] pins-modern-b   .pin-13 .deck                  21px
+
+
+
+
+
+####
+
+VISUAL LAYOUT FIXES — PNG review of 100 new wip pins
+======================================================
+
+FIXED:
+  [x] flamingo-t16: "go part-time?" wrapped 4 lines past answer card — restructured <br> tags
+  [x] t15 all calcs (flamingo/retirement-withdrawal/budget/ledger): bottom 40% empty
+        → added .bottom-stat section to CSS + relevant content to each HTML
+
+TODO:
+  [ ] t26 all calcs: bottom 40% empty — only 5 checklist rows, template shows 7 ruled lines
+        → add 2 more checklist items to each wip/*/t26 pin
+  [ ] t36 all calcs: bottom 30% empty — trunk-node at 60%, nothing below until footer
+        → add a "how it splits" summary row below .trunk-node, or extend SVG
+  [ ] t39 all calcs: AUG + SEP month labels overlap — branch descends, crowds those two
+        → shift AUG label top +20px, SEP label top +40px in each t39 HTML
+  [ ] t40 all calcs: bottom 25% empty — quote floats with large gap to footer
+        → add a 3-cell stat row below the .quote element
+  [ ] t35 (ledger, budget): headline em overflows to extra line ("one net worth." / "one budget.")
+        → deck sits immediately under overflow; shorten em to fit 2 lines max
+
+
+####
 
 Alle Templates Durchgehen und checken (Logo, Text)
 
 
-
+#####
 CLAUDE DESIGN:
 
 Create a template based of: 
@@ -27,4 +81,11 @@ Create a template based of:
 - /barista/two-phase-pin.html
 
 
+Create a template based of these PINs:
+- x
+- see Inventory. 
+The templates should be smart in the best case adapting the text sizes if longer text is entered for example in a specific area.
+
+
+Add Icon Set to C-Design!
 

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Flamingo FIRE — Newspaper Front Page · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-25">
+    <div class="paper"></div>
+
+    <div class="masthead">
+      <div class="title">The Money <em>Tree</em></div>
+      <div class="meta-bar">
+        <span>Vol. XII · No. 52</span>
+        <span class="center">— retirement income planning weekly —</span>
+        <span>Free Edition · 2026</span>
+      </div>
+    </div>
+
+    <div class="lead">
+      <div class="kicker">Retirement Income · Part-Time Freedom</div>
+      <h1>
+        Couple of two<br />
+        halves their hours<br />
+        at <em>forty-one</em>.
+      </h1>
+      <div class="byline">By the numbers · with our free Flamingo FIRE calculator</div>
+    </div>
+
+    <div class="body">
+      <div class="col">
+        They saved aggressively for nine years. Not to stop working entirely — just to stop needing to. At €480,000 the portfolio covered half their monthly spend. Part-time covered the rest.
+      </div>
+      <div class="col">
+        The Flamingo strategy: reach half your full FIRE number, flip to part-time work, let the portfolio compound untouched. The maths eventually tip in your favour — you just need to be patient enough to wait.
+      </div>
+      <div class="col">
+        Our Flamingo FIRE calculator finds your exact number in sixty seconds. Retirement income planning has never been this honest — or this achievable.
+      </div>
+    </div>
+
+    <div class="pullquote">
+      We didn't retire. We just stopped being desperate.
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Find my number →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

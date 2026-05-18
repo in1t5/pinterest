@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Coast FIRE — The slow, inevitable horizon · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-fresh-b.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-22">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Coast FIRE Calculator</span>
+      </span>
+      <span class="tag">— a horizon, not a sprint —</span>
+    </div>
+
+    <div class="quote">
+      Some numbers grow quietly<br>
+      <em>— until they don't need you.</em>
+    </div>
+
+    <div class="sun"></div>
+    <div class="sun-disk"></div>
+
+    <div class="horizon-line"></div>
+
+    <div class="lower">
+      <div class="lbl">coast fire number</div>
+      <div class="num">€240K</div>
+      <div class="sub">the portfolio that coasts itself to retirement</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Coast FIRE Calculator →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

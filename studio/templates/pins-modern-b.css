@@ -358,6 +358,7 @@
 .pin-15 .tile .sub {
   font-size: 19px;
   color: var(--warm-gray);
+  margin-top: 10px;
 }
 .pin-15 .tile .sub strong { color: var(--green-sage); font-weight: 700; }
 .pin-15 .tile .spark {
@@ -377,6 +378,42 @@
   text-transform: uppercase;
   padding: 12px 22px;
   border-radius: 100px;
+}
+
+.pin-15 .bottom-stat {
+  position: absolute;
+  top: 960px;
+  left: 70px; right: 70px;
+  background: var(--green-pale);
+  border-radius: 14px;
+  padding: 32px 36px;
+}
+.pin-15 .bottom-stat .lbl {
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-sage);
+}
+.pin-15 .bottom-stat .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 54px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--green-deep);
+  margin-top: 10px;
+}
+.pin-15 .bottom-stat .val em {
+  font-style: italic;
+  color: var(--orange);
+}
+.pin-15 .bottom-stat .sub {
+  font-size: 20px;
+  color: var(--warm-gray);
+  margin-top: 8px;
+  line-height: 1.4;
 }
 
 /* ───────────────────────────────────────────────────────────────────────────

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Financial Ledger — Newspaper · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-25">
+    <div class="paper"></div>
+
+    <div class="masthead">
+      <div class="title">The Money <em>Tree</em></div>
+      <div class="meta-bar">
+        <span>Vol. VIII · No. 12</span>
+        <span class="center">— a calmer financial weekly —</span>
+        <span>Free Edition · 2026</span>
+      </div>
+    </div>
+
+    <div class="lead">
+      <div class="kicker">Personal Finance · Net Worth Tracking</div>
+      <h1>
+        Teacher opens a<br />
+        spreadsheet in January,<br />
+        retires <em>fifteen years early.</em>
+      </h1>
+      <div class="byline">By the numbers · with our free financial ledger</div>
+    </div>
+
+    <div class="body">
+      <div class="col">
+        She didn't earn more. She didn't time the market. She opened a financial ledger on the first of January, wrote down every asset and every liability, and did it again the following month. Forty-two months later she had paid off the car, the overdraft, and the instinct to ignore her balance sheet.
+      </div>
+      <div class="col">
+        The ledger does one thing: it replaces the vague anxiety of not-knowing with the precise discomfort of knowing exactly. That discomfort is productive. It nudges spending before the month ends rather than explaining it after.
+      </div>
+      <div class="col">
+        Net worth rose from €−12K to €480K over fifteen quiet years. Monthly contributions averaged €2,200. Compounding did the rest — silently, without any fanfare, exactly as advertised.
+      </div>
+    </div>
+
+    <div class="pullquote">
+      The ledger didn't make me rich. It made me honest.
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Open my ledger →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

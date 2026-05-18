@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Barista FIRE Cheat Sheet · Barista FIRE Calculator · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #0e0e0c; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-4">
+    <div class="topband">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Barista FIRE Calculator</span>
+      </span>
+      <h1>
+        5 Numbers to Know<br>
+        <em>before you calculate.</em>
+      </h1>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <div class="num">01</div>
+        <div class="body">
+          <div class="title">Monthly Expenses</div>
+          <div class="desc">Your baseline figure. Every dollar you spend per month — start here, everything else derives from this number.</div>
+          <span class="pill">e.g. $3,000/mo</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">02</div>
+        <div class="body">
+          <div class="title">Part-time Income Target</div>
+          <div class="desc">What you plan to earn in Phase 2 — barista, freelance, consulting, or any part-time work you'd actually enjoy.</div>
+          <span class="pill">e.g. $1,200/mo</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">03</div>
+        <div class="body">
+          <div class="title">Monthly Income Gap</div>
+          <div class="desc">Expenses minus part-time income. This gap is the only thing your portfolio needs to cover.</div>
+          <span class="pill">e.g. $3k − $1.2k = $1,800/mo</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">04</div>
+        <div class="body">
+          <div class="title">Barista FI Portfolio</div>
+          <div class="desc">Monthly gap × 300. The portfolio where part-time income plus returns cover all expenses.</div>
+          <span class="pill">e.g. $1,800 × 300 = $540,000</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="num">05</div>
+        <div class="body">
+          <div class="title">Full FIRE Portfolio</div>
+          <div class="desc">Annual expenses × 25 (the 4% rule). Your final destination — no income needed, ever.</div>
+          <span class="pill">e.g. $36k × 25 = $900,000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Money Tree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Calculate yours →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

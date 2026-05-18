@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>What if you only needed to earn half as much? · Barista FIRE · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-modern-b.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-16">
+    <div class="grain"></div>
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot" style="background:#C1D5A5"></span>
+        <span>Barista FIRE Calculator</span>
+      </span>
+      <span class="tag">— a deceptively simple question —</span>
+    </div>
+
+    <div class="question">
+      What if you only<br>
+      needed to earn<br>
+      <em>half as much?</em>
+    </div>
+
+    <div class="answer-card">
+      <div class="left">
+        <div class="lbl">BARISTA FIRE NUMBER</div>
+        <div class="val">€<em>420,000</em></div>
+        <div class="sub">Covers the income gap · part-time earns the rest</div>
+      </div>
+      <div class="right">
+        <span class="calculate">Calculate →<span class="arrow"></span></span>
+      </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="footer-tagline">Find my barista number →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

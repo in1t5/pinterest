@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Coast FIRE Newspaper — Stop saving headline · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-25">
+    <div class="paper"></div>
+
+    <div class="masthead">
+      <div class="title">COAST FIRE <em>Times</em></div>
+      <div class="meta-bar">
+        <span>EST. TODAY</span>
+        <span class="center">— The case for stopping —</span>
+        <span>FREE CALCULATOR</span>
+      </div>
+    </div>
+
+    <div class="lead">
+      <div class="kicker">BREAKING</div>
+      <h1>
+        Local 30-Year-Old<br />
+        Stops Saving for<br>
+        Retirement —<br><em>Eight Years Early</em>
+      </h1>
+      <div class="byline">BY THE COAST FIRE CALCULATOR · TIMEANDMONEYTREE.COM</div>
+    </div>
+
+    <div class="body">
+      <div class="col">
+        At age 38, with €240,000 invested across low-cost ETFs, the portfolio will reach full retirement size without a single additional contribution. The math is not magic.
+      </div>
+      <div class="col">
+        At 7% annual return, €240K doubles roughly every decade. By age 65, that figure reaches €900K — enough to sustain €36,000 per year indefinitely.
+      </div>
+      <div class="col">
+        The Coast FIRE calculator shows you your exact number. Enter your age, expenses, and expected return. Stop saving sooner than you think.
+      </div>
+    </div>
+
+    <div class="pullquote">
+      The most powerful move is often the one you stop making.
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Calculate coast FIRE →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Coast FIRE in Three Steps · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-modern-b.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-14">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Coast FIRE Calculator</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      Stop saving for retirement in <em>three steps.</em>
+    </h1>
+    <div class="deck">
+      Find your Coast FIRE number — the exact portfolio that grows itself
+      to retirement without another contribution.
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="nbox">01</div>
+        <div class="body">
+          <div class="title">Enter your age, monthly expenses and return assumption.</div>
+          <div class="desc">
+            Three honest numbers. No login, no spreadsheet. Just the
+            inputs that actually drive the coast calculation.
+          </div>
+        </div>
+        <div class="tag">30 · €2,000/mo · 7%<em>your inputs</em></div>
+      </div>
+
+      <div class="step">
+        <div class="nbox">02</div>
+        <div class="body">
+          <div class="title">See your Coast FIRE number — the target you need to hit.</div>
+          <div class="desc">
+            The calculator shows the exact portfolio value that will
+            grow to full retirement size on its own at 7% per year.
+          </div>
+        </div>
+        <div class="tag">€240,000<em>your coast number</em></div>
+      </div>
+
+      <div class="step">
+        <div class="nbox">03</div>
+        <div class="body">
+          <div class="title">Pick your stop-saving date. Then actually stop.</div>
+          <div class="desc">
+            Once you hit the number, every additional contribution is
+            optional. You've already won the retirement game.
+          </div>
+        </div>
+        <div class="tag">Age 38 · 8 years away<em>stop saving date</em></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Calculate your coast number →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

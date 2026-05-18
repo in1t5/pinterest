@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Flamingo FIRE — Bauhaus Grid · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-27">
+    <div class="grid">
+      <div class="blk b1">
+        <span class="eyebrow"><span class="dot" style="background:#F1683F"></span><span>Flamingo FIRE Calculator</span></span>
+        <h1>
+          Half the<br />
+          portfolio,<br />
+          <em>twice the life.</em>
+        </h1>
+        <div class="deck">
+          The Flamingo strategy. Reach 50% of full FIRE. Go part-time. Watch the portfolio compound without adding to it.
+        </div>
+      </div>
+
+      <div class="blk b2">
+        <div class="lbl">Save rate</div>
+        <div class="val">42<em>%</em></div>
+        <div class="sub">of take-home, monthly</div>
+      </div>
+
+      <div class="blk b3">
+        <div class="lbl">Flamingo age</div>
+        <div class="val">41</div>
+        <div class="sub">years from today · 6.2</div>
+      </div>
+
+      <div class="blk b4">
+        <div class="lbl">Flamingo number</div>
+        <div class="val">€480K</div>
+        <div class="sub">full FIRE × 0.5</div>
+      </div>
+
+      <div class="blk b5">
+        <div class="circle"></div>
+      </div>
+
+      <div class="blk b6">
+        <div class="lbl">Portfolio draw</div>
+        <div class="val">4<em>%</em></div>
+        <div class="sub">safe withdrawal rate</div>
+      </div>
+
+      <div class="blk b7">
+        <div class="seg">
+          <div class="lbl">Monthly contribution</div>
+          <div class="val">€1,400</div>
+        </div>
+        <div class="seg">
+          <div class="lbl">Part-time income covers</div>
+          <div class="val">€1,600</div>
+        </div>
+        <div class="seg">
+          <div class="lbl">Portfolio covers</div>
+          <div class="val">€1,600</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Run the calculator →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

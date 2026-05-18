@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Financial Ledger — Net Worth Timeline · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-fresh-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-17">
+    <div class="topo"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Financial Ledger</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      From minus twelve<br>
+      to <em>plus four-eighty.</em>
+    </h1>
+    <div class="deck">
+      Fifteen years, four milestones, one slow line toward a positive net worth.
+    </div>
+
+    <div class="timeline">
+      <div class="axis"></div>
+
+      <div class="tnode past" style="left:5%">
+        <div class="dot"></div>
+        <span class="age">Yr 0</span>
+      </div>
+
+      <div class="tnode now" style="left:20%">
+        <div class="dot"></div>
+        <span class="age">Yr 1</span>
+      </div>
+      <div class="callout up" style="left:calc(20% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Today</div>
+        <div class="val">€26K</div>
+        <div class="note">ledger opened</div>
+      </div>
+
+      <div class="tnode past" style="left:45%">
+        <div class="dot"></div>
+        <span class="age">Yr 5</span>
+      </div>
+      <div class="callout down" style="left:calc(45% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Positive</div>
+        <div class="val">€120K</div>
+        <div class="note">debt cleared</div>
+      </div>
+
+      <div class="tnode past" style="left:68%">
+        <div class="dot"></div>
+        <span class="age">Yr 10</span>
+      </div>
+      <div class="callout up" style="left:calc(68% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Momentum</div>
+        <div class="val">€280K</div>
+        <div class="note">compounding visible</div>
+      </div>
+
+      <div class="tnode fi" style="left:88%">
+        <div class="dot"></div>
+        <span class="age">Yr 15</span>
+      </div>
+      <div class="callout down" style="left:calc(88% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Ledger goal</div>
+        <div class="val">€480K</div>
+        <div class="note">full net worth</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Open my ledger →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

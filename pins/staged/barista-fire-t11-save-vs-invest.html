@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Barista FIRE — Part-time vs Full-time FIRE · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-modern-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-11">
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Barista FIRE Calculator</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      Two paths. One leads to<br>
+      <em>part-time at 38.</em>
+    </h1>
+    <div class="deck">
+      We ran the numbers on both routes. The difference isn't just money — it's 17 years of your life.
+    </div>
+
+    <div class="compare">
+      <div class="col left">
+        <span class="role">Traditional Route</span>
+        <h3>FULL FIRE</h3>
+        <span class="nuance">Save until full retirement</span>
+
+        <span class="after-label">Target portfolio</span>
+        <div class="amount">€900<em>K</em></div>
+
+        <div class="delta">
+          Retire at <strong>55</strong> · <strong>17 more years</strong> full-time
+        </div>
+      </div>
+      <div class="col right">
+        <span class="role">Barista Route</span>
+        <h3>BARISTA FIRE</h3>
+        <span class="nuance">Part-time covers the gap</span>
+
+        <span class="after-label">Part-time at</span>
+        <div class="amount">€420<em>K</em></div>
+
+        <div class="delta">
+          Part-time at <strong>38</strong> · saves <strong>17 years</strong> of full-time work
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      Same destination. <strong>17 fewer years</strong> of full-time work.
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Choose my path →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

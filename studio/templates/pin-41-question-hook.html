@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pin 41 — Question Hook</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@0,300;0,400;0,700&display=swap" rel="stylesheet">
+<style>
+/* ── Page shell ─────────────────────────────────────────────────────────── */
+html, body { margin: 0; padding: 20px; background: #1a1a18; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+.pin-wrap { transform-origin: top center; }
+
+/* ── Pin frame ──────────────────────────────────────────────────────────── */
+.pin-41 {
+  width: 1000px;
+  height: 1500px;
+  background: #F5EEED;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+  color: #1A1A18;
+  box-shadow: 0 30px 80px rgba(0,0,0,.4);
+}
+
+/* ── TOP — dark headline section ────────────────────────────────────────── */
+.pin-41 .pin-top {
+  background: #47584F;
+  color: #F5EEED;
+  padding: 60px 70px 130px;
+  position: relative;
+  flex: 0 0 auto;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px,
+    transparent 1px, transparent 4px
+  );
+}
+.pin-41 .pin-top__mark {
+  position: absolute;
+  top: 50px; right: 60px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 380px;
+  line-height: .9;
+  color: rgba(0,0,0,.14);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -.02em;
+}
+.pin-41 .pin-top__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.pin-41 .pin-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 54px;
+  color: #C1D5A5;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.pin-41 .pin-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 78px;
+  line-height: 1.05;
+  color: #F5EEED;
+  letter-spacing: 0;
+  max-width: 880px;
+  text-align: center;
+  text-wrap: balance;
+}
+.pin-41 .pin-subtitle {
+  margin-top: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: rgba(245,238,237,.82);
+  line-height: 1.3;
+  max-width: 720px;
+}
+
+/* ── MIDDLE — cream section ─────────────────────────────────────────────── */
+.pin-41 .pin-middle {
+  background: #F5EEED;
+  padding: 0 70px 40px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.pin-41 .pin-callout {
+  background: #C1D5A5;
+  border-radius: 16px;
+  padding: 28px 40px 36px;
+  margin-top: -100px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 6px 24px rgba(71,88,79,.15);
+}
+.pin-41 .pin-callout__label {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #47584F;
+  margin-bottom: 6px;
+}
+.pin-41 .pin-callout__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 64px;
+  color: #47584F;
+  line-height: 1;
+}
+.pin-41 .pin-callout__sub {
+  margin-top: 8px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  color: rgba(71,88,79,.8);
+  line-height: 1.3;
+}
+.pin-41 .pin-divider {
+  height: 1px;
+  background: #C1D5A5;
+  opacity: .6;
+  margin: 36px 0 32px;
+}
+.pin-41 .pin-description {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 1.4;
+  color: #6E686A;
+  text-align: center;
+  margin: 0;
+}
+.pin-41 .pin-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.pin-41 .pin-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #47584F;
+  line-height: 1.35;
+}
+.pin-41 .pin-bullet__dot {
+  flex: 0 0 auto;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #47584F;
+  margin-top: 14px;
+}
+.pin-41 .pin-bullet__text { flex: 1 1 auto; }
+.pin-41 .pin-quote {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px;
+  color: #47584F;
+  text-align: center;
+  line-height: 1.25;
+}
+.pin-41 .pin-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+.pin-41 .pin-tag {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  background: #C1D5A5;
+  color: #47584F;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pin-41 .pin-cta-wrap {
+  margin-top: auto;
+  padding-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+.pin-41 .pin-cta {
+  border: none;
+  background: #47584F;
+  color: #F5EEED;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 22px 48px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(71,88,79,.25);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── FOOTER ─────────────────────────────────────────────────────────────── */
+.pin-41 .pin-footer {
+  background: #47584F;
+  color: #F5EEED;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  height: 80px;
+  box-sizing: border-box;
+}
+.pin-41 .pin-footer__left { display: flex; align-items: center; gap: 18px; }
+.pin-41 .pin-footer__logo {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+.pin-41 .pin-footer__logo img { width: 100%; height: 100%; object-fit: contain; }
+.pin-41 .pin-footer__hook {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+  color: #F5EEED;
+  white-space: nowrap;
+}
+.pin-41 .pin-footer__domain {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(245,238,237,.55);
+  margin-top: 4px;
+}
+.pin-41 .pin-footer__cta {
+  background: transparent;
+  color: #F5EEED;
+  border: 1.5px solid rgba(245,238,237,.55);
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin-41">
+
+    <section class="pin-top">
+      <div class="pin-top__mark" aria-hidden="true">?</div>
+      <div class="pin-top__inner">
+        <div class="pin-eyebrow">could you?</div>
+        <h1 class="pin-headline">Could you leave your full-time job in 5 years?</h1>
+        <div class="pin-subtitle">Barista FIRE makes it possible.</div>
+      </div>
+    </section>
+
+    <section class="pin-middle">
+      <div class="pin-callout">
+        <div class="pin-callout__label">With your current portfolio + 32% savings rate</div>
+        <div class="pin-callout__title">Barista FI in 5 years</div>
+        <div class="pin-callout__sub">Age 35 · $3,000/mo part-time income covered</div>
+      </div>
+
+      <div class="pin-divider"></div>
+
+      <p class="pin-description">Barista FIRE doesn't require full retirement savings. Just enough for part-time income to bridge the gap.</p>
+
+      <ul class="pin-bullets">
+        <li class="pin-bullet"><span class="pin-bullet__dot" aria-hidden="true"></span><span class="pin-bullet__text">Part-time income covers day-to-day expenses</span></li>
+        <li class="pin-bullet"><span class="pin-bullet__dot" aria-hidden="true"></span><span class="pin-bullet__text">Portfolio grows unassisted to Full FIRE</span></li>
+        <li class="pin-bullet"><span class="pin-bullet__dot" aria-hidden="true"></span><span class="pin-bullet__text">Calculator shows your exact exit date</span></li>
+      </ul>
+
+      <div class="pin-divider"></div>
+
+      <blockquote class="pin-quote">&ldquo;The exit from full-time is closer than most people think.&rdquo;</blockquote>
+
+      <div class="pin-tags">
+        <span class="pin-tag">barista fire calculator</span>
+        <span class="pin-tag">barista fire</span>
+        <span class="pin-tag">retire early part time</span>
+      </div>
+
+      <div class="pin-cta-wrap">
+        <button class="pin-cta"><span>Calculate your exit date</span><span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <footer class="pin-footer">
+      <div class="pin-footer__left">
+        <div class="pin-footer__logo">
+          <img src="../assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        </div>
+        <div>
+          <div class="pin-footer__hook">Try it free — no sign-up</div>
+          <div class="pin-footer__domain">timeandmoneytree.com</div>
+        </div>
+      </div>
+      <button class="pin-footer__cta"><span>Calculate</span><span aria-hidden="true">→</span></button>
+    </footer>
+
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

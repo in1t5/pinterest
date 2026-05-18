@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Coast FIRE Timeline — From saving to coasting · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-fresh-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-17">
+    <div class="topo"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>Coast FIRE Calculator</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      The timeline that<br>
+      ends with <em>stopping.</em>
+    </h1>
+    <div class="deck">
+      Eight years, five milestones, one slow line to the coast number.
+    </div>
+
+    <div class="timeline">
+      <div class="axis"></div>
+
+      <!-- Node 1: age 30, now, callout up -->
+      <div class="tnode now" style="left:5%">
+        <div class="dot"></div>
+        <span class="age">30</span>
+      </div>
+      <div class="callout up" style="left:calc(5% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Today · Age 30</div>
+        <div class="val">€0</div>
+        <div class="note">€850/month committed</div>
+      </div>
+
+      <!-- Node 2: age 34, past, callout down -->
+      <div class="tnode past" style="left:25%">
+        <div class="dot"></div>
+        <span class="age">34</span>
+      </div>
+      <div class="callout down" style="left:calc(25% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Year 4 · Age 34</div>
+        <div class="val">€50K</div>
+        <div class="note">Momentum builds</div>
+      </div>
+
+      <!-- Node 3: age 38, fi, callout up -->
+      <div class="tnode fi" style="left:45%">
+        <div class="dot"></div>
+        <span class="age">38</span>
+      </div>
+      <div class="callout up" style="left:calc(45% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Year 8 · Age 38</div>
+        <div class="val">€240K</div>
+        <div class="note">Stop saving. Coast begins.</div>
+      </div>
+
+      <!-- Node 4: age 50, past, callout down -->
+      <div class="tnode past" style="left:65%">
+        <div class="dot"></div>
+        <span class="age">50</span>
+      </div>
+      <div class="callout down" style="left:calc(65% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Year 20 · Age 50</div>
+        <div class="val">€480K</div>
+        <div class="note">Growing without your help</div>
+      </div>
+
+      <!-- Node 5: age 65, past, callout up -->
+      <div class="tnode past" style="left:88%">
+        <div class="dot"></div>
+        <span class="age">65</span>
+      </div>
+      <div class="callout up" style="left:calc(88% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Year 35 · Age 65</div>
+        <div class="val">€900K</div>
+        <div class="note">Full retirement</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Plot my coast timeline →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

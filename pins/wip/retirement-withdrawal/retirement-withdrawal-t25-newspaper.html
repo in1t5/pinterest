@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Retirement Withdrawal — Newspaper Front Page · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-25-28.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-25">
+    <div class="paper"></div>
+
+    <div class="masthead">
+      <div class="title">The Money <em>Tree</em></div>
+      <div class="meta-bar">
+        <span>Vol. XII · No. 48</span>
+        <span class="center">— retirement income planning weekly —</span>
+        <span>Free Edition · 2026</span>
+      </div>
+    </div>
+
+    <div class="lead">
+      <div class="kicker">Retirement Income · Safe Withdrawal Rate</div>
+      <h1>
+        Retired at sixty,<br />
+        portfolio still<br />
+        growing at <em>seventy-five</em>.
+      </h1>
+      <div class="byline">By the numbers · with our free retirement withdrawal calculator</div>
+    </div>
+
+    <div class="body">
+      <div class="col">
+        They stopped contributing at sixty. The portfolio was €720,000. Fifteen years later, after drawing €2,400 a month, the balance had grown to €1.1 million. The 4% rule held.
+      </div>
+      <div class="col">
+        The secret was not luck. It was a withdrawal rate calibrated to the historical evidence — not to optimism, not to hope. Four percent. No more. The portfolio did the rest.
+      </div>
+      <div class="col">
+        Our retirement withdrawal calculator models any portfolio, any rate, any horizon. It stress-tests the sequence-of-returns risk so you can retire with evidence, not anxiety.
+      </div>
+    </div>
+
+    <div class="pullquote">
+      The portfolio didn't run out. We ran out of reasons to worry.
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Model my withdrawal →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

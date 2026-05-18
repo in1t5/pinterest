@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Coast FIRE Family Tree · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-36-40.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-36">
+    <div class="top">
+      <span class="eyebrow"><span class="dot"></span><span>Coast FIRE Calculator</span></span>
+      <span class="tag">— one trunk, four branches —</span>
+    </div>
+
+    <h1 class="headline">Your Coast FIRE plan,<br /><em>branched out.</em></h1>
+    <div class="deck">One trunk. Four branches. A plan that grows itself.</div>
+
+    <div class="tree-diagram">
+      <div class="tree-svg">
+        <svg viewBox="0 0 860 660" preserveAspectRatio="none">
+          <!-- trunk vertical -->
+          <path d="M 430 600 Q 430 480 430 380" fill="none" stroke="#47584F" stroke-width="3" stroke-linecap="round" />
+          <!-- decorative roots -->
+          <path d="M 430 600 Q 380 605 350 615" fill="none" stroke="#84A17C" stroke-width="1.5" stroke-linecap="round" />
+          <path d="M 430 600 Q 480 605 510 615" fill="none" stroke="#84A17C" stroke-width="1.5" stroke-linecap="round" />
+          <!-- four branches -->
+          <path d="M 430 380 Q 280 340 130 220" fill="none" stroke="#47584F" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M 430 380 Q 360 320 285 220" fill="none" stroke="#47584F" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M 430 380 Q 500 320 575 220" fill="none" stroke="#47584F" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M 430 380 Q 580 340 730 220" fill="none" stroke="#47584F" stroke-width="2.5" stroke-linecap="round" />
+          <!-- tiny leaves along branches -->
+          <g fill="#84A17C">
+            <ellipse cx="220" cy="290" rx="10" ry="5" transform="rotate(-30 220 290)" />
+            <ellipse cx="350" cy="290" rx="10" ry="5" transform="rotate(-10 350 290)" />
+            <ellipse cx="510" cy="290" rx="10" ry="5" transform="rotate(10 510 290)" />
+            <ellipse cx="640" cy="290" rx="10" ry="5" transform="rotate(30 640 290)" />
+            <ellipse cx="430" cy="430" rx="14" ry="6" />
+          </g>
+          <!-- central node -->
+          <circle cx="430" cy="380" r="9" fill="#F1683F" stroke="#F5EEED" stroke-width="3" />
+        </svg>
+      </div>
+
+      <!-- four branch nodes -->
+      <div class="branch-node" style="top: 60px; left: 0;">
+        <div class="role">TARGET</div>
+        <div class="name">Coast Number</div>
+        <div class="num">€240K</div>
+        <div class="small">— at 7% return</div>
+      </div>
+      <div class="branch-node" style="top: 60px; left: 200px;">
+        <div class="role">TIMELINE</div>
+        <div class="name">Stop Saving</div>
+        <div class="num">Age 38</div>
+        <div class="small">— 8 years away</div>
+      </div>
+      <div class="branch-node" style="top: 60px; right: 200px;">
+        <div class="role">MONTHLY</div>
+        <div class="name">Save Now</div>
+        <div class="num">€850</div>
+        <div class="small">— per month</div>
+      </div>
+      <div class="branch-node" style="top: 60px; right: 0;">
+        <div class="role">ENDGAME</div>
+        <div class="name">Full Retire</div>
+        <div class="num">Age 65</div>
+        <div class="small">— €900K portfolio</div>
+      </div>
+
+      <div class="trunk-node">
+        <div class="lbl">COAST FIRE PLAN</div>
+        <div class="val">Financial Independence</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Plan my tree →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>FIRE Calculator — Path to financial independence · 1000×1500</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../../studio/templates/pins.css" />
+<link rel="stylesheet" href="../../../studio/templates/pins-fresh-a.css" />
+<style>
+  html, body { margin: 0; padding: 20px; background: #f0eee9; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+  .pin-wrap { transform-origin: top center; }
+</style>
+</head>
+<body>
+<div class="pin-wrap">
+  <div class="pin pin-17">
+    <div class="topo"></div>
+
+    <div class="top">
+      <span class="eyebrow">
+        <span class="dot"></span>
+        <span>FIRE Calculator</span>
+      </span>
+    </div>
+    <h1 class="headline">
+      From thirty-two<br>
+      to <em>forty-four.</em>
+    </h1>
+    <div class="deck">
+      Twelve years, four milestones, one slow line toward financial independence.
+    </div>
+
+    <div class="timeline">
+      <div class="axis"></div>
+
+      <div class="tnode past" style="left:5%">
+        <div class="dot"></div>
+        <span class="age">28</span>
+      </div>
+
+      <div class="tnode now" style="left:22%">
+        <div class="dot"></div>
+        <span class="age">32</span>
+      </div>
+      <div class="callout up" style="left:calc(22% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Today</div>
+        <div class="val">€38K</div>
+        <div class="note">starting point</div>
+      </div>
+
+      <div class="tnode past" style="left:45%">
+        <div class="dot"></div>
+        <span class="age">37</span>
+      </div>
+      <div class="callout down" style="left:calc(45% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Coast FI</div>
+        <div class="val">€280K</div>
+        <div class="note">could stop adding</div>
+      </div>
+
+      <div class="tnode past" style="left:68%">
+        <div class="dot"></div>
+        <span class="age">41</span>
+      </div>
+      <div class="callout up" style="left:calc(68% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Lean FIRE</div>
+        <div class="val">€540K</div>
+        <div class="note">minimal lifestyle</div>
+      </div>
+
+      <div class="tnode fi" style="left:88%">
+        <div class="dot"></div>
+        <span class="age">44</span>
+      </div>
+      <div class="callout down" style="left:calc(88% - 90px)">
+        <div class="stub"></div>
+        <div class="milestone">Full FIRE</div>
+        <div class="val">€900K</div>
+        <div class="note">walk-away day</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="../../../studio/assets/logo_brownish_framed_no_text_2501x2500.png" alt="" />
+        <div>
+          <div class="name">Time &amp; Moneytree</div>
+          <div class="url">TIMEANDMONEYTREE.COM</div>
+        </div>
+      </div>
+      <span class="cta-pill">Map my FIRE path →</span>
+    </div>
+  </div>
+</div>
+<script>
+function fit() {
+  var scale = Math.min(1, (window.innerHeight - 40) / 1500, (window.innerWidth - 40) / 1000);
+  document.querySelector('.pin-wrap').style.transform = 'scale(' + scale + ')';
+  document.body.style.minHeight = Math.round(1500 * scale + 40) + 'px';
+}
+fit();
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>
