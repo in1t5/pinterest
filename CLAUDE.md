@@ -20,7 +20,7 @@ studio/
   briefs/     ← brief files per calculator (<calculator>.md)
 pins/
   staged/     ← pins ready to publish: .html + .png (1000×1500) + .json. Do not modify.
-  released/   ← archive of published pins: released/<calculator>/YYYYMMDD/
+  released/   ← archive of published pins: released/<calculator>/(YYYYMMDD_pin_name.png)
   wip/        ← WIP calculator folders (barista/, coast/, fire/, flamingo/, etc.)
 ```
 
@@ -49,7 +49,7 @@ PINTEREST_APP_ID=...
 PINTEREST_APP_SECRET=...
 ```
 
-`.env` lives at repo root. Scripts load it automatically via `load_env()`.
+`.env` lives at `studio/scripts/.env`. Scripts load it automatically via `load_env()`.
 
 ---
 

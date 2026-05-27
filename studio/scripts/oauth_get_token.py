@@ -23,7 +23,7 @@ except ImportError:
 # ── Credentials ───────────────────────────────────────────────────────────────
 
 def load_env():
-    env_file = Path(__file__).parent.parent / ".env"
+    env_file = Path(__file__).parent / ".env"
     if env_file.exists():
         for line in env_file.read_text().splitlines():
             line = line.strip()
@@ -120,7 +120,7 @@ print(f"  Scopes:  {scopes_got}")
 
 # ── Save to .env ──────────────────────────────────────────────────────────────
 
-env_path = Path(__file__).parent.parent / ".env"
+env_path = Path(__file__).parent / ".env"
 lines = env_path.read_text().splitlines() if env_path.exists() else []
 
 updated = False

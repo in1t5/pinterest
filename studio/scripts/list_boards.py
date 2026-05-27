@@ -10,7 +10,7 @@ except ImportError:
     sys.exit("Missing: pip install requests")
 
 def load_env():
-    env_file = Path(__file__).parent.parent / ".env"
+    env_file = Path(__file__).parent / ".env"
     if env_file.exists():
         for line in env_file.read_text().splitlines():
             line = line.strip()

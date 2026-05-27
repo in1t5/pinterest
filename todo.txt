@@ -74,6 +74,9 @@ Alle Templates Durchgehen und checken (Logo, Text)
 #####
 CLAUDE DESIGN:
 
+Creation of a Newsletter Template.
+
+
 Create a template based of: 
 - /barista/comparison-table-pin.html
 - /barista/crossover-chart-pin.html

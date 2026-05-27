@@ -20,7 +20,7 @@ except ImportError:
 # ── Credentials ───────────────────────────────────────────────────────────────
 
 def load_env():
-    env_file = Path(__file__).parent.parent.parent / ".env"
+    env_file = Path(__file__).parent / ".env"
     if env_file.exists():
         for line in env_file.read_text().splitlines():
             line = line.strip()
@@ -34,7 +34,8 @@ if not TOKEN:
     sys.exit("Set PINTEREST_ACCESS_TOKEN in pinterest/.env")
 
 HEADERS = {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"}
-API = "https://api.pinterest.com/v5"
+_BASE = os.environ.get("PINTEREST_API_BASE", "https://api.pinterest.com")
+API = f"{_BASE}/v5"
 
 # ── Args ──────────────────────────────────────────────────────────────────────
 
@@ -110,16 +111,19 @@ pin_url = f"https://pinterest.com/pin/{pin_id}/"
 print(f"\nSuccess! Pin ID: {pin_id}")
 print(f"URL: {pin_url}")
 
-# ── Move files to 02_released ─────────────────────────────────────────────────
+# ── Move files to released ────────────────────────────────────────────────────
 
 calculator = meta.get("calculator", "unknown")
 today = datetime.date.today().strftime("%Y%m%d")
-released_dir = Path(__file__).parent.parent.parent / "pins" / "released" / calculator / today
+released_dir = Path(__file__).parent.parent.parent / "pins" / "released" / calculator
 released_dir.mkdir(parents=True, exist_ok=True)
 
-for src in [image_path, pin_json_path]:
-    dst = released_dir / src.name
+html_path = image_path.with_suffix(".html").parent / image_path.name.replace("-1000x1500.png", ".html")
+files_to_move = [f for f in [image_path, pin_json_path, html_path] if f.exists()]
+
+for src in files_to_move:
+    dst = released_dir / f"{today}_{src.name}"
     shutil.move(str(src), str(dst))
-    print(f"Moved: {src.name} → pins/released/{calculator}/{today}/")
+    print(f"Moved: {src.name} → pins/released/{calculator}/{today}_{src.name}")
 
 print(f"\nDone. Update PIN_TRACKER.md: mark {meta.get('tracker_id', '?')} as 🚀 {datetime.date.today()}")
